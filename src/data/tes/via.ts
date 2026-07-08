@@ -1,0 +1,88 @@
+import type { ItemLikertDimensi } from "@/lib/skoring";
+
+export interface ViaKekuatan {
+  id: string;
+  nama: string;
+  virtue: string;
+  desk: string;
+}
+
+// 24 kekuatan / 6 kebajikan (Peterson & Seligman).
+export const VIA_KEKUATAN: ViaKekuatan[] = [
+  { id: "kreativitas", nama: "Kreativitas", virtue: "Kebijaksanaan", desk: "Menghasilkan ide & cara baru yang berguna." },
+  { id: "keingintahuan", nama: "Keingintahuan", virtue: "Kebijaksanaan", desk: "Minat aktif pada pengalaman & pengetahuan." },
+  { id: "penilaian", nama: "Penilaian Kritis", virtue: "Kebijaksanaan", desk: "Berpikir menyeluruh, menimbang semua sisi." },
+  { id: "cinta_belajar", nama: "Cinta Belajar", virtue: "Kebijaksanaan", desk: "Menguasai skill & topik baru secara sistematis." },
+  { id: "perspektif", nama: "Perspektif", virtue: "Kebijaksanaan", desk: "Memberi nasihat bijak, melihat gambaran besar." },
+  { id: "keberanian", nama: "Keberanian", virtue: "Keberanian", desk: "Tidak mundur dari ancaman, tantangan, atau kebenaran sulit." },
+  { id: "ketekunan", nama: "Ketekunan", virtue: "Keberanian", desk: "Menyelesaikan apa yang dimulai." },
+  { id: "kejujuran", nama: "Kejujuran", virtue: "Keberanian", desk: "Autentik, berbicara & hidup sesuai kebenaran." },
+  { id: "semangat", nama: "Semangat Hidup", virtue: "Keberanian", desk: "Menjalani hidup dengan energi penuh." },
+  { id: "cinta", nama: "Kapasitas Mencintai", virtue: "Kemanusiaan", desk: "Menghargai relasi dekat yang saling." },
+  { id: "kebaikan", nama: "Kebaikan Hati", virtue: "Kemanusiaan", desk: "Menolong & merawat orang lain." },
+  { id: "kecerdasan_sosial", nama: "Kecerdasan Sosial", virtue: "Kemanusiaan", desk: "Membaca motif & perasaan diri dan orang lain." },
+  { id: "kerjasama", nama: "Kerja Tim", virtue: "Keadilan", desk: "Loyal & berkontribusi pada kelompok." },
+  { id: "keadilan", nama: "Keadilan", virtue: "Keadilan", desk: "Memperlakukan semua orang setara." },
+  { id: "kepemimpinan", nama: "Kepemimpinan", virtue: "Keadilan", desk: "Mengorganisir kelompok mencapai tujuan." },
+  { id: "pemaafan", nama: "Pemaafan", virtue: "Kesederhanaan", desk: "Memberi kesempatan kedua." },
+  { id: "kerendahan_hati", nama: "Kerendahan Hati", virtue: "Kesederhanaan", desk: "Membiarkan prestasi bicara sendiri." },
+  { id: "kehati_hatian", nama: "Kehati-hatian", virtue: "Kesederhanaan", desk: "Tidak mengambil risiko yang akan disesali." },
+  { id: "regulasi_diri", nama: "Regulasi Diri", virtue: "Kesederhanaan", desk: "Mengendalikan nafsu & emosi." },
+  { id: "apresiasi", nama: "Apresiasi Keindahan", virtue: "Transendensi", desk: "Kagum pada keindahan & keunggulan." },
+  { id: "syukur", nama: "Rasa Syukur", virtue: "Transendensi", desk: "Sadar & berterima kasih atas hal baik." },
+  { id: "harapan", nama: "Harapan", virtue: "Transendensi", desk: "Optimis & bekerja untuk masa depan baik." },
+  { id: "humor", nama: "Humor", virtue: "Transendensi", desk: "Membawa senyum, melihat sisi ringan." },
+  { id: "spiritualitas", nama: "Spiritualitas", virtue: "Transendensi", desk: "Keyakinan akan makna & tujuan lebih tinggi." },
+];
+
+// 2 item original per kekuatan (48 total). Item original JIVA, bukan salinan survei resmi VIA.
+export const VIA_ITEMS: (ItemLikertDimensi & { dim: string })[] = [
+  { no: 1, dim: "kreativitas", teks: "Saya sering menemukan cara baru untuk menyelesaikan masalah lama." },
+  { no: 2, dim: "kreativitas", teks: "Ide-ide orisinal mengalir dengan mudah dari saya." },
+  { no: 3, dim: "keingintahuan", teks: "Saya selalu ingin tahu bagaimana sesuatu bekerja." },
+  { no: 4, dim: "keingintahuan", teks: "Menjelajahi hal baru membuat saya bersemangat." },
+  { no: 5, dim: "penilaian", teks: "Saya menimbang semua sisi sebelum mengambil kesimpulan." },
+  { no: 6, dim: "penilaian", teks: "Saya tidak mudah percaya sebelum memeriksa buktinya." },
+  { no: 7, dim: "cinta_belajar", teks: "Saya menikmati menguasai keterampilan atau topik baru." },
+  { no: 8, dim: "cinta_belajar", teks: "Belajar demi belajar terasa memuaskan bagi saya." },
+  { no: 9, dim: "perspektif", teks: "Orang datang kepada saya untuk nasihat yang bijak." },
+  { no: 10, dim: "perspektif", teks: "Saya bisa melihat gambaran besar di balik masalah rumit." },
+  { no: 11, dim: "keberanian", teks: "Saya berani menyuarakan kebenaran meski tidak populer." },
+  { no: 12, dim: "keberanian", teks: "Saya menghadapi ketakutan alih-alih menghindarinya." },
+  { no: 13, dim: "ketekunan", teks: "Saya menyelesaikan apa yang sudah saya mulai." },
+  { no: 14, dim: "ketekunan", teks: "Rintangan justru membuat saya makin gigih." },
+  { no: 15, dim: "kejujuran", teks: "Saya jujur pada diri sendiri dan orang lain." },
+  { no: 16, dim: "kejujuran", teks: "Saya menepati apa yang saya katakan." },
+  { no: 17, dim: "semangat", teks: "Saya menjalani hari dengan energi dan antusiasme." },
+  { no: 18, dim: "semangat", teks: "Orang bilang saya penuh gairah hidup." },
+  { no: 19, dim: "cinta", teks: "Saya menghargai dan merawat hubungan dekat saya." },
+  { no: 20, dim: "cinta", teks: "Saya nyaman menerima dan memberi kasih sayang." },
+  { no: 21, dim: "kebaikan", teks: "Saya senang menolong orang tanpa diminta." },
+  { no: 22, dim: "kebaikan", teks: "Kesejahteraan orang lain benar-benar saya pedulikan." },
+  { no: 23, dim: "kecerdasan_sosial", teks: "Saya cepat membaca suasana hati sebuah ruangan." },
+  { no: 24, dim: "kecerdasan_sosial", teks: "Saya tahu bagaimana membuat orang lain merasa nyaman." },
+  { no: 25, dim: "kerjasama", teks: "Saya bekerja keras demi keberhasilan tim, bukan hanya diri sendiri." },
+  { no: 26, dim: "kerjasama", teks: "Saya loyal pada kelompok yang saya ikuti." },
+  { no: 27, dim: "keadilan", teks: "Saya memperlakukan semua orang dengan standar yang sama." },
+  { no: 28, dim: "keadilan", teks: "Saya tidak membiarkan perasaan pribadi membuat saya berlaku pilih kasih." },
+  { no: 29, dim: "kepemimpinan", teks: "Saya bisa mengorganisir orang untuk mencapai tujuan bersama." },
+  { no: 30, dim: "kepemimpinan", teks: "Saya nyaman mengambil peran memimpin saat dibutuhkan." },
+  { no: 31, dim: "pemaafan", teks: "Saya memberi orang kesempatan kedua." },
+  { no: 32, dim: "pemaafan", teks: "Saya melepaskan dendam demi ketenangan saya sendiri." },
+  { no: 33, dim: "kerendahan_hati", teks: "Saya membiarkan pencapaian saya bicara sendiri tanpa pamer." },
+  { no: 34, dim: "kerendahan_hati", teks: "Saya tidak merasa lebih istimewa dari orang lain." },
+  { no: 35, dim: "kehati_hatian", teks: "Saya berpikir matang sebelum bertindak." },
+  { no: 36, dim: "kehati_hatian", teks: "Saya menghindari risiko yang kemungkinan akan saya sesali." },
+  { no: 37, dim: "regulasi_diri", teks: "Saya bisa menahan diri dari godaan sesaat." },
+  { no: 38, dim: "regulasi_diri", teks: "Saya mengendalikan emosi saya dengan baik." },
+  { no: 39, dim: "apresiasi", teks: "Saya sering terpukau oleh keindahan alam atau karya seni." },
+  { no: 40, dim: "apresiasi", teks: "Keunggulan yang saya saksikan membuat saya kagum." },
+  { no: 41, dim: "syukur", teks: "Saya sering berhenti sejenak untuk mensyukuri hal-hal baik." },
+  { no: 42, dim: "syukur", teks: "Saya menyadari betapa banyak yang patut saya syukuri." },
+  { no: 43, dim: "harapan", teks: "Saya yakin masa depan akan baik jika saya berusaha." },
+  { no: 44, dim: "harapan", teks: "Bahkan di masa sulit, saya melihat kemungkinan cerah." },
+  { no: 45, dim: "humor", teks: "Saya suka membuat orang tersenyum atau tertawa." },
+  { no: 46, dim: "humor", teks: "Saya bisa melihat sisi ringan dari situasi sulit." },
+  { no: 47, dim: "spiritualitas", teks: "Saya merasa hidup saya bagian dari sesuatu yang lebih besar." },
+  { no: 48, dim: "spiritualitas", teks: "Keyakinan akan makna hidup memberi saya kekuatan." },
+];
