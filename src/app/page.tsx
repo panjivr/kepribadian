@@ -209,13 +209,9 @@ export default function Landing() {
           </p>
         </Reveal>
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {SEMUA_SISTEM.map((s, i) => (
-            <Reveal key={s.nama} delay={(i % 3) * 90}>
-              <div
-                className={`glass group relative h-full p-5 transition-transform duration-300 ease-out hover:scale-[1.02] ${
-                  s.tersedia ? "" : "opacity-60"
-                }`}
-              >
+          {SEMUA_SISTEM.map((s, i) => {
+            const isi = (
+              <>
                 <div className="flex items-start justify-between gap-3">
                   <h3 className="font-display text-[15px] font-bold tracking-tight">
                     {s.nama}
@@ -232,9 +228,23 @@ export default function Landing() {
                     <span className="text-ink-3">○ Segera hadir</span>
                   )}
                 </p>
-              </div>
-            </Reveal>
-          ))}
+              </>
+            );
+            return (
+              <Reveal key={s.nama} delay={(i % 3) * 90}>
+                {s.tersedia && s.route ? (
+                  <Link
+                    href={s.route}
+                    className="glass block h-full p-5 transition-transform duration-300 ease-out hover:scale-[1.02] hover:!border-white/25"
+                  >
+                    {isi}
+                  </Link>
+                ) : (
+                  <div className="glass h-full p-5 opacity-60">{isi}</div>
+                )}
+              </Reveal>
+            );
+          })}
         </div>
       </section>
 

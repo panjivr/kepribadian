@@ -12,7 +12,20 @@ import {
 } from "../src/lib/birth";
 import { BIG_FIVE_ITEMS, skorBigFive } from "../src/lib/bigfive";
 import { MBTI_ITEMS, skorMbti, prediksiMbtiDariBigFive } from "../src/lib/mbti";
-import { indikasiDisc, indikasiEnneagram, rekomendasiKarier, actionPlan } from "../src/lib/profil";
+import { indikasiDisc, indikasiEnneagram, rekomendasiKarier, actionPlan, eysenckDariBigFive } from "../src/lib/profil";
+import { skorLikert, skorPilihan } from "../src/lib/skoring";
+import { hitungBazi } from "../src/lib/bazi";
+import { HEXACO_ITEMS } from "../src/data/tes/hexaco";
+import { DISC_ITEMS } from "../src/data/tes/disc";
+import { ENNEA_ITEMS, hitungWing } from "../src/data/tes/enneagram";
+import { TEMPERAMEN_ITEMS } from "../src/data/tes/temperamen";
+import { VIA_ITEMS, VIA_KEKUATAN } from "../src/data/tes/via";
+import { MI_ITEMS } from "../src/data/tes/kecerdasan";
+import { MORAL_ITEMS } from "../src/data/tes/moral";
+import { HBDI_ITEMS } from "../src/data/tes/hbdi";
+import { WARNA_ITEMS } from "../src/data/tes/warna";
+import { VAK_ITEMS } from "../src/data/tes/gayaBelajar";
+import { hexDariGaris, HEXAGRAM, type Garis } from "../src/data/tes/iching";
 
 let lulus = 0;
 let gagal = 0;
@@ -161,6 +174,79 @@ console.log("— Sintesis —");
   const karier = rekomendasiKarier(bf as never, null);
   uji("rekomendasi karier tidak kosong", karier.length > 0, true);
   uji("action plan menghasilkan ≤3 kebiasaan", actionPlan(bf as never).length <= 3, true);
+}
+
+console.log("— Skoring generik (likert) —");
+{
+  // helper isi semua item dengan satu nilai
+  const isi = (items: { no: number }[], v: number) =>
+    Object.fromEntries(items.map((it) => [it.no, v]));
+  const r = skorLikert(HEXACO_ITEMS, isi(HEXACO_ITEMS, 3));
+  uji("HEXACO semua netral → 50% semua dimensi", [...new Set(Object.values(r.persen))], [50]);
+  // reverse key benar-benar dibalik: item positif max, negatif min → tetap 100
+  const maks = Object.fromEntries(
+    HEXACO_ITEMS.map((it) => [it.no, it.key === -1 ? 1 : 5])
+  );
+  const rm = skorLikert(HEXACO_ITEMS, maks);
+  uji("HEXACO searah kunci → 100% semua", [...new Set(Object.values(rm.persen))], [100]);
+}
+
+console.log("— Jumlah item tiap tes —");
+uji("HEXACO 24 item / 6 dim", [HEXACO_ITEMS.length, new Set(HEXACO_ITEMS.map((i) => i.dim)).size], [24, 6]);
+uji("DISC 24 item / 4 tipe", [DISC_ITEMS.length, new Set(DISC_ITEMS.map((i) => i.dim)).size], [24, 4]);
+uji("Enneagram 36 item / 9 tipe", [ENNEA_ITEMS.length, new Set(ENNEA_ITEMS.map((i) => i.dim)).size], [36, 9]);
+uji("Temperamen 16 item / 4 tipe", [TEMPERAMEN_ITEMS.length, new Set(TEMPERAMEN_ITEMS.map((i) => i.dim)).size], [16, 4]);
+uji("VIA 48 item / 24 kekuatan", [VIA_ITEMS.length, new Set(VIA_ITEMS.map((i) => i.dim)).size], [48, 24]);
+uji("VIA 24 kekuatan terdefinisi", VIA_KEKUATAN.length, 24);
+uji("MI 24 item / 8 kecerdasan", [MI_ITEMS.length, new Set(MI_ITEMS.map((i) => i.dim)).size], [24, 8]);
+uji("MFT 18 item / 6 fondasi", [MORAL_ITEMS.length, new Set(MORAL_ITEMS.map((i) => i.dim)).size], [18, 6]);
+uji("HBDI 16 item / 4 kuadran", [HBDI_ITEMS.length, new Set(HBDI_ITEMS.map((i) => i.dim)).size], [16, 4]);
+uji("Warna 12 item / 4 warna", [WARNA_ITEMS.length, new Set(WARNA_ITEMS.map((i) => i.dim)).size], [12, 4]);
+uji("VAK 15 item", VAK_ITEMS.length, 15);
+
+console.log("— Enneagram wing —");
+{
+  // raw tipe 8 dominan, tetangga 7 & 9; beri 7 lebih tinggi → wing 7
+  const raw: Record<string, number> = { "1": 0, "2": 0, "3": 0, "4": 0, "5": 0, "6": 0, "7": 15, "8": 20, "9": 10 };
+  uji("Tipe 8, tetangga 7>9 → wing 7", hitungWing(8, raw), 7);
+  const raw2 = { ...raw, "1": 12, "9": 0 };
+  uji("Tipe 1, wrap ke 9 vs 2 → wing 2", hitungWing(1, { ...raw2, "2": 8, "9": 3 }), 2);
+}
+
+console.log("— VAK skorPilihan —");
+{
+  const jawaban: Record<number, string> = {};
+  VAK_ITEMS.forEach((it, i) => (jawaban[it.no] = i < 9 ? "V" : "A"));
+  const r = skorPilihan(jawaban);
+  uji("mayoritas V (9 dari 15)", [r[0].nilai, r[0].jumlah], ["V", 9]);
+  uji("persen dijumlah = 100", r.reduce((s, x) => s + x.persen, 0), 100);
+}
+
+console.log("— Eysenck derived —");
+{
+  const e = eysenckDariBigFive({ O: 50, C: 30, E: 80, A: 20, N: 75 });
+  uji("E↑N↑ → kuadran Koleris", e.kuadran.startsWith("Koleris"), true);
+  uji("P dari A↓C↓ tinggi", e.P >= 70, true);
+}
+
+console.log("— BaZi (lunar-javascript) —");
+{
+  const b = hitungBazi("1990-06-15", "14:30");
+  uji("Day Master 1990-06-15 14:30 = Xin (Logam)", [b.dayMaster.nama, b.dayMaster.elemen], ["Xin", "Logam"]);
+  uji("dengan jam → 4 pilar", b.pilar.length, 4);
+  const total = Object.values(b.hitungElemen).reduce((s, n) => s + n, 0);
+  uji("8 karakter terhitung (4 pilar × 2)", total, 8);
+  const b2 = hitungBazi("2000-01-28");
+  uji("tanpa jam → 3 pilar, pakaiJam false", [b2.pilar.length, b2.pakaiJam], [3, false]);
+}
+
+console.log("— I Ching King Wen —");
+{
+  const yin = (): Garis => ({ yang: false, berubah: false });
+  const yang = (): Garis => ({ yang: true, berubah: false });
+  uji("6 garis yang → Hexagram 1 (Qian)", hexDariGaris([yang(), yang(), yang(), yang(), yang(), yang()], false).no, 1);
+  uji("6 garis yin → Hexagram 2 (Kun)", hexDariGaris([yin(), yin(), yin(), yin(), yin(), yin()], false).no, 2);
+  uji("64 hexagram terdefinisi & unik", new Set(HEXAGRAM.map((h) => h.no)).size, 64);
 }
 
 console.log(`\n${lulus} lulus, ${gagal} gagal`);

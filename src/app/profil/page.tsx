@@ -5,17 +5,23 @@ import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import TierBadge from "@/components/TierBadge";
 import RadarChart from "@/components/RadarChart";
+import BarSkor from "@/components/BarSkor";
 import { DIMENSI_INFO } from "@/lib/bigfive";
 import { TIPE_16, prediksiMbtiDariBigFive } from "@/lib/mbti";
 import {
   actionPlan,
   areaPertumbuhan,
   arketipeHeadline,
+  eysenckDariBigFive,
   indikasiDisc,
   indikasiEnneagram,
   narasiDimensi,
   rekomendasiKarier,
 } from "@/lib/profil";
+import {
+  hitungBazi,
+  type Elemen,
+} from "@/lib/bazi";
 import {
   hitungKua,
   hitungNumerologi,
@@ -24,15 +30,35 @@ import {
   hitungZodiak,
   MAKNA_ANGKA,
 } from "@/lib/birth";
-import { bacaBigFive, bacaMbti, bacaProfil } from "@/lib/storage";
+import {
+  bacaBigFive,
+  bacaHasilSistem,
+  bacaMbti,
+  bacaProfil,
+} from "@/lib/storage";
+import type { SkorDimensi } from "@/lib/skoring";
 import type {
   BigFiveDim,
   BigFiveResult,
   MbtiResult,
   UserProfile,
 } from "@/lib/types";
+import { VIA_KEKUATAN } from "@/data/tes/via";
+import { MI_INFO, type MiDim } from "@/data/tes/kecerdasan";
+import { DISC_INFO, type DiscDim } from "@/data/tes/disc";
+import { ENNEA_TIPE } from "@/data/tes/enneagram";
+import { TEMPERAMEN_INFO, type TemperamenDim } from "@/data/tes/temperamen";
+import { MORAL_INFO, MORAL_INSIGHT, type MoralDim } from "@/data/tes/moral";
+import { HBDI_INFO, type HbdiDim } from "@/data/tes/hbdi";
 
 const URUTAN_DIM: BigFiveDim[] = ["O", "C", "E", "A", "N"];
+const VIA_INFO = Object.fromEntries(VIA_KEKUATAN.map((k) => [k.id, k]));
+
+const NAMA_VAK: Record<string, string> = {
+  V: "Visual",
+  A: "Auditori",
+  K: "Kinestetik",
+};
 
 function Seksi({
   nomor,
@@ -65,16 +91,52 @@ function Seksi({
   );
 }
 
+function Chip({ children }: { children: React.ReactNode }) {
+  return (
+    <span className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-xs text-ink-2">
+      {children}
+    </span>
+  );
+}
+
+function BelumTes({ nama, route }: { nama: string; route: string }) {
+  return (
+    <div className="rounded-2xl border border-dashed border-white/12 bg-white/[0.03] p-5 text-sm text-ink-3">
+      Ikuti{" "}
+      <Link href={route} className="text-aurora underline underline-offset-4">
+        tes {nama}
+      </Link>{" "}
+      untuk mengisi bagian ini dengan hasil aslimu.
+    </div>
+  );
+}
+
 export default function ProfilTerpadu() {
   const [siap, setSiap] = useState(false);
   const [profil, setProfil] = useState<UserProfile | null>(null);
   const [bigFive, setBigFive] = useState<BigFiveResult | null>(null);
   const [mbti, setMbti] = useState<MbtiResult | null>(null);
+  const [via, setVia] = useState<SkorDimensi | null>(null);
+  const [mi, setMi] = useState<SkorDimensi | null>(null);
+  const [disc, setDisc] = useState<SkorDimensi | null>(null);
+  const [ennea, setEnnea] = useState<SkorDimensi | null>(null);
+  const [temperamen, setTemperamen] = useState<SkorDimensi | null>(null);
+  const [mft, setMft] = useState<SkorDimensi | null>(null);
+  const [hbdi, setHbdi] = useState<SkorDimensi | null>(null);
+  const [vak, setVak] = useState<{ urut: { nilai: string; persen: number }[] } | null>(null);
 
   useEffect(() => {
     setProfil(bacaProfil());
     setBigFive(bacaBigFive());
     setMbti(bacaMbti());
+    setVia(bacaHasilSistem<SkorDimensi>("via")?.skor ?? null);
+    setMi(bacaHasilSistem<SkorDimensi>("mi")?.skor ?? null);
+    setDisc(bacaHasilSistem<SkorDimensi>("disc")?.skor ?? null);
+    setEnnea(bacaHasilSistem<SkorDimensi>("enneagram")?.skor ?? null);
+    setTemperamen(bacaHasilSistem<SkorDimensi>("temperament")?.skor ?? null);
+    setMft(bacaHasilSistem<SkorDimensi>("mft")?.skor ?? null);
+    setHbdi(bacaHasilSistem<SkorDimensi>("hbdi")?.skor ?? null);
+    setVak(bacaHasilSistem<{ urut: { nilai: string; persen: number }[] }>("vak")?.skor ?? null);
     setSiap(true);
   }, []);
 
@@ -112,6 +174,7 @@ export default function ProfilTerpadu() {
     new Date().getFullYear()
   );
   const kua = hitungKua(profil.tanggalLahir, profil.gender);
+  const bazi = hitungBazi(profil.tanggalLahir, profil.jamLahir);
 
   if (!bigFive) {
     return (
@@ -123,9 +186,9 @@ export default function ProfilTerpadu() {
             <span className="text-aurora">{profil.namaPanggilan}.</span>
           </h1>
           <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-ink-2">
-            Profil Terpadu disintesis di atas fondasi ilmiah. Selesaikan tes
-            Big Five (±7 menit) untuk membukanya — cetak biru kelahiranmu sudah
-            siap menunggu di dalam.
+            Profil Terpadu disintesis di atas fondasi ilmiah. Selesaikan tes Big
+            Five (±7 menit) untuk membukanya — cetak biru kelahiranmu sudah siap
+            menunggu di dalam.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link href="/tes/big-five" className="btn-primary">
@@ -143,14 +206,60 @@ export default function ProfilTerpadu() {
   const mbtiFinal: MbtiResult =
     mbti && mbti.sumber === "tes" ? mbti : prediksiMbtiDariBigFive(bigFive.persen);
   const tipeInfo = TIPE_16[mbtiFinal.tipe];
-  const disc = indikasiDisc(bigFive.persen);
-  const ennea = indikasiEnneagram(bigFive.persen).slice(0, 2);
-  const karier = rekomendasiKarier(bigFive, mbtiFinal);
-  const tumbuh = areaPertumbuhan(bigFive, mbtiFinal);
-  const rencana = actionPlan(bigFive);
+  const eysenck = eysenckDariBigFive(bigFive.persen);
   const headline = arketipeHeadline(bigFive.persen);
   const dimTertinggi = URUTAN_DIM.reduce((a, b) =>
     bigFive.persen[a] >= bigFive.persen[b] ? a : b
+  );
+
+  // DISC: hasil tes asli menimpa indikasi Big Five
+  const discUrut = disc
+    ? (disc.urut as { dim: DiscDim; persen: number }[])
+    : indikasiDisc(bigFive.persen).map((d) => ({ dim: d.kode, persen: d.skor }));
+  const discSumberTes = !!disc;
+
+  // Enneagram: hasil tes asli menimpa indikasi
+  const enneaUrut = ennea
+    ? ennea.urut.map((u) => ({ tipe: Number(u.dim), persen: u.persen }))
+    : indikasiEnneagram(bigFive.persen).map((e) => ({ tipe: e.tipe, persen: e.skor }));
+  const enneaSumberTes = !!ennea;
+
+  // Karier: kumpulkan lintas sistem yang tersedia
+  const karier = rekomendasiKarier(bigFive, mbtiFinal);
+  const tumbuh = areaPertumbuhan(bigFive, mbtiFinal);
+  const rencana = actionPlan(bigFive);
+
+  const viaTop5 = via
+    ? via.urut.slice(0, 5).map((u) => ({ ...u, info: VIA_INFO[u.dim] }))
+    : null;
+  const miTop3 = mi
+    ? (mi.urut.slice(0, 3) as { dim: MiDim; persen: number }[])
+    : null;
+  const temperamenTop = temperamen
+    ? (temperamen.urut[0].dim as TemperamenDim)
+    : null;
+  const hbdiTop = hbdi ? (hbdi.urut[0].dim as HbdiDim) : null;
+  const vakTop = vak?.urut?.[0]?.nilai ?? null;
+
+  // MFT insight
+  let mftInsight: string | null = null;
+  let mftPersen: Record<MoralDim, number> | null = null;
+  if (mft) {
+    mftPersen = mft.persen as Record<MoralDim, number>;
+    const indi = (mftPersen.care + mftPersen.fairness) / 2;
+    const bind = (mftPersen.loyalty + mftPersen.authority + mftPersen.sanctity) / 2;
+    mftInsight =
+      indi - bind >= 10
+        ? MORAL_INSIGHT.individualizing
+        : bind - indi >= 10
+          ? MORAL_INSIGHT.binding
+          : MORAL_INSIGHT.seimbang;
+  }
+
+  const maxElemen = Math.max(
+    ...(["Kayu", "Api", "Tanah", "Logam", "Air"] as Elemen[]).map(
+      (e) => bazi.hitungElemen[e]
+    )
   );
 
   return (
@@ -163,11 +272,9 @@ export default function ProfilTerpadu() {
           <span className="text-aurora">{headline}.</span>
         </h1>
         <p className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-ink-2 md:text-base">
-          {tipeInfo
-            ? `${mbtiFinal.tipe} — ${tipeInfo.julukan}. `
-            : ""}
-          Disintesis dari Big Five (fondasi ilmiah), 16 tipe, indikasi DISC &
-          Enneagram, plus perspektif budaya kelahiranmu.
+          {tipeInfo ? `${mbtiFinal.tipe} — ${tipeInfo.julukan}. ` : ""}
+          Disintesis dari Big Five (fondasi ilmiah) dan setiap tes yang sudah
+          kamu selesaikan, plus perspektif budaya kelahiranmu.
         </p>
         <button
           onClick={() => window.print()}
@@ -208,7 +315,7 @@ export default function ProfilTerpadu() {
                     </strong>{" "}
                     {mbtiFinal.sumber === "prediksi_big_five" ? (
                       <span className="text-xs text-ink-3">
-                        (prediksi dari korelasi riset Big Five —{" "}
+                        (prediksi dari Big Five —{" "}
                         <Link href="/tes/tipe-16" className="underline underline-offset-2">
                           ikuti tesnya
                         </Link>{" "}
@@ -222,10 +329,14 @@ export default function ProfilTerpadu() {
                   </p>
                 )}
                 <div className="rounded-2xl border border-white/8 bg-white/4 p-4 text-sm leading-relaxed text-ink-2">
-                  <strong className="text-ink">Indikasi Enneagram:</strong>{" "}
-                  {ennea.map((e) => e.nama).join("  ·  ")}
+                  <strong className="text-ink">
+                    Enneagram: Tipe {enneaUrut[0].tipe} —{" "}
+                    {ENNEA_TIPE[enneaUrut[0].tipe].nama}
+                  </strong>
                   <span className="block pt-1 text-xs text-ink-3">
-                    Indikatif dari pola OCEAN-mu — bukan hasil tes Enneagram.
+                    {enneaSumberTes
+                      ? "Dari hasil tes Enneagram-mu."
+                      : "Indikatif dari pola OCEAN — ikuti tes Enneagram untuk hasil asli."}
                   </span>
                 </div>
                 {bigFive.kombinasi.length > 0 && (
@@ -239,56 +350,209 @@ export default function ProfilTerpadu() {
           }
         />
 
-        {/* ------------------------ 2. gaya kerja & tim ------------------------ */}
+        {/* ------------------------ 2. kekuatan utama ------------------------- */}
         <Seksi
           nomor="02"
-          judul="Gaya Kerja & Tim"
-          aksen={<TierBadge tier="semi_scientific" />}
+          judul="Kekuatan Utama"
+          aksen={<TierBadge tier="scientific" />}
           anak={
-            <div>
-              <p className="mb-5 text-sm text-ink-3">
-                Indikasi gaya DISC dari profil OCEAN-mu — urutan teratas adalah
-                gaya paling alami bagimu.
-              </p>
-              <div className="space-y-4">
-                {disc.map((d, i) => (
-                  <div key={d.kode}>
-                    <div className="flex items-baseline justify-between gap-3 text-sm">
-                      <span className={i === 0 ? "font-bold text-ink" : "text-ink-2"}>
-                        <span className="font-display mr-1.5 font-extrabold">{d.kode}</span>
-                        {d.nama}
-                      </span>
-                      <span className="shrink-0 font-semibold text-ink-2">{d.skor}</span>
-                    </div>
-                    <div className="mt-1.5 h-2 overflow-hidden rounded-full bg-white/8">
-                      <div
-                        className="bar-anim h-full rounded-full"
-                        style={{
-                          width: `${d.skor}%`,
-                          background:
-                            i === 0
-                              ? "linear-gradient(90deg, #67e8f9, #3b82f6, #8b5cf6)"
-                              : "rgba(255,255,255,0.22)",
-                        }}
+            <div className="grid gap-6 md:grid-cols-2">
+              <div>
+                <p className="kicker !text-[10px] mb-3">
+                  Signature Strengths (VIA)
+                </p>
+                {viaTop5 ? (
+                  <ol className="space-y-2">
+                    {viaTop5.map((u, i) => (
+                      <li key={u.dim} className="flex items-center gap-3 text-sm">
+                        <span className="font-display flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-blue to-violet text-xs font-extrabold text-white">
+                          {i + 1}
+                        </span>
+                        <span className="text-ink-2">
+                          {u.info?.nama}{" "}
+                          <span className="text-ink-3">— {u.info?.virtue}</span>
+                        </span>
+                      </li>
+                    ))}
+                  </ol>
+                ) : (
+                  <BelumTes nama="Kekuatan Karakter" route="/tes/kekuatan-karakter" />
+                )}
+              </div>
+              <div>
+                <p className="kicker !text-[10px] mb-3">
+                  Kecerdasan Teratas (Gardner)
+                </p>
+                {miTop3 ? (
+                  <div className="space-y-3">
+                    {miTop3.map((u) => (
+                      <BarSkor
+                        key={u.dim}
+                        label={MI_INFO[u.dim].nama}
+                        nilaiTeks={`${Math.round(u.persen)}%`}
+                        persen={u.persen}
                       />
-                    </div>
+                    ))}
                   </div>
-                ))}
+                ) : (
+                  <BelumTes nama="Kecerdasan Majemuk" route="/tes/kecerdasan-majemuk" />
+                )}
               </div>
             </div>
           }
         />
 
-        {/* ------------------------ 3. rekomendasi karier ----------------------- */}
+        {/* ------------------------ 3. gaya kerja & tim ------------------------ */}
         <Seksi
           nomor="03"
+          judul="Gaya Kerja & Tim"
+          aksen={<TierBadge tier="semi_scientific" />}
+          anak={
+            <div className="space-y-6">
+              <div>
+                <p className="mb-3 text-sm text-ink-3">
+                  Gaya DISC{" "}
+                  {discSumberTes
+                    ? "(dari hasil tesmu)"
+                    : "(indikasi dari profil OCEAN)"}
+                </p>
+                <div className="space-y-3">
+                  {discUrut.map((d, i) => (
+                    <BarSkor
+                      key={d.dim}
+                      label={`${d.dim} — ${DISC_INFO[d.dim].nama}`}
+                      nilaiTeks={`${Math.round(d.persen)}%`}
+                      persen={d.persen}
+                      aktif={i === 0}
+                    />
+                  ))}
+                </div>
+              </div>
+              <div className="grid gap-4 sm:grid-cols-3">
+                <div className="rounded-2xl border border-white/8 bg-white/4 p-4">
+                  <p className="text-xs uppercase tracking-widest text-ink-3">
+                    Temperamen
+                  </p>
+                  <p className="mt-1 text-sm font-semibold text-ink">
+                    {temperamenTop
+                      ? `${temperamenTop} — ${TEMPERAMEN_INFO[temperamenTop].julukan}`
+                      : "Belum dites"}
+                  </p>
+                  {!temperamenTop && (
+                    <Link
+                      href="/tes/temperamen"
+                      className="text-xs text-aurora underline underline-offset-2"
+                    >
+                      ikuti tes
+                    </Link>
+                  )}
+                </div>
+                <div className="rounded-2xl border border-white/8 bg-white/4 p-4">
+                  <p className="text-xs uppercase tracking-widest text-ink-3">
+                    Gaya Berpikir
+                  </p>
+                  <p className="mt-1 text-sm font-semibold text-ink">
+                    {hbdiTop ? HBDI_INFO[hbdiTop].nama : "Belum dites"}
+                  </p>
+                  {!hbdiTop && (
+                    <Link
+                      href="/tes/gaya-berpikir"
+                      className="text-xs text-aurora underline underline-offset-2"
+                    >
+                      ikuti tes
+                    </Link>
+                  )}
+                </div>
+                <div className="rounded-2xl border border-white/8 bg-white/4 p-4">
+                  <p className="text-xs uppercase tracking-widest text-ink-3">
+                    Eysenck PEN
+                  </p>
+                  <p className="mt-1 text-sm font-semibold text-ink">
+                    {eysenck.kuadran.split(" (")[0]}
+                  </p>
+                  <p className="text-[11px] text-ink-3">
+                    E{eysenck.E} · N{eysenck.N} · P{eysenck.P}
+                  </p>
+                </div>
+              </div>
+            </div>
+          }
+        />
+
+        {/* -------------------- 4. nilai & kompas moral ----------------------- */}
+        <Seksi
+          nomor="04"
+          judul="Nilai & Kompas Moral"
+          aksen={<TierBadge tier="scientific" />}
+          anak={
+            mftPersen && mftInsight ? (
+              <div className="grid items-center gap-6 md:grid-cols-2">
+                <div className="space-y-2.5">
+                  {(Object.keys(MORAL_INFO) as MoralDim[]).map((d) => (
+                    <BarSkor
+                      key={d}
+                      label={MORAL_INFO[d].labelPendek}
+                      nilaiTeks={`${Math.round(mftPersen![d])}%`}
+                      persen={mftPersen![d]}
+                    />
+                  ))}
+                </div>
+                <p className="text-sm leading-relaxed text-ink-2">{mftInsight}</p>
+              </div>
+            ) : (
+              <BelumTes nama="Kompas Moral" route="/tes/kompas-moral" />
+            )
+          }
+        />
+
+        {/* --------------------------- 5. cara belajar ------------------------ */}
+        <Seksi
+          nomor="05"
+          judul="Cara Belajar"
+          aksen={<TierBadge tier="semi_scientific" />}
+          anak={
+            <div className="grid gap-6 md:grid-cols-2">
+              <div className="rounded-2xl border border-white/8 bg-white/4 p-5">
+                <p className="kicker !text-[10px]">Preferensi Sensorik (VAK)</p>
+                {vakTop ? (
+                  <p className="mt-2 text-sm leading-relaxed text-ink-2">
+                    Kamu paling nyaman menyerap hal baru secara{" "}
+                    <strong className="text-ink">{NAMA_VAK[vakTop]}</strong>.
+                    Ingat: belajar terbaik tetap multimodal.
+                  </p>
+                ) : (
+                  <div className="mt-2">
+                    <BelumTes nama="Gaya Belajar" route="/tes/gaya-belajar" />
+                  </div>
+                )}
+              </div>
+              <div className="rounded-2xl border border-white/8 bg-white/4 p-5">
+                <p className="kicker !text-[10px]">Jalur Kecerdasan Terkuat</p>
+                {miTop3 ? (
+                  <p className="mt-2 text-sm leading-relaxed text-ink-2">
+                    Kecerdasan {MI_INFO[miTop3[0].dim].nama}-mu paling menonjol —
+                    belajar efektif lewat {MI_INFO[miTop3[0].dim].caraBelajar}.
+                  </p>
+                ) : (
+                  <p className="mt-2 text-sm text-ink-3">
+                    Ikuti tes Kecerdasan Majemuk untuk melengkapi bagian ini.
+                  </p>
+                )}
+              </div>
+            </div>
+          }
+        />
+
+        {/* ------------------------ 6. rekomendasi karier ----------------------- */}
+        <Seksi
+          nomor="06"
           judul="Rekomendasi Karier"
           aksen={<TierBadge tier="scientific" />}
           anak={
             <div>
               <p className="mb-5 text-sm text-ink-3">
-                Irisan arah karier dari semua sistem ilmiah & semi-ilmiah —
-                yang muncul berulang kali paling layak kamu jelajahi.
+                Irisan arah karier dari semua sistem ilmiah & semi-ilmiah — yang
+                muncul berulang paling layak dijelajahi.
               </p>
               <div className="flex flex-wrap gap-2.5">
                 {karier.map((k) => (
@@ -302,9 +566,7 @@ export default function ProfilTerpadu() {
                   >
                     {k.nama}
                     {k.sumber >= 2 && (
-                      <span className="ml-1.5 text-xs text-aurora">
-                        ×{k.sumber}
-                      </span>
+                      <span className="ml-1.5 text-xs text-aurora">×{k.sumber}</span>
                     )}
                   </span>
                 ))}
@@ -313,9 +575,9 @@ export default function ProfilTerpadu() {
           }
         />
 
-        {/* ------------------------ 4. relasi & komunikasi ---------------------- */}
+        {/* ------------------------ 7. relasi & komunikasi ---------------------- */}
         <Seksi
-          nomor="04"
+          nomor="07"
           judul="Relasi & Komunikasi"
           anak={
             <div className="grid gap-5 md:grid-cols-2">
@@ -328,6 +590,12 @@ export default function ProfilTerpadu() {
                 </div>
               )}
               <div className="rounded-2xl border border-white/8 bg-white/4 p-5">
+                <p className="kicker !text-[10px] mb-2">Cara Terbaik Berkomunikasi Denganmu</p>
+                <p className="text-sm leading-relaxed text-ink-2">
+                  {DISC_INFO[discUrut[0].dim].komunikasi}
+                </p>
+              </div>
+              <div className="rounded-2xl border border-white/8 bg-white/4 p-5 md:col-span-2">
                 <p className="kicker !text-[10px] mb-2">
                   Keselarasan Tradisional{" "}
                   <span className="normal-case text-ink-3">(budaya & hiburan)</span>
@@ -342,27 +610,35 @@ export default function ProfilTerpadu() {
           }
         />
 
-        {/* ------------------------- 5. area pertumbuhan ------------------------ */}
+        {/* ------------------------- 8. area pertumbuhan ------------------------ */}
         <Seksi
-          nomor="05"
+          nomor="08"
           judul="Area Pertumbuhan"
           anak={
-            <ul className="grid gap-3 sm:grid-cols-2">
-              {tumbuh.map((t) => (
-                <li
-                  key={t}
-                  className="flex items-start gap-3 rounded-2xl border border-white/8 bg-white/4 p-4 text-sm capitalize leading-relaxed text-ink-2"
-                >
-                  <span className="mt-0.5 shrink-0 text-amber">▲</span> {t}
-                </li>
-              ))}
-            </ul>
+            <div className="space-y-4">
+              <ul className="grid gap-3 sm:grid-cols-2">
+                {tumbuh.map((t) => (
+                  <li
+                    key={t}
+                    className="flex items-start gap-3 rounded-2xl border border-white/8 bg-white/4 p-4 text-sm capitalize leading-relaxed text-ink-2"
+                  >
+                    <span className="mt-0.5 shrink-0 text-amber">▲</span> {t}
+                  </li>
+                ))}
+              </ul>
+              {enneaSumberTes && (
+                <p className="text-sm leading-relaxed text-ink-2">
+                  <strong className="text-ink">Dari Enneagram-mu:</strong>{" "}
+                  {ENNEA_TIPE[enneaUrut[0].tipe].tips}
+                </p>
+              )}
+            </div>
           }
         />
 
-        {/* ------------------------ 6. perspektif budaya ------------------------ */}
+        {/* ------------------------ 9. perspektif budaya ------------------------ */}
         <Seksi
-          nomor="06"
+          nomor="09"
           judul="Perspektif Budaya & Spiritual"
           aksen={<TierBadge tier="cultural_spiritual" />}
           anak={
@@ -378,7 +654,7 @@ export default function ProfilTerpadu() {
                   ["Zodiak", `${zodiak.nama} · ${zodiak.elemen}`, zodiak.kekuatan],
                   ["Life Path", `Angka ${numerologi.lifePath}`, MAKNA_ANGKA[numerologi.lifePath].arketipe],
                   ["Angka Kua", `${kua.angka} · Kelompok ${kua.grup}`, kua.karakter],
-                  ["Tahun Personal", `Angka ${numerologi.personalYear} (${numerologi.tahunBerjalan})`, MAKNA_ANGKA[numerologi.personalYear].tahunPersonal ?? MAKNA_ANGKA[numerologi.personalYear].arketipe],
+                  ["BaZi", `Day Master ${bazi.dayMaster.nama} (${bazi.dayMaster.elemen})`, bazi.dayMaster.arketipe],
                 ].map(([judul, nilai, ket]) => (
                   <div key={judul} className="rounded-2xl border border-white/8 bg-white/4 p-4">
                     <p className="text-[11px] uppercase tracking-widest text-ink-3">{judul}</p>
@@ -386,6 +662,20 @@ export default function ProfilTerpadu() {
                     <p className="mt-1 text-xs capitalize leading-relaxed text-ink-3">{ket}</p>
                   </div>
                 ))}
+              </div>
+              {/* mini bar elemen bazi */}
+              <div className="mt-4 flex items-center gap-2 text-xs text-ink-3">
+                <span>Elemen dominan BaZi:</span>
+                <span className="font-semibold text-ink-2">
+                  {bazi.elemenKuat}
+                </span>
+                <span>· penyeimbang</span>
+                <span className="font-semibold text-ink-2">
+                  {bazi.elemenPenyeimbang}
+                </span>
+                <span className="text-ink-3/60">
+                  ({Math.round((bazi.hitungElemen[bazi.elemenKuat] / maxElemen) * 100)}% intensitas)
+                </span>
               </div>
               <p className="mt-4 text-right">
                 <Link href="/hasil" className="text-xs text-aurora underline underline-offset-4">
@@ -396,44 +686,64 @@ export default function ProfilTerpadu() {
           }
         />
 
-        {/* ------------------------- 7. action plan 30 hari --------------------- */}
+        {/* ------------------------- 10. action plan 30 hari -------------------- */}
         <Seksi
-          nomor="07"
+          nomor="10"
           judul="Action Plan 30 Hari"
           anak={
-            <div>
-              <ol className="space-y-4">
-                {rencana.map((r, i) => (
-                  <li key={r} className="flex items-start gap-4">
-                    <span className="font-display flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-blue to-violet text-sm font-extrabold text-white">
-                      {i + 1}
-                    </span>
-                    <p className="pt-1 text-sm leading-relaxed text-ink-2">{r}</p>
-                  </li>
-                ))}
+            <ol className="space-y-4">
+              {rencana.map((r, i) => (
+                <li key={r} className="flex items-start gap-4">
+                  <span className="font-display flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-blue to-violet text-sm font-extrabold text-white">
+                    {i + 1}
+                  </span>
+                  <p className="pt-1 text-sm leading-relaxed text-ink-2">{r}</p>
+                </li>
+              ))}
+              {viaTop5 && (
                 <li className="flex items-start gap-4">
-                  <span className="font-display flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-violet/40 bg-violet/10 text-sm font-extrabold text-aurora">
-                    ★
+                  <span className="font-display flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-mint/40 bg-mint/10 text-sm font-extrabold text-mint">
+                    ✦
                   </span>
                   <p className="pt-1 text-sm leading-relaxed text-ink-2">
-                    <strong className="text-ink">Tantangan kekuatan khas:</strong>{" "}
-                    {DIMENSI_INFO[dimTertinggi].singkat} adalah dimensi
-                    terkuatmu — pakai secara sadar untuk satu proyek atau satu
-                    orang di sekitarmu bulan ini.
+                    <strong className="text-ink">Pakai kekuatan tanda tanganmu:</strong>{" "}
+                    gunakan {viaTop5[0].info?.nama} dengan cara yang benar-benar
+                    baru minggu ini — kebiasaan kecil yang paling menaikkan
+                    kepuasan hidup.
                   </p>
                 </li>
-              </ol>
-            </div>
+              )}
+              <li className="flex items-start gap-4">
+                <span className="font-display flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-violet/40 bg-violet/10 text-sm font-extrabold text-aurora">
+                  ★
+                </span>
+                <p className="pt-1 text-sm leading-relaxed text-ink-2">
+                  <strong className="text-ink">Tantangan kekuatan khas:</strong>{" "}
+                  {DIMENSI_INFO[dimTertinggi].singkat} adalah dimensi terkuatmu —
+                  pakai secara sadar untuk satu proyek atau satu orang di
+                  sekitarmu bulan ini.
+                </p>
+              </li>
+            </ol>
           }
         />
       </div>
 
-      {/* ------------------------------- penutup ------------------------------- */}
-      <Reveal className="mt-12">
+      {/* progres kelengkapan */}
+      <Reveal className="mt-10">
+        <div className="glass p-6 text-center text-sm text-ink-3">
+          Makin banyak tes yang kamu selesaikan, makin tajam profil ini.{" "}
+          <Link href="/tes" className="text-aurora underline underline-offset-4">
+            Lihat tes yang belum kamu ambil →
+          </Link>
+        </div>
+      </Reveal>
+
+      <Reveal className="mt-8">
         <p className="mx-auto max-w-2xl text-center text-xs leading-relaxed text-ink-3">
           Profil ini adalah cermin, bukan kotak. Manusia selalu lebih luas dari
-          model mana pun — pakai insight ini sebagai titik mulai refleksi,
-          bukan label akhir. Bukan alat diagnosis kesehatan mental.
+          model mana pun — pakai insight ini sebagai titik mulai refleksi, bukan
+          label akhir. Bukan alat diagnosis kesehatan mental.
         </p>
       </Reveal>
     </section>
