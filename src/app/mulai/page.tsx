@@ -11,6 +11,7 @@ export default function Mulai() {
   const [namaLengkap, setNamaLengkap] = useState("");
   const [namaPanggilan, setNamaPanggilan] = useState("");
   const [tanggalLahir, setTanggalLahir] = useState("");
+  const [jamLahir, setJamLahir] = useState("");
   const [gender, setGender] = useState<Gender | "">("");
   const [galat, setGalat] = useState("");
   const [hariIni, setHariIni] = useState("2030-12-31");
@@ -22,6 +23,7 @@ export default function Mulai() {
       setNamaLengkap(ada.namaLengkap);
       setNamaPanggilan(ada.namaPanggilan);
       setTanggalLahir(ada.tanggalLahir);
+      setJamLahir(ada.jamLahir ?? "");
       setGender(ada.gender);
     }
   }, []);
@@ -49,6 +51,7 @@ export default function Mulai() {
       namaLengkap: nama,
       namaPanggilan: namaPanggilan.trim() || nama.split(/\s+/)[0],
       tanggalLahir,
+      jamLahir: jamLahir || undefined,
       gender,
     });
     router.push("/hasil");
@@ -116,6 +119,23 @@ export default function Mulai() {
               value={tanggalLahir}
               onChange={(e) => setTanggalLahir(e.target.value)}
             />
+          </div>
+
+          <div>
+            <label htmlFor="jam" className="mb-2 block text-sm font-semibold">
+              Jam lahir <span className="text-ink-3">(opsional)</span>
+            </label>
+            <input
+              id="jam"
+              className="input-glass"
+              type="time"
+              value={jamLahir}
+              onChange={(e) => setJamLahir(e.target.value)}
+            />
+            <p className="mt-1.5 text-xs text-ink-3">
+              Membuka pilar Jam pada BaZi (Empat Pilar). Kosongkan jika tidak
+              ingat — tiga pilar lain tetap terbaca.
+            </p>
           </div>
 
           <div>

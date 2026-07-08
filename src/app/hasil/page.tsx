@@ -14,8 +14,16 @@ import {
   hitungZodiak,
   MAKNA_ANGKA,
 } from "@/lib/birth";
+import {
+  hitungBazi,
+  ELEMEN_INDUSTRI,
+  ELEMEN_WARNA,
+  type Elemen,
+} from "@/lib/bazi";
 import { bacaProfil } from "@/lib/storage";
 import type { UserProfile } from "@/lib/types";
+
+const URUTAN_ELEMEN: Elemen[] = ["Kayu", "Api", "Tanah", "Logam", "Air"];
 
 const SIMBOL_ZODIAK: Record<string, string> = {
   Aries: "♈", Taurus: "♉", Gemini: "♊", Cancer: "♋", Leo: "♌", Virgo: "♍",
@@ -95,6 +103,8 @@ export default function Hasil() {
     new Date().getFullYear()
   );
   const kua = hitungKua(profil.tanggalLahir, profil.gender);
+  const bazi = hitungBazi(profil.tanggalLahir, profil.jamLahir);
+  const maxElemen = Math.max(...URUTAN_ELEMEN.map((e) => bazi.hitungElemen[e]));
   const maknaLifePath = MAKNA_ANGKA[numerologi.lifePath];
   const maknaTahun = MAKNA_ANGKA[numerologi.personalYear];
 
@@ -329,6 +339,96 @@ export default function Hasil() {
                       <Chip key={a}>{a}</Chip>
                     ))}
                   </div>
+                </div>
+              </div>
+            </div>
+          </Tilt>
+        </Reveal>
+
+        {/* -------------------------------- BAZI ------------------------------- */}
+        <Reveal className="lg:col-span-2">
+          <Tilt className="glass glass-hairline p-7 md:p-8" max={4}>
+            <div className="tilt-layer">
+              <JudulKartu
+                label="BaZi · Empat Pilar Takdir"
+                judul={`Day Master ${bazi.dayMaster.nama} (${bazi.dayMaster.elemen})`}
+              />
+              <p className="mt-3 text-sm leading-relaxed text-ink-2">
+                Inti kepribadian BaZi-mu adalah{" "}
+                <strong className="text-ink">{bazi.dayMaster.nama}</strong> —{" "}
+                {bazi.dayMaster.arketipe}.
+              </p>
+
+              <div className="mt-5 flex flex-wrap gap-2.5">
+                {bazi.pilar.map((p) => (
+                  <div
+                    key={p.label}
+                    className="rounded-2xl border border-white/8 bg-white/4 px-4 py-3 text-center"
+                  >
+                    <p className="text-[10px] uppercase tracking-widest text-ink-3">
+                      {p.label}
+                    </p>
+                    <p className="font-display mt-1 text-2xl font-bold">
+                      {p.stem}
+                      {p.branch}
+                    </p>
+                    <p className="text-[11px] text-ink-3">{p.elemen}</p>
+                  </div>
+                ))}
+                {!bazi.pakaiJam && (
+                  <div className="flex items-center rounded-2xl border border-dashed border-white/12 px-4 py-3 text-center text-[11px] leading-snug text-ink-3">
+                    Pilar Jam terkunci —
+                    <br />
+                    isi jam lahir di{" "}
+                    <Link href="/mulai" className="text-aurora underline">
+                      Mulai
+                    </Link>
+                  </div>
+                )}
+              </div>
+
+              <div className="mt-6 grid gap-5 md:grid-cols-[1.3fr_1fr]">
+                <div>
+                  <p className="mb-2 text-xs uppercase tracking-widest text-ink-3">
+                    Keseimbangan lima elemen
+                  </p>
+                  <div className="space-y-2">
+                    {URUTAN_ELEMEN.map((el) => (
+                      <div key={el} className="flex items-center gap-3">
+                        <span className="w-12 shrink-0 text-xs text-ink-2">
+                          {el}
+                        </span>
+                        <div className="h-2 flex-1 overflow-hidden rounded-full bg-white/8">
+                          <div
+                            className="bar-anim h-full rounded-full"
+                            style={{
+                              width: `${(bazi.hitungElemen[el] / maxElemen) * 100}%`,
+                              background: ELEMEN_WARNA[el],
+                            }}
+                          />
+                        </div>
+                        <span className="w-5 shrink-0 text-right text-xs text-ink-3">
+                          {bazi.hitungElemen[el]}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="rounded-2xl border border-white/8 bg-white/4 p-4">
+                  <p className="text-xs uppercase tracking-widest text-ink-3">
+                    Elemen penyeimbang
+                  </p>
+                  <p
+                    className="font-display mt-1 text-xl font-bold"
+                    style={{ color: ELEMEN_WARNA[bazi.elemenPenyeimbang] }}
+                  >
+                    {bazi.elemenPenyeimbang}
+                  </p>
+                  <p className="mt-2 text-xs leading-relaxed text-ink-3">
+                    Elemenmu paling kuat di {bazi.elemenKuat}, paling lemah di{" "}
+                    {bazi.elemenLemah}. Tradisi menyarankan menyeimbangkan lewat
+                    industri {bazi.elemenPenyeimbang}: {ELEMEN_INDUSTRI[bazi.elemenPenyeimbang]}.
+                  </p>
                 </div>
               </div>
             </div>

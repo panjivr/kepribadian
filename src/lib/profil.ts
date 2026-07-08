@@ -167,6 +167,31 @@ export function actionPlan(bigFive: BigFiveResult): string[] {
   return rencana;
 }
 
+/* ----------------------- Eysenck PEN (derive Big Five) --------------------- */
+// persona-db/systems/eysenck.json: E dari E, N dari N, P dari (A rendah + C rendah).
+
+export interface EysenckResult {
+  P: number;
+  E: number;
+  N: number;
+  kuadran: string;
+}
+
+export function eysenckDariBigFive(p: Record<BigFiveDim, number>): EysenckResult {
+  const P = Math.round((100 - p.A + (100 - p.C)) / 2);
+  const E = Math.round(p.E);
+  const N = Math.round(p.N);
+  const kuadran =
+    E >= 50 && N >= 50
+      ? "Koleris (ekstravert + reaktif)"
+      : E >= 50 && N < 50
+        ? "Sanguinis (ekstravert + stabil)"
+        : E < 50 && N >= 50
+          ? "Melankolis (introvert + reaktif)"
+          : "Plegmatis (introvert + stabil)";
+  return { P, E, N, kuadran };
+}
+
 /* ------------------------------ arketipe headline -------------------------- */
 
 export function arketipeHeadline(p: Record<BigFiveDim, number>): string {
