@@ -1,0 +1,11 @@
+{
+  "id":"hbdi","name":"Dominansi Gaya Berpikir (4 Kuadran, gaya HBDI)","tier":"semi_scientific",
+  "catatan":"HBDI® proprietary (Herrmann). Ini model 4-kuadran generik terinspirasi konsepnya. Mitos 'otak kiri vs kanan' secara literal sudah dibantah; gunakan sebagai metafora gaya berpikir.",
+  "scoring":"4 item/kuadran, likert 1-5. Output: profil 4 kuadran, dominan bisa 1-2 kuadran.",
+  "kuadran":[
+    {"kode":"A","nama":"Analitis","kata_kunci":["logika","fakta","angka","kritis"],"kalimat_khas":"'Mana datanya?'","karier":["analis","engineer","keuangan"],"item":["Saya menuntut bukti sebelum percaya.","Saya menikmati bekerja dengan angka.","Argumen emosional tidak meyakinkan saya.","Saya memecah masalah secara logis."]},
+    {"kode":"B","nama":"Sekuensial/Organisatoris","kata_kunci":["prosedur","rencana","detail","kontrol"],"kalimat_khas":"'Apa langkah-langkahnya?'","karier":["PM","operasional","admin"],"item":["Saya bekerja dengan checklist.","Saya tidak nyaman tanpa rencana jelas.","Saya menyelesaikan tugas tepat waktu secara konsisten.","Prosedur ada untuk diikuti."]},
+    {"kode":"C","nama":"Interpersonal/Perasa","kata_kunci":["emosi","orang","komunikasi","spiritual"],"kalimat_khas":"'Bagaimana perasaan mereka?'","karier":["HR","guru","konselor"],"item":["Saya mempertimbangkan perasaan orang dalam keputusan.","Saya peka pada dinamika kelompok.","Saya belajar lewat berbagi cerita.","Kerja bermakna > kerja bergaji besar."]},
+    {"kode":"D","nama":"Imajinatif/Eksperimental","kata_kunci":["visi","intuisi","sintesis","risiko"],"kalimat_khas":"'Bagaimana kalau kita coba...?'","karier":["entrepreneur","desainer","strategist"],"item":["Saya melihat gambaran besar sebelum detail.","Ide-ide liar sering muncul di kepala saya.","Aturan boleh dilanggar demi terobosan.","Saya bosan dengan cara yang itu-itu saja."]}
+  ]
+}

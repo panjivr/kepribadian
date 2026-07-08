@@ -1,0 +1,44 @@
+{
+  "id":"via","name":"VIA Character Strengths","tier":"scientific",
+  "catatan":"Framework Peterson & Seligman (psikologi positif). 24 kekuatan dalam 6 kebajikan. Survei resmi di viacharacter.org; item di bawah adalah versi original singkat untuk estimasi.",
+  "scoring":"2 item/kekuatan, likert 1-5. Output: ranking. Top 5 = 'Signature Strengths'.",
+  "virtues":[
+    {"nama":"Kebijaksanaan","kekuatan":[
+      {"id":"kreativitas","nama":"Kreativitas","desk":"Menghasilkan ide & cara baru yang berguna"},
+      {"id":"keingintahuan","nama":"Keingintahuan","desk":"Minat aktif pada pengalaman & pengetahuan"},
+      {"id":"penilaian","nama":"Penilaian Kritis","desk":"Berpikir menyeluruh, menimbang semua sisi"},
+      {"id":"cinta_belajar","nama":"Cinta Belajar","desk":"Menguasai skill & topik baru secara sistematis"},
+      {"id":"perspektif","nama":"Perspektif","desk":"Memberi nasihat bijak, melihat gambaran besar"}
+    ]},
+    {"nama":"Keberanian","kekuatan":[
+      {"id":"keberanian","nama":"Keberanian","desk":"Tidak mundur dari ancaman, tantangan, atau kebenaran yang sulit"},
+      {"id":"ketekunan","nama":"Ketekunan","desk":"Menyelesaikan apa yang dimulai"},
+      {"id":"kejujuran","nama":"Kejujuran","desk":"Autentik, berbicara & hidup sesuai kebenaran"},
+      {"id":"semangat","nama":"Semangat Hidup","desk":"Menjalani hidup dengan energi penuh"}
+    ]},
+    {"nama":"Kemanusiaan","kekuatan":[
+      {"id":"cinta","nama":"Kapasitas Mencintai","desk":"Menghargai relasi dekat yang saling"},
+      {"id":"kebaikan","nama":"Kebaikan Hati","desk":"Menolong & merawat orang lain"},
+      {"id":"kecerdasan_sosial","nama":"Kecerdasan Sosial","desk":"Membaca motif & perasaan diri dan orang lain"}
+    ]},
+    {"nama":"Keadilan","kekuatan":[
+      {"id":"kerjasama","nama":"Kerja Tim","desk":"Loyal & berkontribusi pada kelompok"},
+      {"id":"keadilan","nama":"Keadilan","desk":"Memperlakukan semua orang setara"},
+      {"id":"kepemimpinan","nama":"Kepemimpinan","desk":"Mengorganisir kelompok mencapai tujuan"}
+    ]},
+    {"nama":"Kesederhanaan","kekuatan":[
+      {"id":"pemaafan","nama":"Pemaafan","desk":"Memberi kesempatan kedua"},
+      {"id":"kerendahan_hati","nama":"Kerendahan Hati","desk":"Membiarkan prestasi bicara sendiri"},
+      {"id":"kehati_hatian","nama":"Kehati-hatian","desk":"Tidak mengambil risiko yang akan disesali"},
+      {"id":"regulasi_diri","nama":"Regulasi Diri","desk":"Mengendalikan nafsu & emosi"}
+    ]},
+    {"nama":"Transendensi","kekuatan":[
+      {"id":"apresiasi","nama":"Apresiasi Keindahan","desk":"Kagum pada keindahan & keunggulan"},
+      {"id":"syukur","nama":"Rasa Syukur","desk":"Sadar & berterima kasih atas hal baik"},
+      {"id":"harapan","nama":"Harapan","desk":"Optimis & bekerja untuk masa depan baik"},
+      {"id":"humor","nama":"Humor","desk":"Membawa senyum, melihat sisi ringan"},
+      {"id":"spiritualitas","nama":"Spiritualitas","desk":"Keyakinan akan makna & tujuan lebih tinggi"}
+    ]}
+  ],
+  "penggunaan":"Signature strengths yang dipakai tiap hari berkorelasi dengan kepuasan hidup. Rekomendasi: beri user 1 tantangan mingguan memakai top strength dengan cara baru."
+}

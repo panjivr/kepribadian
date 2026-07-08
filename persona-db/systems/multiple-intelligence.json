@@ -1,0 +1,14 @@
+{
+  "id":"mi","name":"Multiple Intelligence (Gardner)","tier":"semi_scientific",
+  "scoring":"3 item/kecerdasan, likert 1-5. Output: profil radar 8 dimensi + top 3.",
+  "kecerdasan":[
+    {"id":"linguistik","nama":"Linguistik","desk":"Kata-kata, bahasa, menulis, bercerita","karier":["penulis","jurnalis","pengacara","penerjemah"],"cara_belajar":"membaca, menulis catatan, diskusi","item":["Saya mudah menemukan kata yang tepat saat menulis/bicara.","Saya menikmati permainan kata dan bahasa.","Saya belajar paling baik dengan membaca."]},
+    {"id":"logis","nama":"Logis-Matematis","desk":"Angka, pola, logika, sebab-akibat","karier":["programmer","ilmuwan","analis","akuntan"],"cara_belajar":"klasifikasi, eksperimen, pemecahan masalah","item":["Saya suka mencari pola dan hubungan sebab-akibat.","Hitungan dan logika terasa alami bagi saya.","Saya memecah masalah besar jadi langkah sistematis."]},
+    {"id":"visual","nama":"Visual-Spasial","desk":"Gambar, ruang, desain, peta","karier":["desainer","arsitek","fotografer","pilot"],"cara_belajar":"diagram, mind map, video","item":["Saya berpikir dalam gambar.","Saya mudah membaca peta dan membayangkan ruang 3D.","Saya memperhatikan estetika visual di sekitar."]},
+    {"id":"musikal","nama":"Musikal","desk":"Nada, ritme, melodi, suara","karier":["musisi","produser","sound designer","komposer"],"cara_belajar":"lagu, ritme, background musik","item":["Saya cepat menangkap melodi atau ritme baru.","Saya sering menyadari nada sumbang.","Musik memengaruhi mood & fokus saya kuat."]},
+    {"id":"kinestetik","nama":"Kinestetik-Tubuh","desk":"Gerak, koordinasi, keterampilan tangan","karier":["atlet","penari","ahli bedah","teknisi"],"cara_belajar":"praktik langsung, simulasi","item":["Saya belajar dengan mencoba langsung, bukan membaca manual.","Koordinasi tubuh/tangan saya bagus.","Saya sulit diam lama; harus bergerak."]},
+    {"id":"interpersonal","nama":"Interpersonal","desk":"Memahami & berinteraksi dengan orang","karier":["guru","HR","sales","politisi"],"cara_belajar":"kelompok belajar, mengajar orang lain","item":["Saya cepat membaca suasana hati orang.","Orang sering curhat kepada saya.","Saya bekerja lebih baik dalam tim."]},
+    {"id":"intrapersonal","nama":"Intrapersonal","desk":"Memahami diri, refleksi, tujuan hidup","karier":["psikolog","penulis","entrepreneur","filsuf"],"cara_belajar":"jurnal, refleksi mandiri, tujuan personal","item":["Saya sangat mengenal kekuatan & kelemahan saya.","Saya rutin merenungkan arah hidup.","Saya nyaman bekerja mandiri dengan target sendiri."]},
+    {"id":"naturalis","nama":"Naturalis","desk":"Alam, pola lingkungan, klasifikasi makhluk hidup","karier":["petani modern","biolog","dokter hewan","konservasi"],"cara_belajar":"observasi lapangan, kategorisasi","item":["Saya peka terhadap perubahan alam & lingkungan.","Saya suka mengamati/mengklasifikasi tumbuhan-hewan.","Berada di alam memulihkan energi saya."]}
+  ]
+}

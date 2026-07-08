@@ -1,0 +1,20 @@
+{
+  "id":"feng_shui_kua","name":"Feng Shui — Angka Kua","tier":"cultural_spiritual",
+  "disclaimer":"Tradisi Tionghoa, bukan sains.",
+  "algoritma":{
+    "langkah":"Jumlahkan 2 digit terakhir tahun lahir sampai 1 digit = X. PRIA: Kua = 10 - X (lahir ≥2000: 9 - X). WANITA: Kua = X + 5 (lahir ≥2000: X + 6), reduksi ke 1 digit. Jika hasil 5: pria→2, wanita→8.",
+    "catatan":"Gunakan tahun lunar (Imlek) untuk akurasi tradisional."
+  },
+  "grup":{"timur":[1,3,4,9],"barat":[2,6,7,8]},
+  "kua":{
+    "1":{"elemen":"Air","arah_baik":["Tenggara(sukses)","Timur(kesehatan)","Selatan(cinta)","Utara(pertumbuhan)"],"karakter":"fleksibel, diplomatis, mengalir"},
+    "2":{"elemen":"Tanah","arah_baik":["Timur Laut","Barat","Barat Laut","Barat Daya"],"karakter":"mengayomi, sabar, keibuan/kebapakan"},
+    "3":{"elemen":"Kayu","arah_baik":["Selatan","Utara","Tenggara","Timur"],"karakter":"pionir, cepat tumbuh, tegas"},
+    "4":{"elemen":"Kayu","arah_baik":["Utara","Selatan","Timur","Tenggara"],"karakter":"lembut, artistik, persuasif"},
+    "6":{"elemen":"Logam","arah_baik":["Barat","Timur Laut","Barat Daya","Barat Laut"],"karakter":"pemimpin, berwibawa, disiplin"},
+    "7":{"elemen":"Logam","arah_baik":["Barat Laut","Barat Daya","Timur Laut","Barat"],"karakter":"komunikatif, menghibur, sosial"},
+    "8":{"elemen":"Tanah","arah_baik":["Barat Daya","Barat Laut","Barat","Timur Laut"],"karakter":"stabil, tekun, penabung"},
+    "9":{"elemen":"Api","arah_baik":["Timur","Tenggara","Utara","Selatan"],"karakter":"bersemangat, karismatik, visioner"}
+  },
+  "penggunaan":"Arah kerja/tidur menghadap arah baik (tradisional). Sajikan sebagai tips budaya."
+}

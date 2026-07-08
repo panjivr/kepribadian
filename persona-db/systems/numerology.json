@@ -1,0 +1,44 @@
+{
+  "id": "numerology",
+  "name": "Numerologi",
+  "tier": "cultural_spiritual",
+  "disclaimer": "Tradisi metafisik, bukan sains. Sajikan sebagai refleksi/hiburan.",
+  "sistem": {
+    "pythagorean": {
+      "huruf_ke_angka": {"1":"A,J,S","2":"B,K,T","3":"C,L,U","4":"D,M,V","5":"E,N,W","6":"F,O,X","7":"G,P,Y","8":"H,Q,Z","9":"I,R"},
+      "vokal": ["A","E","I","O","U"],
+      "catatan_y": "Y dihitung vokal jika berfungsi sebagai vokal dalam nama (tidak ada vokal lain di suku kata)."
+    },
+    "chaldean": {
+      "huruf_ke_angka": {"1":"A,I,J,Q,Y","2":"B,K,R","3":"C,G,L,S","4":"D,M,T","5":"E,H,N,X","6":"U,V,W","7":"O,Z","8":"F,P"},
+      "catatan": "Chaldean tidak memakai angka 9 untuk huruf (dianggap sakral). Compound number (angka sebelum direduksi) juga dibaca maknanya."
+    }
+  },
+  "algoritma": {
+    "reduksi": "Jumlahkan digit berulang sampai 1 digit, KECUALI 11, 22, 33 (master number — berhenti).",
+    "life_path": "Reduksi(tanggal) + Reduksi(bulan) + Reduksi(tahun), lalu reduksi total. Contoh 17-08-1999: (1+7=8)+(8)+(1+9+9+9=28→10→1)=17→8.",
+    "destiny_expression": "Semua huruf nama lengkap → angka → jumlah → reduksi.",
+    "soul_urge": "Hanya VOKAL nama lengkap → jumlah → reduksi.",
+    "personality_number": "Hanya KONSONAN nama lengkap → jumlah → reduksi.",
+    "birthday_number": "Tanggal lahir saja (1-31) → reduksi.",
+    "maturity_number": "Reduksi(life_path + destiny).",
+    "personal_year": "Reduksi(tanggal_lahir + bulan_lahir + tahun_berjalan)."
+  },
+  "makna_angka": {
+    "1": {"arketipe":"Pemimpin / Pelopor","kekuatan":["mandiri","inisiator","ambisius","original"],"tantangan":["egois","keras kepala","kesepian di puncak"],"karier":["founder","direktur","inovator"],"cinta":"Butuh pasangan yang menghargai independensi.","tahun_personal":"Awal siklus baru — mulai proyek besar."},
+    "2": {"arketipe":"Diplomat / Pendamai","kekuatan":["kooperatif","intuitif pada orang","detail","penengah"],"tantangan":["terlalu sensitif","ragu","bergantung"],"karier":["mediator","partner bisnis","konselor","admin"],"cinta":"Romantis, setia, butuh kepastian emosional.","tahun_personal":"Kesabaran, kemitraan, hal tumbuh perlahan."},
+    "3": {"arketipe":"Komunikator / Kreator","kekuatan":["ekspresif","optimis","kreatif","menghibur"],"tantangan":["tersebar","dramatis","kurang disiplin"],"karier":["penulis","entertainer","marketer","desainer"],"cinta":"Menyenangkan tapi butuh belajar kedalaman.","tahun_personal":"Ekspresi diri, sosial, kreativitas mekar."},
+    "4": {"arketipe":"Pembangun","kekuatan":["pekerja keras","sistematis","andal","praktis"],"tantangan":["kaku","terlalu serius","takut risiko"],"karier":["engineer","kontraktor","akuntan","operasional"],"cinta":"Setia dan stabil; ekspresi kasih lewat tindakan.","tahun_personal":"Kerja keras, fondasi, disiplin."},
+    "5": {"arketipe":"Petualang / Agen Perubahan","kekuatan":["adaptif","persuasif","berani","serba bisa"],"tantangan":["gelisah","impulsif","komitmen sulit"],"karier":["sales","travel","jurnalis","trader"],"cinta":"Butuh kebebasan; monoton = maut hubungan.","tahun_personal":"Perubahan besar, perjalanan, kebebasan."},
+    "6": {"arketipe":"Pengasuh / Penjaga","kekuatan":["bertanggung jawab","penyayang","estetis","pelindung keluarga"],"tantangan":["ikut campur","mengorbankan diri","perfeksionis rumah tangga"],"karier":["guru","desainer interior","healthcare","layanan komunitas"],"cinta":"Sangat berorientasi keluarga; hati-hati mengontrol.","tahun_personal":"Keluarga, tanggung jawab, harmoni rumah."},
+    "7": {"arketipe":"Pencari / Mistikus","kekuatan":["analitis","intuitif dalam","spiritual","peneliti"],"tantangan":["menyendiri","skeptis dingin","sulit percaya"],"karier":["peneliti","analis","filsuf","spesialis teknis"],"cinta":"Butuh koneksi jiwa; benci basa-basi.","tahun_personal":"Refleksi, belajar, penarikan diri produktif."},
+    "8": {"arketipe":"Eksekutif / Kekuasaan Material","kekuatan":["visioner bisnis","tegas","manajemen sumber daya","tahan banting"],"tantangan":["workaholic","materialistis","otoriter"],"karier":["CEO","investor","bankir","real estate"],"cinta":"Loyal tapi sering menaruh kerja di atas segalanya.","tahun_personal":"Panen finansial, karier, kekuasaan — atau pelajaran uang."},
+    "9": {"arketipe":"Humanis / Penyelesai","kekuatan":["welas asih luas","bijaksana","artistik","dermawan"],"tantangan":["melankolis","sulit melepaskan masa lalu","terlalu memberi"],"karier":["NGO","seniman","penyembuh","diplomat"],"cinta":"Mencintai secara universal; belajar hadir untuk satu orang.","tahun_personal":"Penutupan siklus, melepaskan, persiapan babak baru."},
+    "11": {"arketipe":"Master Intuitif / Iluminator","catatan":"Versi tinggi dari 2","kekuatan":["visioner spiritual","inspirator","sensitivitas ekstrem sebagai antena"],"tantangan":["kecemasan tinggi","tekanan hidup 'besar'","gugup"],"misi":"Menginspirasi lewat insight & cahaya ide."},
+    "22": {"arketipe":"Master Builder","catatan":"Versi tinggi dari 4","kekuatan":["mewujudkan visi besar jadi nyata","arsitek peradaban"],"tantangan":["beban ekspektasi raksasa","bisa kolaps jadi 4 biasa"],"misi":"Membangun sesuatu berskala besar yang melayani banyak orang."},
+    "33": {"arketipe":"Master Teacher","catatan":"Versi tinggi dari 6","kekuatan":["pengabdian kasih tanpa pamrih","penyembuh kolektif"],"tantangan":["martir","mengabaikan diri total"],"misi":"Mengangkat kesadaran lewat kasih & pelayanan."}
+  },
+  "chaldean_compound_penting": {
+    "10":"Roda keberuntungan — naik turun cepat","13":"Transformasi — perubahan lewat pembongkaran","14":"Pergerakan & risiko media/komunikasi","19":"Matahari — kesuksesan setelah perjuangan","23":"Singa bermahkota — perlindungan dari atasan/semesta","28":"Kontradiksi — mulai ulang berkali-kali","37":"Kemitraan beruntung & cinta","41":"(=32) karisma publik","45":"Kebijaksanaan lewat pengalaman berat"
+  }
+}

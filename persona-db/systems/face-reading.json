@@ -1,0 +1,12 @@
+{
+  "id":"face_reading","name":"Face Reading / Physiognomy (Edukasi/Hiburan)","tier":"pseudoscience",
+  "disclaimer":"Tidak ilmiah. Historisnya bahkan disalahgunakan untuk diskriminasi. Sajikan hanya sebagai tradisi budaya (mian xiang Tiongkok) dengan label hiburan. JANGAN pakai analisis foto AI untuk menilai kepribadian — berisiko etika & privasi.",
+  "tradisi_mianxiang":[
+    {"area":"Dahi (15-30 thn)","lebar_tinggi":"kapasitas berpikir & keberuntungan awal karier (tradisional)"},
+    {"area":"Alis","tebal_rapi":"energi relasi persaudaraan & temperamen","tipis":"perhitungan, hati-hati"},
+    {"area":"Mata (35-40)","besar":"ekspresif & terbuka","tajam kecil":"observan & strategis"},
+    {"area":"Hidung (41-50)","besar_lurus":"simbol harta & kepercayaan diri (tradisional)"},
+    {"area":"Bibir & dagu (51-75)","tebal":"kehangatan & kenikmatan hidup","dagu kuat":"daya tahan masa tua"}
+  ],
+  "implementasi":"Konten artikel edukasi saja, atau kuis deskriptif. TANPA upload foto."
+}

@@ -1,0 +1,10 @@
+{
+  "id":"blood_type","name":"Kepribadian Golongan Darah (Ketsueki-gata)","tier":"pseudoscience",
+  "disclaimer":"Populer di Jepang/Korea, TIDAK didukung bukti ilmiah. Murni hiburan budaya.",
+  "tipe":[
+    {"gol":"A","stereotip":["rapi & terorganisir","perfeksionis","sopan & sabar","pemendam cemas"],"kerja":"teliti, taat prosedur, tim player pendiam","cinta":"pemalu, serius, setia","cocok":"A & AB","negatif":"kaku, sulit rileks, overthinking"},
+    {"gol":"B","stereotip":["kreatif bebas","fokus pada minat sendiri","optimis","tidak suka aturan"],"kerja":"spesialis passionate, benci micromanagement","cinta":"menggebu di awal, butuh kebebasan","cocok":"B & AB","negatif":"egois, moody, tidak peka aturan sosial"},
+    {"gol":"O","stereotip":["percaya diri","ambisius","pemimpin natural","easy going"],"kerja":"big picture, kompetitif, tahan banting","cinta":"ekspresif, posesif ringan","cocok":"O & AB","negatif":"arogan, tidak peka detail, keras kepala"},
+    {"gol":"AB","stereotip":["rasional & unik","dua sisi (A+B)","tenang misterius","adaptif"],"kerja":"problem solver kreatif, suka kerja sendiri","cinta":"sulit ditebak, butuh ruang privat besar","cocok":"semua (netral)","negatif":"dingin, plin-plan, menjaga jarak"}
+  ]
+}

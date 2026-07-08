@@ -1,0 +1,15 @@
+{
+  "id":"human_design","name":"Human Design","tier":"cultural_spiritual",
+  "disclaimer":"Sistem sintesis esoterik (astrologi+I Ching+Kabbalah+chakra), tanpa dasar ilmiah.",
+  "input_wajib":["tanggal lahir","jam lahir AKURAT","kota lahir"],
+  "implementasi":"Butuh perhitungan posisi planet (ephemeris) saat lahir DAN 88 hari sebelum lahir. Opsi: library 'swisseph' (WASM) atau API eksternal (bodygraph API). MVP: user input tipe dari hasil web lain, sistem tampilkan deskripsi.",
+  "tipe":[
+    {"nama":"Manifestor","populasi":"~9%","aura":"tertutup & menolak","strategi":"Menginformasikan sebelum bertindak","tanda_benar":"Damai","tanda_salah":"Marah","deskripsi":"Inisiator murni — memulai tanpa menunggu; dirancang memicu, bukan menyelesaikan semua."},
+    {"nama":"Generator","populasi":"~37%","aura":"terbuka & membungkus","strategi":"Menunggu untuk merespons","tanda_benar":"Kepuasan","tanda_salah":"Frustrasi","deskripsi":"Pembangun berenergi sakral — kekuatan hidup saat mengerjakan yang dicintai."},
+    {"nama":"Manifesting Generator","populasi":"~33%","aura":"terbuka","strategi":"Merespons, lalu menginformasikan","tanda_benar":"Kepuasan & damai","tanda_salah":"Frustrasi & marah","deskripsi":"Multi-passionate — cepat, melompati langkah, banyak jalur sekaligus."},
+    {"nama":"Projector","populasi":"~20%","aura":"fokus & menyerap","strategi":"Menunggu undangan","tanda_benar":"Sukses","tanda_salah":"Pahit (bitterness)","deskripsi":"Pemandu sistem & orang — melihat efisiensi yang orang lain tak lihat; energi terbatas, kerja pintar bukan keras."},
+    {"nama":"Reflector","populasi":"~1%","aura":"menyampel & memantulkan","strategi":"Menunggu satu siklus bulan (28 hari) untuk keputusan besar","tanda_benar":"Terkejut positif","tanda_salah":"Kecewa","deskripsi":"Cermin komunitas — kesehatan lingkungannya terbaca lewat dirinya."}
+  ],
+  "authority":["Emotional (tunggu gelombang emosi reda)","Sacral (respons gut instan)","Splenic (intuisi sekejap)","Ego","Self-Projected","Environmental","Lunar"],
+  "profile":"Kombinasi 2 garis dari 6 (mis. 1/3 Investigator-Martyr, 3/5 Martyr-Heretic, 6/2 Role Model-Hermit) — 12 profil umum."
+}

@@ -1,0 +1,12 @@
+{
+  "id":"stifin","name":"STIFIn (Referensi)","tier":"pseudoscience",
+  "disclaimer":"Klaim penentuan 'mesin kecerdasan' via sidik jari BELUM terbukti ilmiah dan tidak diakui psikologi standar. Jangan lakukan tes fingerprint di website. Mode: user input hasil tes STIFIn yang sudah dimiliki → sistem tampilkan deskripsi + cross-check dengan hasil Big Five/16 tipe.",
+  "mesin":[
+    {"kode":"S","nama":"Sensing","kemudi":["i (introvert)","e (extrovert)"],"deskripsi":"Mengandalkan panca indera & memori. Rajin, tekun, konkret.","kekuatan":["daya ingat kuat","pekerja keras","detail"],"karier":["operasional","atlet","administrasi","perdagangan"]},
+    {"kode":"T","nama":"Thinking","kemudi":["i","e"],"deskripsi":"Mengandalkan logika. Objektif, sistematis, manajerial.","kekuatan":["analisis","manajemen","tegas"],"karier":["manajer","engineer","keuangan","teknokrat"]},
+    {"kode":"I","nama":"Intuiting","kemudi":["i","e"],"deskripsi":"Mengandalkan indra keenam kreatif. Visioner, inovatif, konseptor.","kekuatan":["kreativitas","melihat peluang","optimis jangka panjang"],"karier":["entrepreneur","desainer","penemu","kreator"]},
+    {"kode":"F","nama":"Feeling","kemudi":["i","e"],"deskripsi":"Mengandalkan perasaan & empati. Pemimpin karismatik, persuasif.","kekuatan":["memimpin orang","diplomasi","memotivasi"],"karier":["pemimpin","diplomat","trainer","politisi"]},
+    {"kode":"In","nama":"Insting","kemudi":["tunggal"],"deskripsi":"Mengandalkan naluri spontan. Serba bisa, responsif, pendamai.","kekuatan":["multitasking","adaptasi cepat","altruis"],"karier":["mediator","jurnalis","relawan","generalis ops"]}
+  ],
+  "cross_check":"Bandingkan klaim STIFIn user dengan hasil Big Five: S≈C tinggi O rendah; T≈O sedang C tinggi A rendah; I≈O tinggi; F≈E tinggi A tinggi; In≈profil seimbang. Tampilkan tingkat kesesuaian."
+}

@@ -1,0 +1,31 @@
+{
+  "id":"bazi","name":"BaZi — Empat Pilar Takdir","tier":"cultural_spiritual",
+  "disclaimer":"Metafisika Tionghoa klasik, bukan sains.",
+  "konsep":{
+    "empat_pilar":["Tahun (leluhur/masa kecil)","Bulan (karier/orang tua)","Hari (DIRI — Day Master)","Jam (anak/masa tua)"],
+    "day_master":"Elemen batang langit pilar HARI = inti kepribadian BaZi.",
+    "komponen":"Tiap pilar = 1 Heavenly Stem + 1 Earthly Branch."
+  },
+  "heavenly_stems":[
+    {"no":1,"nama":"Jia","elemen":"Kayu Yang","arketipe":"Pohon besar — kokoh, berprinsip, pemimpin lurus"},
+    {"no":2,"nama":"Yi","elemen":"Kayu Yin","arketipe":"Rumput/liana — fleksibel, diplomatis, survivor"},
+    {"no":3,"nama":"Bing","elemen":"Api Yang","arketipe":"Matahari — hangat, murah hati, menerangi semua"},
+    {"no":4,"nama":"Ding","elemen":"Api Yin","arketipe":"Lilin — fokus, detail, menerangi yang dekat"},
+    {"no":5,"nama":"Wu","elemen":"Tanah Yang","arketipe":"Gunung — stabil, dapat dipercaya, keras kepala"},
+    {"no":6,"nama":"Ji","elemen":"Tanah Yin","arketipe":"Ladang — memelihara, produktif, sabar"},
+    {"no":7,"nama":"Geng","elemen":"Logam Yang","arketipe":"Pedang — tegas, adil, tanpa kompromi"},
+    {"no":8,"nama":"Xin","elemen":"Logam Yin","arketipe":"Perhiasan — halus, estetis, gengsi"},
+    {"no":9,"nama":"Ren","elemen":"Air Yang","arketipe":"Samudra — visioner, cerdas, sulit ditebak"},
+    {"no":10,"nama":"Gui","elemen":"Air Yin","arketipe":"Hujan/embun — intuitif, lembut, menyusup ke mana pun"}
+  ],
+  "earthly_branches":"12 cabang = 12 shio (Zi/Tikus ... Hai/Babi), tiap cabang menyimpan elemen tersembunyi.",
+  "siklus_elemen":{
+    "menghidupi":"Kayu→Api→Tanah→Logam→Air→Kayu",
+    "mengendalikan":"Kayu→Tanah→Air→Api→Logam→Kayu"
+  },
+  "implementasi":{
+    "algoritma":"Stem tahun = (tahun-4)%10, Branch tahun = (tahun-4)%12. Pilar bulan & hari butuh kalender solar-term (JieQi) — gunakan library npm 'lunar-javascript' (fungsi getEightChar()) untuk akurasi penuh termasuk jam.",
+    "output_mvp":"Day Master + keseimbangan 5 elemen (hitung kemunculan tiap elemen di 8 karakter) → elemen kuat/lemah → saran 'elemen penyeimbang' (warna, arah, industri).",
+    "elemen_industri":{"Kayu":"pendidikan, penerbitan, tekstil, agrikultur","Api":"energi, F&B, entertainment, teknologi","Tanah":"properti, konstruksi, asuransi, pertanian","Logam":"keuangan, mesin, otomotif, hukum","Air":"logistik, travel, komunikasi, perdagangan"}
+  }
+}

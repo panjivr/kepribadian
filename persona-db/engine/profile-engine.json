@@ -1,0 +1,35 @@
+{
+  "id":"profile_engine",
+  "name":"Mesin Sintesis Profil Jati Diri",
+  "konsep":"Fondasi = tes ilmiah (Big Five wajib). Layer lain = pengaya opsional. Output akhir = 1 narasi profil terpadu + rekomendasi.",
+  "urutan_prioritas_kepercayaan":["big_five","hexaco","via","mft","disc","mbti16","mi","enneagram","true_colors","temperament","vak","hbdi","stifin(user_input)","numerology","zodiac","shio","weton","bazi","kua","human_design","blood_type","iching"],
+  "korelasi_riset_bigfive_mbti":{
+    "E/I":"korelasi kuat dengan Extraversion (E tinggi → E)",
+    "S/N":"korelasi kuat dengan Openness (O tinggi → N)",
+    "T/F":"korelasi dengan Agreeableness (A tinggi → F)",
+    "J/P":"korelasi dengan Conscientiousness (C tinggi → J)",
+    "penggunaan":"Prediksi tipe 16 dari Big Five sebagai default; kuesioner 16-tipe menimpa prediksi."
+  },
+  "mapping_bigfive_disc":{"D":"E tinggi + A rendah","I":"E tinggi + A tinggi","S":"E rendah + A tinggi + N rendah","C":"C tinggi + E rendah"},
+  "mapping_bigfive_enneagram_indikatif":{"1":"C tinggi + N sedang","2":"A sangat tinggi + E sedang","3":"C tinggi + E tinggi","4":"N tinggi + O tinggi","5":"O tinggi + E rendah","6":"N tinggi + C sedang","7":"E tinggi + O tinggi","8":"E tinggi + A rendah + N rendah","9":"A tinggi + aktivasi rendah"},
+  "deteksi_konsistensi":{
+    "aturan":"Jika hasil antar tes ilmiah saling kontradiksi (mis. Big Five E=85% tapi 16-tipe = I kuat), tandai 'perlu konfirmasi' dan tanya user konteks (kerja vs personal).",
+    "layer_budaya":"TIDAK PERNAH menimpa hasil ilmiah. Disajikan sebagai 'Perspektif Budaya' terpisah."
+  },
+  "output_profil_terpadu":{
+    "seksi":[
+      "1. Inti Diri (Big Five narrative + tipe 16 + enneagram)",
+      "2. Kekuatan Utama (VIA top5 + MI top3)",
+      "3. Gaya Kerja & Tim (DISC + temperamen + HBDI)",
+      "4. Nilai & Kompas Moral (MFT)",
+      "5. Cara Belajar (VAK + MI)",
+      "6. Rekomendasi Karier (irisan dari semua sistem — tampilkan karier yang muncul ≥2x)",
+      "7. Relasi & Komunikasi (gaya cinta per tipe + kecocokan)",
+      "8. Area Pertumbuhan (kelemahan yang muncul konsisten lintas sistem)",
+      "9. Perspektif Budaya & Spiritual (weton, shio, zodiak, numerologi, bazi — dengan label hiburan)",
+      "10. Action Plan 30 Hari (3 kebiasaan dari area pertumbuhan + 1 tantangan signature strength)"
+    ],
+    "ai_generation":"Seksi 1-10 bisa digenerate LLM (Claude API) dengan input JSON semua hasil + template prompt di engine/prompt-templates.json."
+  },
+  "rekomendasi_karier_algoritma":"Kumpulkan array karier dari tiap hasil sistem ilmiah/semi → hitung frekuensi kemunculan kategori → ranking. Kategori master: [kepemimpinan, kreatif, analitis, sosial-helping, teknis, lapangan-aksi, administratif, wirausaha]."
+}

@@ -1,0 +1,30 @@
+{
+  "id": "shio",
+  "name": "Shio (Zodiak Tiongkok)",
+  "tier": "cultural_spiritual",
+  "disclaimer": "Tradisi Tionghoa, bukan sains.",
+  "algoritma": {
+    "shio": "index = (tahun - 4) % 12 → urutan array shio. Contoh 1996: (1996-4)%12=0 → Tikus.",
+    "elemen": "index = floor(((tahun - 4) % 10) / 2) → [Kayu,Api,Tanah,Logam,Air]. Contoh 1996 → (1992%10)/2... gunakan ((tahun-4)%10): 1996→2→floor(2/2)=1→Api.",
+    "yin_yang": "tahun genap = Yang, ganjil = Yin.",
+    "PENTING_imlek": "Tahun baru Imlek jatuh antara 21 Jan – 20 Feb. Lahir Januari/awal Februari bisa masih shio tahun sebelumnya. Sediakan tabel tanggal Imlek 1930-2030 atau library lunar (mis. npm 'lunar-javascript') untuk akurasi."
+  },
+  "urutan": ["Tikus","Kerbau","Macan","Kelinci","Naga","Ular","Kuda","Kambing","Monyet","Ayam","Anjing","Babi"],
+  "shio": [
+    {"nama":"Tikus","trait":["cerdik","hemat","adaptif","oportunis"],"kekuatan":"selalu menemukan celah & bertahan","kelemahan":"licik jika terdesak, pelit","cocok":["Naga","Monyet","Kerbau"],"kurang_cocok":["Kuda"],"karier":["bisnis","keuangan","penulis"]},
+    {"nama":"Kerbau","trait":["pekerja keras","sabar","dapat diandalkan","keras kepala"],"kekuatan":"daya tahan luar biasa","kelemahan":"kaku, lambat berubah","cocok":["Tikus","Ular","Ayam"],"kurang_cocok":["Kambing"],"karier":["pertanian/agroindustri","teknik","manufaktur"]},
+    {"nama":"Macan","trait":["berani","karismatik","kompetitif","gegabah"],"kekuatan":"keberanian mengambil tindakan besar","kelemahan":"emosional, sulit menerima perintah","cocok":["Kuda","Anjing","Babi"],"kurang_cocok":["Monyet"],"karier":["pemimpin","militer","olahraga","aktivis"]},
+    {"nama":"Kelinci","trait":["lembut","diplomatis","estetis","menghindari konflik"],"kekuatan":"kelembutan yang membuka pintu","kelemahan":"terlalu hati-hati, melarikan diri","cocok":["Kambing","Anjing","Babi"],"kurang_cocok":["Ayam"],"karier":["seni","diplomasi","fashion","terapi"]},
+    {"nama":"Naga","trait":["ambisius","percaya diri","energik","arogan"],"kekuatan":"aura besar & keberuntungan tradisional","kelemahan":"sombong, tidak sabaran","cocok":["Tikus","Monyet","Ayam"],"kurang_cocok":["Anjing"],"karier":["pemimpin visioner","entertainer","politik"]},
+    {"nama":"Ular","trait":["bijak","misterius","intuitif","posesif"],"kekuatan":"membaca situasi & manusia dengan dalam","kelemahan":"pencemburu, tertutup","cocok":["Kerbau","Ayam"],"kurang_cocok":["Babi"],"karier":["riset","filsafat","keuangan","intelijen"]},
+    {"nama":"Kuda","trait":["bebas","energik","populer","tidak sabaran"],"kekuatan":"semangat gerak & kebebasan","kelemahan":"komitmen sulit, mudah bosan","cocok":["Macan","Kambing","Anjing"],"kurang_cocok":["Tikus"],"karier":["travel","sales","atlet","komunikasi"]},
+    {"nama":"Kambing","trait":["artistik","lembut hati","penyayang","pesimis"],"kekuatan":"kreativitas & kepekaan estetika","kelemahan":"bergantung, mudah cemas","cocok":["Kelinci","Kuda","Babi"],"kurang_cocok":["Kerbau"],"karier":["seni","desain","perawatan","kuliner"]},
+    {"nama":"Monyet","trait":["jenius akal","humoris","fleksibel","licik"],"kekuatan":"kecerdasan memecahkan apapun","kelemahan":"manipulatif, tidak serius","cocok":["Tikus","Naga"],"kurang_cocok":["Macan"],"karier":["teknologi","hiburan","strategi","trading"]},
+    {"nama":"Ayam","trait":["teliti","percaya diri","pekerja keras","kritis"],"kekuatan":"keteraturan & keberanian bersuara","kelemahan":"sombong kecil, cerewet","cocok":["Kerbau","Ular","Naga"],"kurang_cocok":["Kelinci"],"karier":["administrasi","media","fashion","militer"]},
+    {"nama":"Anjing","trait":["setia","jujur","adil","cemas"],"kekuatan":"loyalitas & keadilan tanpa kompromi","kelemahan":"pesimis, terlalu waspada","cocok":["Macan","Kelinci","Kuda"],"kurang_cocok":["Naga"],"karier":["hukum","keamanan","NGO","pendidikan"]},
+    {"nama":"Babi","trait":["tulus","murah hati","menikmati hidup","naif"],"kekuatan":"ketulusan yang menarik rezeki & teman","kelemahan":"mudah ditipu, boros","cocok":["Kambing","Kelinci","Macan"],"kurang_cocok":["Ular"],"karier":["hospitality","kuliner","filantropi","retail"]}
+  ],
+  "elemen_makna": {
+    "Kayu":"tumbuh, ekspansif, idealis","Api":"bersemangat, ekspresif, memimpin","Tanah":"stabil, praktis, mengayomi","Logam":"tegas, disiplin, ambisius","Air":"fleksibel, intuitif, komunikatif"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "id":"strengths","name":"CliftonStrengths — Catatan Integrasi","tier":"scientific",
+  "status":"PROPRIETARY (Gallup). Tes & deskripsi resmi berlisensi — JANGAN direplikasi di website.",
+  "opsi_legal":[
+    "1. User input hasil resmi mereka (top 5 themes) → sistem integrasikan ke profil.",
+    "2. Gunakan VIA Character Strengths (gratis, riset kuat) sebagai pengganti utama — sudah ada di via-strengths.json.",
+    "3. Alternatif gratis lain: HIGH5 (high5test.com) — user tes di sana, input hasil."
+  ],
+  "empat_domain_gallup":["Executing (eksekusi)","Influencing (memengaruhi)","Relationship Building (relasi)","Strategic Thinking (strategi)"],
+  "integrasi":"Simpan sebagai field user_profile.external_results.cliftonstrengths = [tema1..tema5]."
+}

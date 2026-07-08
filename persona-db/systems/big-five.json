@@ -1,0 +1,111 @@
+{
+  "id": "big_five",
+  "name": "Big Five Personality (OCEAN)",
+  "tier": "scientific",
+  "sumber_item": "IPIP-50 (International Personality Item Pool, public domain) — terjemahan Bahasa Indonesia",
+  "skala": {"tipe": "likert_5", "label": ["Sangat Tidak Setuju","Tidak Setuju","Netral","Setuju","Sangat Setuju"], "nilai": [1,2,3,4,5]},
+  "scoring": {
+    "rumus": "skor_dimensi = sum(item_positif) + sum(6 - item_negatif). 10 item/dimensi. Range 10-50.",
+    "normalisasi": "persen = (raw - 10) / 40 * 100",
+    "interpretasi_band": [{"min":0,"max":30,"label":"Rendah"},{"min":31,"max":45,"label":"Cenderung Rendah"},{"min":46,"max":55,"label":"Sedang"},{"min":56,"max":70,"label":"Cenderung Tinggi"},{"min":71,"max":100,"label":"Tinggi"}]
+  },
+  "dimensi": [
+    {
+      "kode": "O", "nama": "Openness (Keterbukaan pada Pengalaman)",
+      "deskripsi": "Imajinasi, rasa ingin tahu, apresiasi seni & ide baru.",
+      "facets": ["Imajinasi","Minat Seni","Emosionalitas","Petualangan","Intelektualitas","Liberalisme Nilai"],
+      "tinggi": {"trait":["kreatif","visioner","suka ide abstrak","terbuka pada perubahan"],"karier":["desainer","peneliti","entrepreneur","penulis","strategist"],"risiko":["mudah bosan","kurang fokus eksekusi rutin"]},
+      "rendah": {"trait":["praktis","konsisten","menyukai rutinitas","konvensional"],"karier":["operasional","administrasi","QA","akuntansi"],"risiko":["resisten perubahan"]}
+    },
+    {
+      "kode": "C", "nama": "Conscientiousness (Kesungguhan)",
+      "deskripsi": "Disiplin, keteraturan, orientasi pencapaian, kontrol diri.",
+      "facets": ["Efikasi Diri","Keteraturan","Rasa Tanggung Jawab","Dorongan Berprestasi","Disiplin Diri","Kehati-hatian"],
+      "tinggi": {"trait":["terorganisir","andal","gigih","perencana"],"karier":["manajer proyek","auditor","engineer","COO"],"risiko":["perfeksionis","kaku","workaholic"]},
+      "rendah": {"trait":["spontan","fleksibel","santai"],"karier":["kerja kreatif fleksibel","improvisasi tinggi"],"risiko":["prokrastinasi","kurang teliti"]}
+    },
+    {
+      "kode": "E", "nama": "Extraversion (Ekstraversi)",
+      "deskripsi": "Energi sosial, asertivitas, pencarian stimulasi.",
+      "facets": ["Keramahan","Kesukaan Berkelompok","Asertivitas","Level Aktivitas","Pencarian Sensasi","Keceriaan"],
+      "tinggi": {"trait":["energik di keramaian","persuasif","ekspresif"],"karier":["sales","PR","event organizer","pemimpin tim","MC"],"risiko":["impulsif","dominasi percakapan"]},
+      "rendah": {"trait":["reflektif","mandiri","fokus mendalam"],"karier":["programmer","analis","penulis","riset"],"risiko":["terlihat dingin","jaringan sosial sempit"]}
+    },
+    {
+      "kode": "A", "nama": "Agreeableness (Keramahan/Kesepakatan)",
+      "deskripsi": "Empati, kerjasama, kepercayaan pada orang lain.",
+      "facets": ["Kepercayaan","Moralitas/Kejujuran","Altruisme","Kooperatif","Kerendahan Hati","Simpati"],
+      "tinggi": {"trait":["empatik","kooperatif","suka menolong"],"karier":["HR","konselor","guru","perawat","customer success"],"risiko":["sulit menolak","dieksploitasi","menghindari konflik penting"]},
+      "rendah": {"trait":["kompetitif","skeptis","tegas","blak-blakan"],"karier":["negosiator","litigator","trader","kritikus"],"risiko":["konflik interpersonal","terkesan kasar"]}
+    },
+    {
+      "kode": "N", "nama": "Neuroticism (Neurotisisme / Stabilitas Emosi terbalik)",
+      "deskripsi": "Kecenderungan mengalami emosi negatif: cemas, marah, sedih.",
+      "facets": ["Kecemasan","Kemarahan","Depresivitas","Kesadaran-diri Sosial","Impulsivitas","Kerentanan Stres"],
+      "tinggi": {"trait":["sensitif","waspada risiko","emosional"],"karier_catatan":"cocok di peran dengan struktur & dukungan; kewaspadaan berguna di QA/risk management","risiko":["mudah stres","overthinking","burnout"]},
+      "rendah": {"trait":["tenang","tahan tekanan","stabil"],"karier":["crisis management","bedah","pilot","leadership tekanan tinggi"],"risiko":["meremehkan risiko","kurang peka sinyal bahaya"]}
+    }
+  ],
+  "items": [
+    {"no":1,"dim":"E","key":1,"teks":"Saya adalah pusat perhatian di pesta atau acara."},
+    {"no":2,"dim":"A","key":-1,"teks":"Saya kurang peduli dengan urusan orang lain."},
+    {"no":3,"dim":"C","key":1,"teks":"Saya selalu siap dan mempersiapkan segala sesuatu."},
+    {"no":4,"dim":"N","key":1,"teks":"Saya mudah merasa stres atau tertekan."},
+    {"no":5,"dim":"O","key":1,"teks":"Saya memiliki kosakata yang kaya."},
+    {"no":6,"dim":"E","key":-1,"teks":"Saya jarang bicara banyak."},
+    {"no":7,"dim":"A","key":1,"teks":"Saya tertarik pada orang lain dan kehidupan mereka."},
+    {"no":8,"dim":"C","key":-1,"teks":"Saya sering meninggalkan barang-barang berserakan."},
+    {"no":9,"dim":"N","key":-1,"teks":"Saya merasa santai hampir sepanjang waktu."},
+    {"no":10,"dim":"O","key":-1,"teks":"Saya kesulitan memahami ide-ide abstrak."},
+    {"no":11,"dim":"E","key":1,"teks":"Saya merasa nyaman berada di sekitar banyak orang."},
+    {"no":12,"dim":"A","key":-1,"teks":"Saya kadang menghina atau merendahkan orang."},
+    {"no":13,"dim":"C","key":1,"teks":"Saya memperhatikan detail."},
+    {"no":14,"dim":"N","key":1,"teks":"Saya sering mengkhawatirkan banyak hal."},
+    {"no":15,"dim":"O","key":1,"teks":"Saya memiliki imajinasi yang hidup."},
+    {"no":16,"dim":"E","key":-1,"teks":"Saya lebih suka berada di belakang layar."},
+    {"no":17,"dim":"A","key":1,"teks":"Saya bersimpati dengan perasaan orang lain."},
+    {"no":18,"dim":"C","key":-1,"teks":"Saya sering membuat kekacauan pada hal-hal kecil."},
+    {"no":19,"dim":"N","key":-1,"teks":"Saya jarang merasa sedih atau murung."},
+    {"no":20,"dim":"O","key":-1,"teks":"Saya tidak tertarik pada ide-ide abstrak."},
+    {"no":21,"dim":"E","key":1,"teks":"Saya yang biasanya memulai percakapan."},
+    {"no":22,"dim":"A","key":-1,"teks":"Saya tidak terlalu tertarik dengan masalah orang lain."},
+    {"no":23,"dim":"C","key":1,"teks":"Saya menyelesaikan tugas segera tanpa menunda."},
+    {"no":24,"dim":"N","key":1,"teks":"Suasana hati saya mudah terganggu."},
+    {"no":25,"dim":"O","key":1,"teks":"Saya punya ide-ide yang cemerlang."},
+    {"no":26,"dim":"E","key":-1,"teks":"Saya tidak banyak bicara dalam kelompok."},
+    {"no":27,"dim":"A","key":1,"teks":"Saya memiliki hati yang lembut."},
+    {"no":28,"dim":"C","key":-1,"teks":"Saya sering lupa mengembalikan barang ke tempatnya."},
+    {"no":29,"dim":"N","key":1,"teks":"Saya mudah merasa kesal atau terganggu."},
+    {"no":30,"dim":"O","key":-1,"teks":"Saya tidak punya imajinasi yang kuat."},
+    {"no":31,"dim":"E","key":1,"teks":"Saya berbicara dengan banyak orang berbeda di acara sosial."},
+    {"no":32,"dim":"A","key":-1,"teks":"Saya sebenarnya tidak terlalu tertarik pada orang lain."},
+    {"no":33,"dim":"C","key":1,"teks":"Saya menyukai keteraturan."},
+    {"no":34,"dim":"N","key":1,"teks":"Suasana hati saya sering berubah-ubah."},
+    {"no":35,"dim":"O","key":1,"teks":"Saya cepat memahami sesuatu."},
+    {"no":36,"dim":"E","key":-1,"teks":"Saya tidak suka menarik perhatian pada diri sendiri."},
+    {"no":37,"dim":"A","key":1,"teks":"Saya meluangkan waktu untuk orang lain."},
+    {"no":38,"dim":"C","key":-1,"teks":"Saya sering lalai menjalankan kewajiban."},
+    {"no":39,"dim":"N","key":1,"teks":"Emosi saya mudah naik-turun."},
+    {"no":40,"dim":"O","key":1,"teks":"Saya menggunakan kata-kata yang tidak umum/canggih."},
+    {"no":41,"dim":"E","key":1,"teks":"Saya tidak keberatan menjadi pusat perhatian."},
+    {"no":42,"dim":"A","key":1,"teks":"Saya bisa merasakan emosi orang lain."},
+    {"no":43,"dim":"C","key":1,"teks":"Saya mengikuti jadwal yang sudah dibuat."},
+    {"no":44,"dim":"N","key":1,"teks":"Saya mudah merasa jengkel."},
+    {"no":45,"dim":"O","key":1,"teks":"Saya menghabiskan waktu untuk merenungkan berbagai hal."},
+    {"no":46,"dim":"E","key":-1,"teks":"Saya pendiam di antara orang asing."},
+    {"no":47,"dim":"A","key":1,"teks":"Saya membuat orang lain merasa nyaman."},
+    {"no":48,"dim":"C","key":1,"teks":"Saya teliti dan cermat dalam pekerjaan."},
+    {"no":49,"dim":"N","key":-1,"teks":"Saya jarang merasa murung tanpa alasan."},
+    {"no":50,"dim":"O","key":1,"teks":"Saya penuh dengan ide-ide baru."}
+  ],
+  "output_template": {
+    "per_dimensi": "{nama}: {persen}% ({band}) — {narasi_tinggi_atau_rendah}",
+    "kombinasi_penting": [
+      {"pola":"O tinggi + C tinggi","insight":"Inovator eksekutor — langka & bernilai; cocok founder/product lead."},
+      {"pola":"E tinggi + A rendah","insight":"Dominan & persuasif — kuat di negosiasi, waspadai gaya konfrontatif."},
+      {"pola":"C tinggi + N tinggi","insight":"Perfeksionis cemas — hasil bagus tapi rawan burnout; butuh sistem istirahat."},
+      {"pola":"O tinggi + E rendah","insight":"Pemikir dalam — kreator solo, riset, penulisan, arsitektur sistem."},
+      {"pola":"A tinggi + N rendah","insight":"Penstabil tim — mediator alami, culture keeper."}
+    ]
+  }
+}
