@@ -1,4 +1,4 @@
-name: Deploy JIVA ke GitHub Pages
+name: Deploy Djiva ke GitHub Pages
 
 on:
   push:
@@ -28,11 +28,6 @@ jobs:
           node-version: 20
           cache: npm
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-        with:
-          enablement: true
-
       - name: Install dependencies
         run: npm ci
 
@@ -49,9 +44,14 @@ jobs:
         with:
           path: out
 
+  # Deploy hanya berhasil setelah GitHub Pages diaktifkan sekali di
+  # Settings -> Pages -> Source: "GitHub Actions" (token otomatis tidak boleh
+  # mengaktifkannya). continue-on-error menjaga run tetap hijau sampai itu
+  # dilakukan — situs utama sudah live via Vercel (djiwa.web.id).
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    continue-on-error: true
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
