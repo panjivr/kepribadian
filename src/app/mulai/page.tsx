@@ -66,7 +66,7 @@ export default function Mulai() {
           <span className="text-aurora">satu momen.</span>
         </h1>
         <p className="mx-auto mt-4 max-w-md text-center text-sm leading-relaxed text-ink-2">
-          Dari data ini, JIVA langsung membaca weton, shio, zodiak, numerologi,
+          Dari data ini, Djiva langsung membaca weton, shio, zodiak, numerologi,
           dan angka Kua-mu. Semua tersimpan hanya di perangkatmu.
         </p>
       </Reveal>

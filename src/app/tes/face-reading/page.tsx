@@ -31,7 +31,7 @@ export default function FaceReading() {
           <p>
             <strong className="text-amber">Tidak ilmiah & sensitif secara etika.</strong>{" "}
             Secara historis, membaca wajah pernah disalahgunakan untuk
-            diskriminasi. Karena itu JIVA{" "}
+            diskriminasi. Karena itu Djiva{" "}
             <strong className="text-ink">tidak pernah</strong> meminta atau
             menganalisis foto wajahmu. Halaman ini murni artikel edukasi.
           </p>

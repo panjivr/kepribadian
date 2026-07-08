@@ -331,10 +331,28 @@ input[type="date"].input-glass::-webkit-calendar-picker-indicator {
 /* ---------------------------------- cetak ---------------------------------- */
 
 @media print {
-  body {
-    background: #fff;
-    color: #1d1d1f;
+  @page {
+    margin: 14mm;
   }
+
+  * {
+    print-color-adjust: exact !important;
+    -webkit-print-color-adjust: exact !important;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+    color: #1d1d1f !important;
+  }
+
+  main {
+    padding-top: 0 !important;
+  }
+  .pt-32 {
+    padding-top: 0 !important;
+  }
+
   .aurora,
   .noise,
   nav,
@@ -342,16 +360,102 @@ input[type="date"].input-glass::-webkit-calendar-picker-indicator {
   .no-print {
     display: none !important;
   }
+
+  /* Reveal-on-scroll sections belum tentu pernah "terlihat" sebelum window.print()
+     dipanggil — paksa selalu tampak saat cetak agar tidak ada halaman kosong. */
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* ------------------------------ tipografi terbaca ----------------------------- */
+  p,
+  li,
+  span,
+  h1,
+  h2,
+  h3 {
+    color: #1d1d1f !important;
+  }
+  strong {
+    color: #1d1d1f !important;
+  }
+  .text-ink {
+    color: #1d1d1f !important;
+  }
+  .text-ink-2 {
+    color: #3a3a3c !important;
+  }
+  .text-ink-3,
+  .kicker {
+    color: #55555a !important;
+  }
+
+  .text-aurora {
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
+    color: #6d28d9 !important;
+    -webkit-text-fill-color: #6d28d9 !important;
+  }
+
+  /* lencana aksen (TierBadge semi-ilmiah/budaya) — perkuat kontras di atas kertas */
+  [class*="text-[#7db4f9]"] {
+    color: #1d4ed8 !important;
+  }
+  [class*="text-[#b39cf9]"] {
+    color: #5b21b6 !important;
+  }
+
+  /* --------------------------- kartu kaca -> kartu kertas ------------------------ */
   .glass,
   .glass-strong {
-    background: #fff;
-    border: 1px solid #e5e7eb;
-    box-shadow: none;
-    backdrop-filter: none;
+    background: #fff !important;
+    border: 1px solid #e5e7eb !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
   }
-  .text-aurora {
-    -webkit-text-fill-color: initial;
-    background: none;
-    color: #1d1d1f;
+  .glass-hairline::before {
+    background: none !important;
+  }
+
+  /* panel/chip translusen putih di atas latar gelap -> abu terang agar tidak
+     lenyap di kertas putih */
+  [class*="bg-white/"] {
+    background-color: #f5f5f7 !important;
+  }
+  [class*="border-white/"] {
+    border-color: #e2e2e7 !important;
+  }
+
+  /* jangan biarkan sebuah bagian terpotong di tengah halaman */
+  section.glass,
+  section.glass-strong {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* ------------------------------- bar skor -------------------------------- */
+  .bar-anim {
+    animation: none !important;
+    transform: none !important;
+  }
+  .bar-anim[style*="rgba(255,255,255,0.22)"] {
+    background: #c7c7cc !important;
+  }
+
+  /* -------------------------------- radar SVG ------------------------------- */
+  svg {
+    max-width: 320px !important;
+    margin: 0 auto !important;
+  }
+  svg text {
+    fill: #1d1d1f !important;
+  }
+  svg polygon[stroke],
+  svg line {
+    stroke: #c7c7cc !important;
   }
 }

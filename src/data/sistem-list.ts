@@ -49,5 +49,5 @@ export const SEMUA_SISTEM: SistemInfo[] = [
   { nama: "Golongan Darah", tier: "pseudoscience", ringkas: "Profil A/B/O/AB ala Jepang", jenis: "input", route: "/tes/golongan-darah", durasi: "input golongan", cek: "blood_type", tersedia: true },
   { nama: "Grafologi", tier: "pseudoscience", ringkas: "Interpretasi tulisan tangan (hiburan)", jenis: "refleksi", route: "/tes/grafologi", durasi: "kuis singkat", tersedia: true },
   { nama: "Face Reading", tier: "pseudoscience", ringkas: "Physiognomy tradisional (edukasi)", jenis: "artikel", route: "/tes/face-reading", durasi: "artikel", tersedia: true },
-  { nama: "CliftonStrengths", tier: "scientific", ringkas: "Referensi 34 tema (lisensi Gallup)", jenis: "soon", tersedia: false },
+  { nama: "CliftonStrengths", tier: "scientific", ringkas: "Referensi 34 tema Gallup + 4 domain", jenis: "input", route: "/tes/clifton-strengths", durasi: "input hasil", cek: "clifton", tersedia: true },
 ];

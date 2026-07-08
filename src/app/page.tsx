@@ -109,7 +109,7 @@ export default function Landing() {
       {/* =============================== METODE =============================== */}
       <section id="metode" className="mx-auto max-w-6xl scroll-mt-24 px-5 pt-28 md:px-8">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="kicker mb-4">Cara JIVA Membacamu</p>
+          <p className="kicker mb-4">Cara Djiva Membacamu</p>
           <h2 className="font-display text-balance text-3xl font-extrabold tracking-tight md:text-5xl">
             Tiga langkah menuju
             <br />
@@ -162,7 +162,7 @@ export default function Landing() {
               </h2>
               <p className="mt-5 text-sm leading-relaxed text-ink-2 md:text-base">
                 Model lima faktor (OCEAN) adalah kerangka kepribadian paling
-                tervalidasi dalam psikologi modern. JIVA memakai 50 item IPIP —
+                tervalidasi dalam psikologi modern. Djiva memakai 50 item IPIP —
                 bank soal public domain yang dipakai peneliti di seluruh dunia —
                 dengan skoring standar dan interpretasi per dimensi & facet.
               </p>

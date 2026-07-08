@@ -21,7 +21,7 @@ export default function Nav() {
         <Link href="/" className="flex items-center gap-2.5">
           <LogoMark />
           <span className="font-display text-lg font-extrabold tracking-tight">
-            JIVA
+            Djiva
           </span>
         </Link>
         <div className="hidden items-center gap-7 text-sm text-ink-2 md:flex">

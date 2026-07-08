@@ -35,7 +35,7 @@ export const VIA_KEKUATAN: ViaKekuatan[] = [
   { id: "spiritualitas", nama: "Spiritualitas", virtue: "Transendensi", desk: "Keyakinan akan makna & tujuan lebih tinggi." },
 ];
 
-// 2 item original per kekuatan (48 total). Item original JIVA, bukan salinan survei resmi VIA.
+// 2 item original per kekuatan (48 total). Item original Djiva, bukan salinan survei resmi VIA.
 export const VIA_ITEMS: (ItemLikertDimensi & { dim: string })[] = [
   { no: 1, dim: "kreativitas", teks: "Saya sering menemukan cara baru untuk menyelesaikan masalah lama." },
   { no: 2, dim: "kreativitas", teks: "Ide-ide orisinal mengalir dengan mudah dari saya." },

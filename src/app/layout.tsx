@@ -18,8 +18,8 @@ const jakarta = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: "JIVA — Know Yourself Better Than Ever",
-    template: "%s · JIVA",
+    default: "Djiva — Know Yourself Better Than Ever",
+    template: "%s · Djiva",
   },
   description:
     "Baca dirimu lebih dalam dari sebelumnya. Asesmen kepribadian berstandar riset (Big Five IPIP-50), 16 tipe, dan cetak biru kelahiran — weton, shio, zodiak, numerologi — dalam satu profil terpadu yang premium. 100% privat di perangkatmu.",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     "penemuan jati diri",
   ],
   openGraph: {
-    title: "JIVA — Know Yourself Better Than Ever",
+    title: "Djiva — Know Yourself Better Than Ever",
     description:
       "Satu tempat untuk membaca dirimu: sains psikometri + kearifan budaya, disintesis jadi satu profil jati diri.",
     type: "website",

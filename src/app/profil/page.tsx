@@ -264,6 +264,26 @@ export default function ProfilTerpadu() {
 
   return (
     <section className="mx-auto max-w-5xl px-5 pb-20 pt-32 md:px-8">
+      {/* ---------------------------- header cetak (PDF) ----------------------- */}
+      <div className="hidden print:block mb-8 border-b border-[#e5e7eb] pb-4">
+        <div className="flex items-baseline justify-between gap-4">
+          <p className="font-display text-lg font-extrabold tracking-tight text-[#6d28d9]">
+            Djiva
+          </p>
+          <p className="text-xs text-[#55555a]">
+            {new Intl.DateTimeFormat("id-ID", { dateStyle: "long" }).format(
+              new Date()
+            )}
+          </p>
+        </div>
+        <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#55555a]">
+          Laporan Profil Terpadu
+        </p>
+        <p className="mt-2 text-base font-bold text-[#1d1d1f]">
+          {profil.namaLengkap}
+        </p>
+      </div>
+
       {/* ------------------------------- header ------------------------------- */}
       <Reveal className="text-center">
         <p className="kicker mb-4">Profil Terpadu · Sintesis Semua Sistem</p>
@@ -746,6 +766,14 @@ export default function ProfilTerpadu() {
           label akhir. Bukan alat diagnosis kesehatan mental.
         </p>
       </Reveal>
+
+      {/* ---------------------------- footer cetak (PDF) ----------------------- */}
+      <div className="hidden print:block mt-10 border-t border-[#e5e7eb] pt-4 text-center">
+        <p className="text-[11px] text-[#55555a]">
+          Djiva — Know Yourself Better Than Ever · Dokumen privat, dihasilkan di
+          perangkat pengguna.
+        </p>
+      </div>
     </section>
   );
 }

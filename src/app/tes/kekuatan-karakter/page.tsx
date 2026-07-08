@@ -104,7 +104,7 @@ export default function TesKekuatanKarakter() {
         "Fokus pada apa yang terbaik darimu, bukan yang salah",
         "Menyokong seksi Kekuatan Utama di Profil Terpadu",
       ]}
-      catatan="Item original JIVA untuk estimasi. Survei resmi lengkap tersedia di viacharacter.org."
+      catatan="Item original Djiva untuk estimasi. Survei resmi lengkap tersedia di viacharacter.org."
       mode="likert"
       items={VIA_ITEMS}
       hitung={(jawaban) => skorLikert(VIA_ITEMS, jawaban)}

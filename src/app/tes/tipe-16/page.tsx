@@ -203,7 +203,7 @@ export default function TesTipe16() {
             pertumbuhanmu.
           </p>
           <p className="mx-auto mt-4 max-w-md text-xs leading-relaxed text-ink-3">
-            Soal original JIVA dengan kerangka 16 tipe generik. MBTI® adalah
+            Soal original Djiva dengan kerangka 16 tipe generik. MBTI® adalah
             merek dagang The Myers-Briggs Company — tes ini tidak berafiliasi.
           </p>
           <button onClick={() => setTahap("kuis")} className="btn-primary mt-9 text-base">

@@ -70,7 +70,8 @@ export type SistemId =
   | "stifin"
   | "human_design"
   | "iching"
-  | "graphology";
+  | "graphology"
+  | "clifton";
 
 const KEY_TES = "jiva:v1:tes:";
 

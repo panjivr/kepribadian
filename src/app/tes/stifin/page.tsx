@@ -58,7 +58,7 @@ export default function TesStifin() {
         <p className="mx-auto mt-4 max-w-md rounded-2xl border border-amber/20 bg-amber/8 px-4 py-3 text-xs leading-relaxed text-ink-2">
           <strong className="text-amber">Catatan penting:</strong> klaim penentuan
           “mesin kecerdasan” lewat sidik jari belum terbukti secara ilmiah dan
-          tidak diakui psikologi standar. JIVA tidak melakukan tes sidik jari —
+          tidak diakui psikologi standar. Djiva tidak melakukan tes sidik jari —
           ini hanya untuk mencatat & membandingkan hasil yang sudah kamu miliki.
         </p>
       </Reveal>

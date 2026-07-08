@@ -7,16 +7,26 @@ export default function Footer() {
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
           <div>
             <p className="font-display text-xl font-extrabold tracking-tight">
-              JIVA
+              Djiva
             </p>
             <p className="mt-1 text-sm font-medium text-aurora">
               Know Yourself Better Than Ever
             </p>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-ink-3">
-              Platform penemuan jati diri multi-metode: asesmen psikometri
-              berstandar riset, dipadukan kearifan budaya Nusantara & dunia —
-              dengan label kejelasan ilmiah yang selalu transparan.
+              Djiva adalah platform penemuan jati diri paling lengkap yang bisa
+              kamu temukan — 26 dari 27 sistem sudah aktif, merentang dari
+              psikometri berstandar riset hingga kearifan budaya Nusantara &
+              dunia. Semuanya disintesis menjadi satu Profil Terpadu yang
+              koheren, bukan sekadar kumpulan kuis lepas. Privasi 100%: seluruh
+              perhitungan berjalan di perangkatmu, tidak pernah dikirim ke
+              server mana pun.
             </p>
+            <div className="mt-6">
+              <p className="kicker">Kreator</p>
+              <p className="mt-1.5 text-xs text-ink-3">
+                Dirancang &amp; dikembangkan oleh Panji Vatorrohman
+              </p>
+            </div>
           </div>
           <div className="text-sm">
             <p className="kicker mb-4">Jelajah</p>
@@ -39,7 +49,7 @@ export default function Footer() {
         </div>
         <div className="mt-12 space-y-3 border-t border-white/8 pt-8 text-xs leading-relaxed text-ink-3">
           <p>
-            <strong className="text-ink-2">Bukan alat diagnosis.</strong> JIVA
+            <strong className="text-ink-2">Bukan alat diagnosis.</strong> Djiva
             adalah sarana refleksi & pengembangan diri, bukan instrumen
             diagnosis kesehatan mental. Jika kamu mengalami tekanan psikologis,
             hubungi psikolog atau psikiater profesional.
@@ -50,13 +60,22 @@ export default function Footer() {
             tesmu tidak pernah dikirim ke server mana pun.
           </p>
           <p>
+            <strong className="text-ink-2">27 sistem, satu profil.</strong>{" "}
+            Big Five (IPIP-50), HEXACO, VIA (48 item), 16 Tipe, DISC, Enneagram,
+            Temperamen, Kecerdasan Majemuk, Kompas Moral, Gaya Belajar, Gaya
+            Berpikir, True Colors, Eysenck, weton, shio, zodiak, numerologi,
+            Kua, BaZi Empat Pilar, I Ching, Human Design, STIFIn, Golongan
+            Darah, Grafologi, Face Reading — disintesis jadi satu Profil
+            Terpadu 10 seksi. Selengkap dan sedetail ini jarang ada di satu
+            tempat.
+          </p>
+          <p>
             Sistem budaya & spiritual (weton, shio, zodiak, numerologi, kua)
             disajikan sebagai warisan budaya dan bahan refleksi — bukan ramalan
             pasti, dan tidak pernah menimpa hasil asesmen ilmiah.
           </p>
           <p className="pt-2 text-ink-3/70">
-            © {new Date().getFullYear()} JIVA · Dibangun dari PersonaDB v1.0 —
-            27 sistem penemuan jati diri
+            Copyright © 2026 Djiva . All rights reserved.
           </p>
         </div>
       </div>

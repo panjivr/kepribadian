@@ -1,4 +1,4 @@
-# JIVA — Know Yourself Better Than Ever
+# Djiva — Know Yourself Better Than Ever
 
 Platform penemuan jati diri multi-metode yang premium: asesmen psikometri
 berstandar riset dipadukan kearifan budaya, disintesis menjadi satu profil
