@@ -1,0 +1,13 @@
+{
+  "id":"primbon","name":"Primbon Jawa","tier":"cultural_spiritual",
+  "disclaimer":"Warisan budaya Jawa. Sajikan sebagai kearifan lokal & refleksi, bukan ramalan pasti.",
+  "modul":[
+    {"id":"watak_weton","nama":"Watak Berdasar Weton","input":"weton (dari weton.json)","output":"gabungan watak hari + pasaran + laku neptu"},
+    {"id":"jodoh","nama":"Petung Jodoh","input":"weton 2 orang","output":"lihat weton.json → jodoh_petung"},
+    {"id":"rejeki","nama":"Arah Rejeki","metode":"neptu mod 5","hasil":{"1":"Sri — rejeki lancar, cocok dagang & pangan","2":"Lungguh — rejeki dari jabatan/karier formal","3":"Gedhong — pandai menyimpan harta, cocok investasi","4":"Lara — rejeki naik-turun, butuh tirakat & kehati-hatian","0":"Pati — harus banyak sedekah & spiritual; rejeki dari melepas"}},
+    {"id":"pangarasan","nama":"Pangarasan (Watak Bawaan)","metode":"neptu mod 3","hasil":{"1":"Aras Tuding — sering jadi sasaran omongan; kuat mental dibutuhkan","2":"Aras Kembang — disayang banyak orang, mudah menarik simpati","0":"Aras Pepet — rejeki & jodoh butuh usaha ekstra, tapi tahan banting"}},
+    {"id":"hari_baik","nama":"Hari Baik Hajatan","metode":"tradisi memilih hari dengan neptu gabungan tertentu; tampilkan kalkulator neptu tanpa klaim absolut"},
+    {"id":"arah_rumah","nama":"Arah & Hari Larangan (Na'as)","metode":"hari na'as personal = hari+pasaran kematian leluhur / weton sendiri (varian keluarga); sediakan input manual"}
+  ],
+  "framing_ui":"Semua hasil negatif diframe sebagai 'perlu ikhtiar lebih', selalu tutup dengan pesan bahwa usaha & doa di atas petungan."
+}

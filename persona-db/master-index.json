@@ -1,0 +1,50 @@
+{
+  "meta": {
+    "name": "PersonaDB — Database Sistem Penemuan Jati Diri",
+    "version": "1.0.0",
+    "language": "id",
+    "created": "2026-07-08",
+    "purpose": "Knowledge base lengkap untuk website self-discovery multi-metode. Setiap sistem punya file JSON sendiri di /systems. Engine sintesis di /engine.",
+    "disclaimer_global": "Tier ilmiah (scientific) boleh diklaim sebagai asesmen. Tier budaya/spiritual WAJIB dilabeli 'hiburan & refleksi budaya, bukan diagnosis psikologis'."
+  },
+  "tiers": {
+    "scientific": "Didukung riset psikometri peer-reviewed",
+    "semi_scientific": "Populer, sebagian riset, validitas diperdebatkan",
+    "cultural_spiritual": "Tradisi/kepercayaan, tanpa dukungan ilmiah",
+    "pseudoscience": "Ditolak riset modern, sajikan hanya sebagai wawasan historis/hiburan"
+  },
+  "systems": [
+    {"id":"big_five","name":"Big Five (OCEAN)","tier":"scientific","validity":5,"input":"kuesioner_50_item","output":"5 skor dimensi + 30 facet","file":"systems/big-five.json","calc":"likert_scoring","priority_mvp":1},
+    {"id":"hexaco","name":"HEXACO","tier":"scientific","validity":5,"input":"kuesioner_24_item","output":"6 skor dimensi","file":"systems/hexaco.json","calc":"likert_scoring","priority_mvp":2},
+    {"id":"mbti16","name":"16 Tipe Kepribadian (gaya MBTI)","tier":"semi_scientific","validity":3,"input":"kuesioner_28_item","output":"1 dari 16 tipe + fungsi kognitif","file":"systems/mbti16.json","calc":"dichotomy_scoring","priority_mvp":1},
+    {"id":"disc","name":"DISC","tier":"semi_scientific","validity":4,"input":"kuesioner_24_item","output":"profil D-I-S-C + kombinasi","file":"systems/disc.json","calc":"forced_choice_or_likert","priority_mvp":2},
+    {"id":"enneagram","name":"Enneagram","tier":"semi_scientific","validity":2,"input":"kuesioner_36_item","output":"tipe 1-9 + wing + arah stres/growth","file":"systems/enneagram.json","calc":"max_score_typing","priority_mvp":2},
+    {"id":"temperament","name":"4 Temperamen Klasik","tier":"semi_scientific","validity":2,"input":"kuesioner_16_item","output":"Sanguinis/Koleris/Melankolis/Plegmatis","file":"systems/temperament.json","calc":"max_score_typing","priority_mvp":3},
+    {"id":"eysenck","name":"Eysenck PEN","tier":"scientific","validity":4,"input":"kuesioner","output":"Psychoticism-Extraversion-Neuroticism","file":"systems/eysenck.json","calc":"likert_scoring","priority_mvp":4},
+    {"id":"via","name":"VIA Character Strengths","tier":"scientific","validity":4,"input":"kuesioner_48_item","output":"ranking 24 kekuatan karakter","file":"systems/via-strengths.json","calc":"ranking","priority_mvp":2},
+    {"id":"strengths","name":"CliftonStrengths (referensi)","tier":"scientific","validity":4,"input":"lisensi_gallup","output":"34 tema (proprietary — jangan reproduksi tes)","file":"systems/strengths-note.json","calc":"external","priority_mvp":9},
+    {"id":"mi","name":"Multiple Intelligence (Gardner)","tier":"semi_scientific","validity":3,"input":"kuesioner_24_item","output":"profil 8 kecerdasan","file":"systems/multiple-intelligence.json","calc":"likert_scoring","priority_mvp":3},
+    {"id":"vak","name":"Gaya Belajar VAK","tier":"semi_scientific","validity":2,"input":"kuesioner_15_item","output":"Visual/Auditori/Kinestetik","file":"systems/vak.json","calc":"max_score_typing","priority_mvp":3},
+    {"id":"mft","name":"Moral Foundations","tier":"scientific","validity":4,"input":"kuesioner_18_item","output":"profil 6 fondasi moral","file":"systems/moral-foundations.json","calc":"likert_scoring","priority_mvp":4},
+    {"id":"hbdi","name":"Dominansi Berpikir (gaya HBDI)","tier":"semi_scientific","validity":2,"input":"kuesioner_16_item","output":"4 kuadran berpikir","file":"systems/hbdi.json","calc":"likert_scoring","priority_mvp":4},
+    {"id":"stifin","name":"STIFIn (referensi)","tier":"pseudoscience","validity":2,"input":"sidik_jari_eksternal","output":"5 mesin kecerdasan (user input hasil sendiri)","file":"systems/stifin.json","calc":"user_input","priority_mvp":5},
+    {"id":"numerology","name":"Numerologi (Pythagorean + Chaldean)","tier":"cultural_spiritual","validity":1,"input":"nama + tanggal_lahir","output":"Life Path, Destiny, Soul Urge, Personality","file":"systems/numerology.json","calc":"algoritmik","priority_mvp":1},
+    {"id":"zodiac","name":"Astrologi Barat (Zodiak)","tier":"cultural_spiritual","validity":1,"input":"tanggal_lahir","output":"sun sign + elemen + modality","file":"systems/zodiac-western.json","calc":"date_range","priority_mvp":1},
+    {"id":"shio","name":"Shio (Zodiak Tiongkok)","tier":"cultural_spiritual","validity":1,"input":"tahun_lahir (+kalender lunar)","output":"shio + elemen + yin/yang","file":"systems/shio.json","calc":"modulo_tahun","priority_mvp":1},
+    {"id":"bazi","name":"BaZi (Empat Pilar)","tier":"cultural_spiritual","validity":1,"input":"tanggal+jam_lahir","output":"4 pilar + elemen dominan","file":"systems/bazi.json","calc":"kalender_ganzhi","priority_mvp":5},
+    {"id":"weton","name":"Weton Jawa","tier":"cultural_spiritual","validity":1,"input":"tanggal_lahir","output":"hari+pasaran+neptu+watak","file":"systems/weton.json","calc":"algoritmik_pasaran","priority_mvp":1},
+    {"id":"primbon","name":"Primbon Jawa","tier":"cultural_spiritual","validity":1,"input":"weton","output":"watak, jodoh, rezeki, hari baik","file":"systems/primbon.json","calc":"lookup_weton","priority_mvp":3},
+    {"id":"human_design","name":"Human Design","tier":"cultural_spiritual","validity":1,"input":"tanggal+jam+lokasi_lahir","output":"tipe + authority + profile","file":"systems/human-design.json","calc":"butuh_ephemeris_astronomi","priority_mvp":6},
+    {"id":"iching","name":"I Ching (64 Hexagram)","tier":"cultural_spiritual","validity":1,"input":"random_cast / refleksi","output":"1 hexagram + makna","file":"systems/iching.json","calc":"random_or_manual","priority_mvp":6},
+    {"id":"blood_type","name":"Golongan Darah (Jepang)","tier":"pseudoscience","validity":1,"input":"golongan_darah","output":"profil A/B/O/AB","file":"systems/blood-type.json","calc":"lookup","priority_mvp":4},
+    {"id":"true_colors","name":"Color Personality (True Colors)","tier":"semi_scientific","validity":2,"input":"kuesioner_12_item","output":"Gold/Blue/Green/Orange","file":"systems/true-colors.json","calc":"max_score_typing","priority_mvp":4},
+    {"id":"graphology","name":"Grafologi (edukasi)","tier":"pseudoscience","validity":1,"input":"deskripsi_tulisan","output":"interpretasi tradisional (hiburan)","file":"systems/graphology.json","calc":"lookup","priority_mvp":8},
+    {"id":"face_reading","name":"Face Reading / Physiognomy (edukasi)","tier":"pseudoscience","validity":1,"input":"deskripsi_fitur_wajah","output":"interpretasi tradisional (hiburan)","file":"systems/face-reading.json","calc":"lookup","priority_mvp":8},
+    {"id":"feng_shui_kua","name":"Feng Shui Kua Number","tier":"cultural_spiritual","validity":1,"input":"tahun_lahir + gender","output":"angka Kua + arah keberuntungan","file":"systems/feng-shui-kua.json","calc":"algoritmik","priority_mvp":5}
+  ],
+  "user_input_master": {
+    "wajib_minimal": ["nama_lengkap","tanggal_lahir","gender"],
+    "opsional_akurasi": ["jam_lahir","kota_lahir","golongan_darah","hasil_stifin_eksternal"],
+    "kuesioner": "modular — user pilih tes mana yang mau diisi"
+  }
+}

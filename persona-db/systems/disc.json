@@ -1,0 +1,47 @@
+{
+  "id":"disc","name":"DISC","tier":"semi_scientific",
+  "skala":{"tipe":"likert_5","nilai":[1,2,3,4,5]},
+  "scoring":"6 item/tipe. Skor tertinggi = tipe primer, kedua = sekunder → profil kombinasi (mis. DI, SC).",
+  "tipe":[
+    {"kode":"D","nama":"Dominance","fokus":"Hasil & tantangan","trait":["tegas","cepat memutuskan","kompetitif","langsung ke inti"],"ketakutan":"dimanfaatkan / kehilangan kendali","komunikasi_ke_D":"To the point, bicara hasil, jangan bertele-tele","kelemahan":["tidak sabaran","kurang mendengar","menyakiti tanpa sadar"],"karier":["CEO","sales director","project lead","militer"]},
+    {"kode":"I","nama":"Influence","fokus":"Orang & pengaruh","trait":["antusias","persuasif","optimis","ekspresif"],"ketakutan":"penolakan sosial / diabaikan","komunikasi_ke_I":"Ramah, beri panggung, apresiasi terbuka","kelemahan":["kurang detail","overpromise","tidak terorganisir"],"karier":["marketing","PR","MC","kreator"]},
+    {"kode":"S","nama":"Steadiness","fokus":"Stabilitas & kerjasama","trait":["sabar","setia","pendengar baik","konsisten"],"ketakutan":"perubahan mendadak / konflik","komunikasi_ke_S":"Lembut, beri waktu adaptasi, jaminan keamanan","kelemahan":["sulit menolak","menghindari konfrontasi","lambat berubah"],"karier":["support","HR","perawat","operasional"]},
+    {"kode":"C","nama":"Conscientiousness/Compliance","fokus":"Akurasi & kualitas","trait":["analitis","teliti","sistematis","standar tinggi"],"ketakutan":"kritik atas pekerjaan / kesalahan","komunikasi_ke_C":"Data, logika, detail tertulis, jangan tekan cepat-cepat","kelemahan":["overanalisis","perfeksionis","dingin"],"karier":["engineer","auditor","analis","QA"]}
+  ],
+  "kombinasi":{
+    "DI":"Motivator hasil — memimpin dengan energi, mendorong tim capai target dengan gaya karismatik.",
+    "DC":"Eksekutor presisi — hasil cepat DAN benar; keras pada standar.",
+    "ID":"Persuader — menjual visi, menggerakkan orang ke aksi.",
+    "IS":"Pendukung hangat — perekat tim, membangun relasi tulus.",
+    "SI":"Kolaborator setia — stabil, ramah, tim player sejati.",
+    "SC":"Spesialis tenang — konsisten, teliti, bisa diandalkan diam-diam.",
+    "CS":"Perfeksionis sabar — kualitas tinggi dengan proses stabil.",
+    "CD":"Arsitek standar — sistem, aturan, dan hasil terukur."
+  },
+  "items":[
+    {"no":1,"tipe":"D","teks":"Saya suka mengambil alih kendali situasi."},
+    {"no":2,"tipe":"D","teks":"Saya nyaman membuat keputusan cepat dengan info terbatas."},
+    {"no":3,"tipe":"D","teks":"Kompetisi memacu performa terbaik saya."},
+    {"no":4,"tipe":"D","teks":"Saya berbicara langsung ke inti tanpa basa-basi."},
+    {"no":5,"tipe":"D","teks":"Hambatan adalah tantangan, bukan alasan berhenti."},
+    {"no":6,"tipe":"D","teks":"Saya tidak sabar dengan proses yang lambat."},
+    {"no":7,"tipe":"I","teks":"Saya mudah mengajak orang antusias terhadap ide saya."},
+    {"no":8,"tipe":"I","teks":"Bertemu orang baru memberi saya energi."},
+    {"no":9,"tipe":"I","teks":"Saya sering jadi pencair suasana."},
+    {"no":10,"tipe":"I","teks":"Saya lebih suka brainstorming ramai daripada kerja sendiri."},
+    {"no":11,"tipe":"I","teks":"Pengakuan publik penting bagi saya."},
+    {"no":12,"tipe":"I","teks":"Saya bercerita dengan ekspresif dan hidup."},
+    {"no":13,"tipe":"S","teks":"Saya lebih suka lingkungan yang stabil dan bisa diprediksi."},
+    {"no":14,"tipe":"S","teks":"Orang datang ke saya untuk didengarkan."},
+    {"no":15,"tipe":"S","teks":"Saya menyelesaikan tugas dengan tempo konsisten."},
+    {"no":16,"tipe":"S","teks":"Saya mengalah demi kedamaian tim."},
+    {"no":17,"tipe":"S","teks":"Perubahan mendadak membuat saya tidak nyaman."},
+    {"no":18,"tipe":"S","teks":"Kesetiaan adalah nilai tertinggi saya."},
+    {"no":19,"tipe":"C","teks":"Saya butuh data lengkap sebelum memutuskan."},
+    {"no":20,"tipe":"C","teks":"Kesalahan kecil dalam pekerjaan mengganggu saya."},
+    {"no":21,"tipe":"C","teks":"Saya mengikuti prosedur dan standar dengan ketat."},
+    {"no":22,"tipe":"C","teks":"Saya lebih percaya fakta daripada perasaan."},
+    {"no":23,"tipe":"C","teks":"Kualitas lebih penting daripada kecepatan."},
+    {"no":24,"tipe":"C","teks":"Saya menganalisis risiko sebelum bertindak."}
+  ]
+}

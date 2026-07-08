@@ -1,0 +1,53 @@
+{
+  "id": "weton",
+  "name": "Weton Jawa",
+  "tier": "cultural_spiritual",
+  "disclaimer": "Tradisi budaya Jawa, bukan sains. Sajikan sebagai warisan budaya & refleksi.",
+  "neptu_hari": {"Minggu":5,"Senin":4,"Selasa":3,"Rabu":7,"Kamis":8,"Jumat":6,"Sabtu":9},
+  "neptu_pasaran": {"Legi":5,"Pahing":9,"Pon":7,"Wage":4,"Kliwon":8},
+  "algoritma_pasaran": {
+    "metode": "Siklus pasaran 5 hari. Gunakan anchor date: 1 Januari 1900 = Senin Pahing.",
+    "rumus_js": "const pasaran=['Legi','Pahing','Pon','Wage','Kliwon']; const anchor=new Date('1900-01-01'); // = Pahing (index 1)\nconst diff=Math.floor((tglLahir-anchor)/86400000); const idx=((1+diff)%5+5)%5; return pasaran[idx];",
+    "hari": "Ambil dari Date.getDay() standar.",
+    "catatan": "Dalam tradisi Jawa, hari berganti saat maghrib — lahir malam sesudah maghrib bisa dihitung hari berikutnya. Beri opsi toggle di UI."
+  },
+  "watak_hari": {
+    "Minggu":"Berjiwa pemimpin, senang jadi pusat, murah hati tapi gengsi tinggi.",
+    "Senin":"Perasa, lembut hati, mudah berubah suasana, penyayang keluarga.",
+    "Selasa":"Pemberani, mudah tersulut, jujur blak-blakan, pekerja tangguh.",
+    "Rabu":"Pendiam berbobot, pemikir, disukai banyak orang, penengah.",
+    "Kamis":"Karismatik, pandai bicara, ambisius, kadang keras kepala.",
+    "Jumat":"Bersih hati, dihormati, spiritual, suka menolong.",
+    "Sabtu":"Kuat kemauan, pekerja keras, mandiri, sulit diatur."
+  },
+  "watak_pasaran": {
+    "Legi":"Terbuka, ringan tangan, mudah bergaul, kadang boros.",
+    "Pahing":"Ambisius, ingin memiliki, tekun, cenderung menyimpan perasaan.",
+    "Pon":"Percaya diri, suka tampil, pandai bicara, gengsi tinggi.",
+    "Wage":"Kokoh pendirian, protektif, kaku, setia kawan.",
+    "Kliwon":"Cerdas, spiritual, pandai membawa diri, misterius."
+  },
+  "interpretasi_neptu_total": [
+    {"range":[7,9],"label":"Pendito Kang Lelaku","makna":"Jiwa pengembara-spiritual, hidup dari perjalanan & pencarian."},
+    {"range":[10,12],"label":"Lakune Geni","makna":"Semangat api — energik, tempramen, penggerak."},
+    {"range":[13,15],"label":"Lakune Angin","makna":"Luwes, adaptif, mudah diterima di mana saja."},
+    {"range":[16,18],"label":"Lakune Bumi","makna":"Tenang, sabar, jadi tempat bersandar, rejeki stabil."},
+    {"range":[19,21],"label":"Lakune Banyu","makna":"Mengalir, mendinginkan, pandai menempatkan diri, membawa kesejukan."},
+    {"range":[22,24],"label":"Lakune Lintang/Srengenge","makna":"Bersinar, karismatik, pemimpin yang menerangi banyak orang."}
+  ],
+  "jodoh_petung": {
+    "metode": "Jumlahkan neptu kedua pasangan, mod 8 (sisa 0 dihitung 8) — versi umum. Ada varian mod 4/5/7 antar daerah.",
+    "hasil_mod8": {
+      "1":"Pegat — rawan pisah (perlu kesadaran ekstra)",
+      "2":"Ratu — dihormati, harmonis, jodoh ideal",
+      "3":"Jodoh — cocok, saling menerima apa adanya",
+      "4":"Topo — susah di awal, bahagia kemudian",
+      "5":"Tinari — mudah rezeki, keberuntungan",
+      "6":"Padu — sering bertengkar tapi tak sampai pisah",
+      "7":"Sujanan — rawan pihak ketiga/cemburu",
+      "8":"Pesthi — rukun tenteram sampai tua"
+    },
+    "catatan_ui": "WAJIB framing positif: hasil 'buruk' disajikan sebagai area yang butuh perhatian, bukan vonis."
+  },
+  "hari_baik": "Tradisi memilih hari berdasar neptu untuk hajatan; sertakan tabel neptu agar user hitung sendiri, jangan beri klaim absolut."
+}

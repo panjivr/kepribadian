@@ -1,0 +1,39 @@
+{
+  "id":"hexaco","name":"HEXACO","tier":"scientific",
+  "skala":{"tipe":"likert_5","nilai":[1,2,3,4,5]},
+  "scoring":"4 item/dimensi (2 positif, 2 reverse). skor = sum(pos) + sum(6-neg). Range 4-20 → persen.",
+  "dimensi":[
+    {"kode":"H","nama":"Honesty-Humility (Kejujuran-Kerendahan Hati)","deskripsi":"Ketulusan, keadilan, tidak serakah, rendah hati. INI PEMBEDA UTAMA dari Big Five.","tinggi":"tulus, anti-manipulasi, tidak silau status","rendah":"oportunis, suka pamer, memanipulasi demi keuntungan","insight":"Prediktor terbaik untuk perilaku etis, korupsi, kecurangan."},
+    {"kode":"E","nama":"Emotionality","deskripsi":"Rasa takut, kecemasan, ketergantungan emosional, sentimentalitas.","tinggi":"empatik, waspada bahaya, butuh dukungan","rendah":"berani fisik, mandiri emosional, tahan tekanan"},
+    {"kode":"X","nama":"Extraversion","deskripsi":"Percaya diri sosial, keberanian sosial, keceriaan.","tinggi":"energik sosial, percaya diri","rendah":"pendiam, reflektif"},
+    {"kode":"A","nama":"Agreeableness","deskripsi":"Pemaaf, lembut, fleksibel, sabar (fokus: respons saat DIPERLAKUKAN buruk).","tinggi":"pemaaf, sabar, kompromis","rendah":"pendendam, keras kepala, cepat marah"},
+    {"kode":"C","nama":"Conscientiousness","deskripsi":"Terorganisir, rajin, perfeksionis, hati-hati.","tinggi":"disiplin & teliti","rendah":"spontan & santai"},
+    {"kode":"O","nama":"Openness","deskripsi":"Apresiasi estetika, rasa ingin tahu, kreativitas, unconventional.","tinggi":"kreatif eksploratif","rendah":"praktis konvensional"}
+  ],
+  "items":[
+    {"no":1,"dim":"H","key":1,"teks":"Saya tidak akan menjilat atasan demi kenaikan jabatan."},
+    {"no":2,"dim":"H","key":-1,"teks":"Saya tergoda memakai uang palsu jika yakin tidak ketahuan."},
+    {"no":3,"dim":"H","key":1,"teks":"Memiliki barang mewah bukan hal penting bagi saya."},
+    {"no":4,"dim":"H","key":-1,"teks":"Saya ingin orang tahu bahwa saya orang penting berstatus tinggi."},
+    {"no":5,"dim":"E","key":1,"teks":"Saya sangat takut menghadapi bahaya fisik."},
+    {"no":6,"dim":"E","key":1,"teks":"Saya butuh seseorang untuk menguatkan saat masa sulit."},
+    {"no":7,"dim":"E","key":-1,"teks":"Saya tetap tenang meski dalam situasi menegangkan."},
+    {"no":8,"dim":"E","key":-1,"teks":"Saya jarang menangis, bahkan di momen sedih."},
+    {"no":9,"dim":"X","key":1,"teks":"Saya mudah memulai percakapan dengan orang baru."},
+    {"no":10,"dim":"X","key":1,"teks":"Dalam kelompok, saya sering jadi yang memimpin diskusi."},
+    {"no":11,"dim":"X","key":-1,"teks":"Saya merasa canggung menjadi pusat perhatian."},
+    {"no":12,"dim":"X","key":-1,"teks":"Saya lebih memilih pekerjaan tanpa banyak interaksi sosial."},
+    {"no":13,"dim":"A","key":1,"teks":"Saya mudah memaafkan orang yang menyakiti saya."},
+    {"no":14,"dim":"A","key":1,"teks":"Saya jarang mengkritik orang meski mereka salah."},
+    {"no":15,"dim":"A","key":-1,"teks":"Saya sulit melupakan orang yang pernah berbuat buruk pada saya."},
+    {"no":16,"dim":"A","key":-1,"teks":"Orang bilang saya keras kepala dalam berargumen."},
+    {"no":17,"dim":"C","key":1,"teks":"Saya merencanakan segala sesuatu jauh-jauh hari."},
+    {"no":18,"dim":"C","key":1,"teks":"Saya memeriksa ulang pekerjaan untuk memastikan tanpa kesalahan."},
+    {"no":19,"dim":"C","key":-1,"teks":"Saya membuat keputusan berdasarkan dorongan sesaat."},
+    {"no":20,"dim":"C","key":-1,"teks":"Kamar/ruang kerja saya sering berantakan."},
+    {"no":21,"dim":"O","key":1,"teks":"Saya menikmati karya seni, musik, atau sastra yang tidak biasa."},
+    {"no":22,"dim":"O","key":1,"teks":"Saya senang memikirkan pertanyaan filosofis."},
+    {"no":23,"dim":"O","key":-1,"teks":"Saya bosan dengan diskusi tentang ide-ide abstrak."},
+    {"no":24,"dim":"O","key":-1,"teks":"Saya lebih suka hal yang sudah familiar daripada mencoba yang aneh-aneh."}
+  ]
+}

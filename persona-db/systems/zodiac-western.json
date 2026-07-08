@@ -1,0 +1,25 @@
+{
+  "id": "zodiac",
+  "name": "Astrologi Barat (Sun Sign)",
+  "tier": "cultural_spiritual",
+  "disclaimer": "Tradisi astrologi, tanpa dukungan ilmiah. Sajikan sebagai hiburan/refleksi.",
+  "konsep": {
+    "elemen": {"Api":"aksi, semangat, spontan","Tanah":"praktis, stabil, material","Udara":"ide, komunikasi, sosial","Air":"emosi, intuisi, kedalaman"},
+    "modalitas": {"Cardinal":"inisiator","Fixed":"penjaga/penstabil","Mutable":"adaptor"},
+    "lanjutan": "Untuk natal chart penuh (moon, rising, planet) butuh jam+lokasi lahir dan library ephemeris (mis. swisseph / astronomia npm). MVP: sun sign saja."
+  },
+  "tanda": [
+    {"nama":"Aries","tanggal":"21 Mar – 19 Apr","elemen":"Api","modalitas":"Cardinal","planet":"Mars","simbol":"Domba Jantan","trait":["pemberani","inisiator","kompetitif","tidak sabaran"],"kekuatan":"memulai apa pun tanpa takut","kelemahan":"impulsif, cepat panas, cepat padam","cocok":["Leo","Sagitarius","Gemini","Aquarius"],"karier":["entrepreneur","atlet","sales","militer"]},
+    {"nama":"Taurus","tanggal":"20 Apr – 20 Mei","elemen":"Tanah","modalitas":"Fixed","planet":"Venus","simbol":"Banteng","trait":["setia","sabar","sensual","keras kepala"],"kekuatan":"konsistensi & daya tahan","kelemahan":"posesif, sulit berubah","cocok":["Virgo","Capricorn","Cancer","Pisces"],"karier":["keuangan","kuliner","seni","properti"]},
+    {"nama":"Gemini","tanggal":"21 Mei – 20 Jun","elemen":"Udara","modalitas":"Mutable","planet":"Merkurius","simbol":"Kembar","trait":["komunikatif","cerdas","serba ingin tahu","plin-plan"],"kekuatan":"adaptasi & networking","kelemahan":"tidak konsisten, gelisah","cocok":["Libra","Aquarius","Aries","Leo"],"karier":["media","penulis","marketing","translator"]},
+    {"nama":"Cancer","tanggal":"21 Jun – 22 Jul","elemen":"Air","modalitas":"Cardinal","planet":"Bulan","simbol":"Kepiting","trait":["penyayang","protektif","intuitif","moody"],"kekuatan":"kepedulian mendalam pada 'rumah'","kelemahan":"terlalu sensitif, menyimpan dendam","cocok":["Scorpio","Pisces","Taurus","Virgo"],"karier":["healthcare","kuliner","HR","real estate"]},
+    {"nama":"Leo","tanggal":"23 Jul – 22 Agu","elemen":"Api","modalitas":"Fixed","planet":"Matahari","simbol":"Singa","trait":["karismatik","murah hati","dramatis","bangga"],"kekuatan":"kepemimpinan yang menghangatkan","kelemahan":"haus pengakuan, arogan","cocok":["Aries","Sagitarius","Gemini","Libra"],"karier":["entertainer","pemimpin","brand ambassador","creative director"]},
+    {"nama":"Virgo","tanggal":"23 Agu – 22 Sep","elemen":"Tanah","modalitas":"Mutable","planet":"Merkurius","simbol":"Perawan","trait":["teliti","analitis","melayani","kritis"],"kekuatan":"penyempurnaan detail & sistem","kelemahan":"perfeksionis cemas, overkritik","cocok":["Taurus","Capricorn","Cancer","Scorpio"],"karier":["analis","editor","kesehatan","QA"]},
+    {"nama":"Libra","tanggal":"23 Sep – 22 Okt","elemen":"Udara","modalitas":"Cardinal","planet":"Venus","simbol":"Timbangan","trait":["diplomatis","estetis","adil","ragu-ragu"],"kekuatan":"harmoni & keindahan","kelemahan":"sulit memutuskan, menghindari konflik","cocok":["Gemini","Aquarius","Leo","Sagitarius"],"karier":["hukum","desain","diplomasi","fashion"]},
+    {"nama":"Scorpio","tanggal":"23 Okt – 21 Nov","elemen":"Air","modalitas":"Fixed","planet":"Pluto/Mars","simbol":"Kalajengking","trait":["intens","misterius","loyal","pencemburu"],"kekuatan":"transformasi & fokus laser","kelemahan":"pendendam, mengontrol","cocok":["Cancer","Pisces","Virgo","Capricorn"],"karier":["investigasi","psikologi","bedah","riset"]},
+    {"nama":"Sagitarius","tanggal":"22 Nov – 21 Des","elemen":"Api","modalitas":"Mutable","planet":"Jupiter","simbol":"Pemanah","trait":["optimis","petualang","filosofis","ceplas-ceplos"],"kekuatan":"visi luas & kejujuran","kelemahan":"tidak taktis, komitmen fobia","cocok":["Aries","Leo","Libra","Aquarius"],"karier":["travel","pendidikan","penerbit","motivator"]},
+    {"nama":"Capricorn","tanggal":"22 Des – 19 Jan","elemen":"Tanah","modalitas":"Cardinal","planet":"Saturnus","simbol":"Kambing Laut","trait":["ambisius","disiplin","bertanggung jawab","kaku"],"kekuatan":"daya tahan mendaki jangka panjang","kelemahan":"pesimis, workaholic","cocok":["Taurus","Virgo","Scorpio","Pisces"],"karier":["eksekutif","pemerintahan","keuangan","arsitek"]},
+    {"nama":"Aquarius","tanggal":"20 Jan – 18 Feb","elemen":"Udara","modalitas":"Fixed","planet":"Uranus/Saturnus","simbol":"Pembawa Air","trait":["visioner","humanis","eksentrik","dingin"],"kekuatan":"inovasi & pemikiran ke depan","kelemahan":"detached emosional, memberontak","cocok":["Gemini","Libra","Aries","Sagitarius"],"karier":["teknologi","sains","aktivisme","futurist"]},
+    {"nama":"Pisces","tanggal":"19 Feb – 20 Mar","elemen":"Air","modalitas":"Mutable","planet":"Neptunus/Jupiter","simbol":"Ikan","trait":["empatik","artistik","spiritual","pelarian"],"kekuatan":"imajinasi & welas asih tanpa batas","kelemahan":"tidak realistis, mudah terbawa","cocok":["Cancer","Scorpio","Taurus","Capricorn"],"karier":["seni","musik","penyembuhan","film"]}
+  ]
+}

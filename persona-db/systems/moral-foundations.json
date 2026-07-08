@@ -1,0 +1,18 @@
+{
+  "id":"mft","name":"Moral Foundations Theory (Haidt)","tier":"scientific",
+  "scoring":"3 item/fondasi, likert 1-5 (seberapa relevan saat menilai benar-salah). Output: profil radar 6 fondasi.",
+  "fondasi":[
+    {"id":"care","nama":"Kepedulian / Anti-kekejaman","inti":"Melindungi yang lemah, empati pada penderitaan","item":["Apakah seseorang menderita secara emosional/fisik","Apakah ada yang memperlakukan makhluk lemah dengan kejam","Kasih sayang adalah kebajikan terpenting"]},
+    {"id":"fairness","nama":"Keadilan / Kecurangan","inti":"Proporsionalitas, hak, anti-curang","item":["Apakah seseorang diperlakukan tidak adil","Apakah seseorang curang demi keuntungan","Keadilan harus ditegakkan meski merugikan diri"]},
+    {"id":"loyalty","nama":"Loyalitas / Pengkhianatan","inti":"Kesetiaan pada kelompok, keluarga, bangsa","item":["Apakah tindakan itu mengkhianati kelompoknya","Bangga pada kelompok/negara adalah hal penting","Loyalitas keluarga di atas kepentingan pribadi"]},
+    {"id":"authority","nama":"Otoritas / Subversi","inti":"Hormat pada hierarki, tradisi, tatanan","item":["Apakah tindakan itu melawan otoritas yang sah","Hormat pada orang tua & pemimpin adalah kebajikan","Tradisi masyarakat layak dijaga"]},
+    {"id":"sanctity","nama":"Kesucian / Kejijikan","inti":"Kemurnian, kesakralan tubuh & nilai","item":["Apakah tindakan itu menjijikkan secara moral","Ada hal yang salah meski tak merugikan siapa pun","Tubuh dan hal sakral tidak boleh dinodai"]},
+    {"id":"liberty","nama":"Kebebasan / Penindasan","inti":"Anti-dominasi, kebebasan individu","item":["Apakah ada pihak yang menindas kebebasan orang lain","Setiap orang berhak menentukan hidupnya sendiri","Saya melawan pihak yang sok berkuasa"]}
+  ],
+  "insight_pola":{
+    "individualizing_tinggi":"Care+Fairness dominan → moralitas fokus hak individu (khas progresif).",
+    "binding_tinggi":"Loyalty+Authority+Sanctity dominan → moralitas fokus tatanan komunitas (khas konservatif/komunal).",
+    "seimbang":"Menghargai kedua sisi — potensi jembatan antar kubu."
+  },
+  "penggunaan":"Bagus untuk sadar diri kenapa berkonflik nilai dengan orang lain; bukan alat menghakimi."
+}

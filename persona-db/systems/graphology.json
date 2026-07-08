@@ -1,0 +1,13 @@
+{
+  "id":"graphology","name":"Grafologi (Edukasi/Hiburan)","tier":"pseudoscience",
+  "disclaimer":"Validitas ilmiah LEMAH — riset menunjukkan grafologi tidak lebih baik dari tebakan acak untuk menilai kepribadian. Sajikan HANYA sebagai wawasan tradisi. Jangan pakai untuk keputusan HR.",
+  "interpretasi_tradisional":[
+    {"aspek":"Ukuran huruf","besar":"ekspresif, butuh perhatian","kecil":"fokus, detail, introvert"},
+    {"aspek":"Kemiringan","kanan":"ekspresif emosional, berorientasi orang","kiri":"menahan diri, protektif","tegak":"logis, terkontrol"},
+    {"aspek":"Tekanan pena","kuat":"energi & komitmen tinggi","ringan":"sensitif, hemat energi"},
+    {"aspek":"Spasi antar kata","lebar":"butuh ruang & kebebasan","rapat":"tidak suka sendirian"},
+    {"aspek":"Margin","kiri lebar":"melepaskan masa lalu","kanan lebar":"hati-hati pada masa depan"},
+    {"aspek":"Tanda tangan","besar dari tulisan":"citra publik > diri privat","tidak terbaca":"privat, sulit ditebak"}
+  ],
+  "implementasi":"Kuis pilihan (user deskripsikan tulisannya) → interpretasi playful dengan label 'Just for fun'."
+}

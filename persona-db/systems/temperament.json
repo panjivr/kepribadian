@@ -1,0 +1,28 @@
+{
+  "id":"temperament","name":"4 Temperamen Klasik","tier":"semi_scientific",
+  "scoring":"16 item, 4/tipe, likert 1-5. Skor tertinggi = temperamen primer, kedua = sekunder (mis. Koleris-Sanguinis).",
+  "tipe":[
+    {"nama":"Sanguinis","julukan":"Yang Populer","elemen_klasik":"Udara","trait":["ceria","spontan","ekspresif","suka bercerita"],"kekuatan":["menghidupkan suasana","cepat berteman","optimis menular"],"kelemahan":["pelupa","tidak disiplin","haus perhatian","mudah teralihkan"],"di_kerja":"Ide & energi awal luar biasa; butuh partner penyelesai.","cinta":"Hangat dan seru; butuh apresiasi terus-menerus.","paduan_disc":"I"},
+    {"nama":"Koleris","julukan":"Yang Kuat","elemen_klasik":"Api","trait":["tegas","berkemauan baja","cepat","mandiri"],"kekuatan":["pemimpin alami","pengambil keputusan","produktif"],"kelemahan":["dominan","tidak sabar","sulit minta maaf","workaholic"],"di_kerja":"Penggerak utama; belajar delegasi & empati.","cinta":"Protektif dan setia; belajar melunak.","paduan_disc":"D"},
+    {"nama":"Melankolis","julukan":"Yang Sempurna","elemen_klasik":"Tanah","trait":["mendalam","analitis","perfeksionis","setia"],"kekuatan":["standar kualitas tertinggi","perencana detail","kreatif serius"],"kelemahan":["pesimis","mudah tersinggung","overthinking","sulit puas"],"di_kerja":"Penjaga kualitas & sistem; hati-hati paralysis by analysis.","cinta":"Dalam dan setia; belajar tidak menuntut kesempurnaan.","paduan_disc":"C"},
+    {"nama":"Plegmatis","julukan":"Yang Damai","elemen_klasik":"Air","trait":["tenang","sabar","santai","diplomatis"],"kekuatan":["penstabil konflik","pendengar terbaik","konsisten tanpa drama"],"kelemahan":["pasif","sulit ambil keputusan","menunda","menghindari tanggung jawab besar"],"di_kerja":"Perekat tim yang tenang; butuh dorongan inisiatif.","cinta":"Nyaman dan tanpa drama; belajar mengungkapkan keinginan.","paduan_disc":"S"}
+  ],
+  "items":[
+    {"no":1,"tipe":"Sanguinis","teks":"Saya bercerita dengan heboh dan penuh ekspresi."},
+    {"no":2,"tipe":"Sanguinis","teks":"Saya mudah lupa detail tapi ingat suasana serunya."},
+    {"no":3,"tipe":"Sanguinis","teks":"Saya butuh berada di sekitar orang agar semangat."},
+    {"no":4,"tipe":"Sanguinis","teks":"Saya spontan memutuskan ikut acara dadakan."},
+    {"no":5,"tipe":"Koleris","teks":"Saya frustrasi melihat orang lamban bekerja."},
+    {"no":6,"tipe":"Koleris","teks":"Saya yakin cara saya biasanya yang paling efektif."},
+    {"no":7,"tipe":"Koleris","teks":"Target harus tercapai, apapun caranya."},
+    {"no":8,"tipe":"Koleris","teks":"Saya otomatis memimpin saat tak ada yang mengambil alih."},
+    {"no":9,"tipe":"Melankolis","teks":"Saya memikirkan ulang percakapan yang sudah lewat."},
+    {"no":10,"tipe":"Melankolis","teks":"Detail kecil yang salah sangat mengganggu saya."},
+    {"no":11,"tipe":"Melankolis","teks":"Saya butuh waktu sendiri untuk memproses perasaan."},
+    {"no":12,"tipe":"Melankolis","teks":"Saya membuat rencana cadangan untuk rencana cadangan."},
+    {"no":13,"tipe":"Plegmatis","teks":"Orang bilang saya sangat sulit marah."},
+    {"no":14,"tipe":"Plegmatis","teks":"Saya ikut saja keputusan mayoritas."},
+    {"no":15,"tipe":"Plegmatis","teks":"Santai di rumah lebih menarik daripada acara ramai."},
+    {"no":16,"tipe":"Plegmatis","teks":"Saya penengah alami saat teman-teman berkonflik."}
+  ]
+}

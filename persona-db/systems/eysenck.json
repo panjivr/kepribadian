@@ -1,0 +1,10 @@
+{
+  "id":"eysenck","name":"Eysenck PEN","tier":"scientific",
+  "dimensi":[
+    {"kode":"P","nama":"Psychoticism (Ketangguhan-pikiran)","tinggi":"agresif, dingin, egosentris, impulsif, kreatif nonkonformis","rendah":"empatik, kooperatif, konvensional","catatan":"Bukan berarti psikotik klinis; ukuran tough-mindedness."},
+    {"kode":"E","nama":"Extraversion","tinggi":"sosial, aktif, mencari sensasi","rendah":"tenang, reflektif, terkontrol","dasar_biologis":"Teori arousal kortikal: introvert = arousal dasar tinggi → menghindari stimulasi."},
+    {"kode":"N","nama":"Neuroticism","tinggi":"cemas, moody, reaktif emosional","rendah":"stabil, tenang","dasar_biologis":"Reaktivitas sistem limbik."}
+  ],
+  "kuadran_klasik":{"E_tinggi+N_tinggi":"≈ Koleris","E_tinggi+N_rendah":"≈ Sanguinis","E_rendah+N_tinggi":"≈ Melankolis","E_rendah+N_rendah":"≈ Plegmatis"},
+  "implementasi":"MVP: derive dari Big Five (E dari E, N dari N, P dari kombinasi A-rendah + C-rendah). Tidak perlu kuesioner terpisah."
+}

@@ -1,0 +1,10 @@
+{
+  "id":"true_colors","name":"True Colors (Kepribadian Warna)","tier":"semi_scientific",
+  "scoring":"12 item, 3/warna, likert 1-5. Warna tertinggi = primer, kedua = sekunder.",
+  "warna":[
+    {"warna":"Gold","padanan":"SJ/Guardian ~ ISTJ-ESFJ","nilai_inti":"tanggung jawab & tatanan","trait":["terencana","tepat waktu","loyal","menghargai aturan"],"di_tim":"tulang punggung operasional","stres_jika":"kekacauan & ketidakjelasan","item":["Saya merasa tenang saat semua terjadwal.","Aturan dibuat untuk kebaikan bersama dan saya menaatinya.","Saya menepati janji apapun yang terjadi."]},
+    {"warna":"Blue","padanan":"NF/Idealist ~ INFP-ENFJ","nilai_inti":"hubungan & makna","trait":["empatik","komunikatif perasaan","harmonis","autentik"],"di_tim":"perekat emosional & moral","stres_jika":"konflik & ketidaktulusan","item":["Hubungan yang dalam lebih penting dari pencapaian.","Saya peka terhadap perasaan tak terucap orang lain.","Saya butuh pekerjaan yang bermakna, bukan sekadar gaji."]},
+    {"warna":"Green","padanan":"NT/Rational ~ INTJ-ENTP","nilai_inti":"kompetensi & logika","trait":["analitis","independen","ingin tahu","skeptis sehat"],"di_tim":"otak strategi & inovasi","stres_jika":"inkompetensi & keputusan emosional","item":["Saya menuntut alasan logis di balik setiap keputusan.","Saya lebih suka memecahkan masalah kompleks daripada bersosialisasi.","Kompetensi adalah ukuran utama saya menilai orang."]},
+    {"warna":"Orange","padanan":"SP/Artisan ~ ESTP-ISFP","nilai_inti":"kebebasan & aksi","trait":["spontan","berani","enerjik","praktis di lapangan"],"di_tim":"eksekutor cepat & pemecah kebuntuan","stres_jika":"rutinitas & birokrasi","item":["Saya bertindak dulu, menyesuaikan kemudian.","Risiko membuat hidup terasa hidup.","Duduk rapat lama adalah siksaan bagi saya."]}
+  ]
+}

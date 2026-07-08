@@ -1,0 +1,27 @@
+{
+  "id":"vak","name":"Gaya Belajar VAK","tier":"semi_scientific",
+  "catatan_ilmiah":"Riset modern menunjukkan 'matching' gaya belajar TIDAK meningkatkan hasil belajar signifikan. Sajikan sebagai PREFERENSI, bukan takdir. Belajar terbaik = multimodal.",
+  "scoring":"15 item pilihan A/B/C. Mayoritas menentukan preferensi.",
+  "tipe":[
+    {"kode":"V","nama":"Visual","ciri":["ingat wajah lupa nama","suka diagram & warna","corat-coret saat berpikir"],"strategi":["mind map","highlight warna","video & infografis","flashcard bergambar"]},
+    {"kode":"A","nama":"Auditori","ciri":["ingat yang didengar","bicara sendiri saat berpikir","suka diskusi"],"strategi":["rekam & dengar ulang","jelaskan ke orang lain","podcast","baca keras"]},
+    {"kode":"K","nama":"Kinestetik","ciri":["belajar sambil praktek","gelisah duduk lama","suka menyentuh & mencoba"],"strategi":["praktik langsung","belajar sambil jalan","simulasi & role-play","istirahat gerak tiap 25 menit"]}
+  ],
+  "items":[
+    {"no":1,"teks":"Saat belajar hal baru, saya paling terbantu oleh:","a":{"v":"V","t":"melihat diagram/demo"},"b":{"v":"A","t":"mendengar penjelasan"},"c":{"v":"K","t":"langsung mencoba"}},
+    {"no":2,"teks":"Saat mengeja kata sulit, saya:","a":{"v":"V","t":"membayangkan tulisannya"},"b":{"v":"A","t":"mengucapkannya"},"c":{"v":"K","t":"menulisnya dulu"}},
+    {"no":3,"teks":"Saya paling ingat orang dari:","a":{"v":"V","t":"wajahnya"},"b":{"v":"A","t":"suaranya/namanya"},"c":{"v":"K","t":"apa yang kami lakukan bersama"}},
+    {"no":4,"teks":"Saat bosan saya cenderung:","a":{"v":"V","t":"melamun/corat-coret"},"b":{"v":"A","t":"ngobrol/bersenandung"},"c":{"v":"K","t":"gerak-gerak/jalan"}},
+    {"no":5,"teks":"Instruksi paling jelas untuk saya:","a":{"v":"V","t":"tertulis + gambar"},"b":{"v":"A","t":"dijelaskan lisan"},"c":{"v":"K","t":"didemokan lalu saya tiru"}},
+    {"no":6,"teks":"Saat marah, saya:","a":{"v":"V","t":"diam, terlihat dari ekspresi"},"b":{"v":"A","t":"meninggikan suara"},"c":{"v":"K","t":"pergi/membanting sesuatu"}},
+    {"no":7,"teks":"Hadiah favorit saya:","a":{"v":"V","t":"sesuatu yang indah dilihat"},"b":{"v":"A","t":"musik/konser"},"c":{"v":"K","t":"alat/pengalaman aktivitas"}},
+    {"no":8,"teks":"Saat menunggu, saya:","a":{"v":"V","t":"mengamati sekitar/scroll"},"b":{"v":"A","t":"dengar musik/telpon"},"c":{"v":"K","t":"mondar-mandir"}},
+    {"no":9,"teks":"Kata yang sering saya pakai:","a":{"v":"V","t":"'kelihatannya', 'bayangkan'"},"b":{"v":"A","t":"'kedengarannya', 'dengar dulu'"},"c":{"v":"K","t":"'rasanya', 'pegang dulu'"}},
+    {"no":10,"teks":"Merakit barang baru, saya:","a":{"v":"V","t":"baca manual bergambar"},"b":{"v":"A","t":"minta dijelaskan"},"c":{"v":"K","t":"langsung rakit, manual belakangan"}},
+    {"no":11,"teks":"Presentasi favorit saya berisi:","a":{"v":"V","t":"slide visual menarik"},"b":{"v":"A","t":"pembicara yang enak didengar"},"c":{"v":"K","t":"aktivitas interaktif"}},
+    {"no":12,"teks":"Mengingat nomor telepon, saya:","a":{"v":"V","t":"membayangkan angkanya"},"b":{"v":"A","t":"mengulang dengan suara"},"c":{"v":"K","t":"mengetiknya beberapa kali"}},
+    {"no":13,"teks":"Di waktu luang saya pilih:","a":{"v":"V","t":"film/galeri/desain"},"b":{"v":"A","t":"musik/podcast/ngobrol"},"c":{"v":"K","t":"olahraga/masak/berkebun"}},
+    {"no":14,"teks":"Saat konsentrasi, saya terganggu oleh:","a":{"v":"V","t":"gerakan/kekacauan visual"},"b":{"v":"A","t":"suara berisik"},"c":{"v":"K","t":"duduk terlalu lama"}},
+    {"no":15,"teks":"Memberi arah jalan, saya:","a":{"v":"V","t":"menggambar peta"},"b":{"v":"A","t":"menjelaskan lisan"},"c":{"v":"K","t":"mengantar langsung"}}
+  ]
+}
