@@ -52,10 +52,65 @@ export function bacaMbti(): MbtiResult | null {
   }, null);
 }
 
+/* ---------------------- hasil tes generik (sistem lain) --------------------- */
+// ID sistem mengikuti persona-db/master-index.json.
+
+export type SistemId =
+  | "hexaco"
+  | "disc"
+  | "enneagram"
+  | "temperament"
+  | "via"
+  | "mi"
+  | "vak"
+  | "mft"
+  | "hbdi"
+  | "true_colors"
+  | "blood_type"
+  | "stifin"
+  | "human_design"
+  | "iching"
+  | "graphology";
+
+const KEY_TES = "jiva:v1:tes:";
+
+export interface HasilTersimpan<T> {
+  skor: T;
+  tanggal: string; // ISO
+}
+
+export function simpanHasilSistem(id: SistemId, skor: unknown): void {
+  aman(
+    () =>
+      localStorage.setItem(
+        KEY_TES + id,
+        JSON.stringify({ skor, tanggal: new Date().toISOString() })
+      ),
+    undefined
+  );
+}
+
+export function bacaHasilSistem<T>(id: SistemId): HasilTersimpan<T> | null {
+  return aman(() => {
+    const raw = localStorage.getItem(KEY_TES + id);
+    return raw ? (JSON.parse(raw) as HasilTersimpan<T>) : null;
+  }, null);
+}
+
+export function hapusHasilSistem(id: SistemId): void {
+  aman(() => localStorage.removeItem(KEY_TES + id), undefined);
+}
+
 export function hapusSemua(): void {
   aman(() => {
     localStorage.removeItem(KEY_PROFIL);
     localStorage.removeItem(KEY_BIGFIVE);
     localStorage.removeItem(KEY_MBTI);
+    const kunci: string[] = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const k = localStorage.key(i);
+      if (k && k.startsWith(KEY_TES)) kunci.push(k);
+    }
+    kunci.forEach((k) => localStorage.removeItem(k));
   }, undefined);
 }
