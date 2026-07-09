@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import TierBadge from "@/components/TierBadge";
+import PenjelasanMetode from "@/components/PenjelasanMetode";
+import { STIFIN_DOK } from "@/data/dok/stifin";
 import {
   STIFIN_CROSSCHECK,
   STIFIN_INFO,
@@ -165,6 +167,8 @@ export default function TesStifin() {
           Semua Tes
         </Link>
       </div>
+
+      <PenjelasanMetode nama="STIFIn" data={STIFIN_DOK} />
     </section>
   );
 }
