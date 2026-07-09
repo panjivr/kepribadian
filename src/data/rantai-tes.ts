@@ -18,6 +18,7 @@ export const RANTAI_TES: LangkahTes[] = [
   { id: "enneagram", nama: "Enneagram", href: "/tes/enneagram" },
   { id: "temperament", nama: "4 Temperamen", href: "/tes/temperamen" },
   { id: "via", nama: "VIA Kekuatan Karakter", href: "/tes/kekuatan-karakter" },
+  { id: "peta_bakat", nama: "Peta Bakat Djiva", href: "/tes/peta-bakat" },
   { id: "mi", nama: "Kecerdasan Majemuk", href: "/tes/kecerdasan-majemuk" },
   { id: "vak", nama: "Gaya Belajar VAK", href: "/tes/gaya-belajar" },
   { id: "mft", nama: "Kompas Moral", href: "/tes/kompas-moral" },

@@ -74,8 +74,16 @@ export default function TesCliftonStrengths() {
             gallup.com/cliftonstrengths
           </a>
           . Halaman ini hanya membantumu mencatat & memahami tema yang sudah
-          kamu miliki — Djiva tidak menyelenggarakan tesnya. Ingin
-          alternatif gratis & berbasis riset terbuka? Coba{" "}
+          kamu miliki — Djiva tidak menyelenggarakan tesnya. Belum punya
+          hasilnya dan ingin mengerjakan asesmen kekuatan{" "}
+          <strong className="text-ink">gratis sekarang juga</strong>? Coba{" "}
+          <Link
+            href="/tes/peta-bakat"
+            className="text-aurora underline underline-offset-4"
+          >
+            Peta Bakat Djiva
+          </Link>{" "}
+          (alternatif original & bebas) atau{" "}
           <Link
             href="/tes/kekuatan-karakter"
             className="text-aurora underline underline-offset-4"

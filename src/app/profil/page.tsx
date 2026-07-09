@@ -50,6 +50,7 @@ import { ENNEA_TIPE } from "@/data/tes/enneagram";
 import { TEMPERAMEN_INFO, type TemperamenDim } from "@/data/tes/temperamen";
 import { MORAL_INFO, MORAL_INSIGHT, type MoralDim } from "@/data/tes/moral";
 import { HBDI_INFO, type HbdiDim } from "@/data/tes/hbdi";
+import { BAKAT_DOMAIN, BAKAT_DOMAIN_URUTAN, TEMA_INFO as BAKAT_TEMA_INFO } from "@/data/tes/peta-bakat";
 
 const URUTAN_DIM: BigFiveDim[] = ["O", "C", "E", "A", "N"];
 const VIA_INFO = Object.fromEntries(VIA_KEKUATAN.map((k) => [k.id, k]));
@@ -117,6 +118,7 @@ export default function ProfilTerpadu() {
   const [bigFive, setBigFive] = useState<BigFiveResult | null>(null);
   const [mbti, setMbti] = useState<MbtiResult | null>(null);
   const [via, setVia] = useState<SkorDimensi | null>(null);
+  const [petaBakat, setPetaBakat] = useState<SkorDimensi | null>(null);
   const [mi, setMi] = useState<SkorDimensi | null>(null);
   const [disc, setDisc] = useState<SkorDimensi | null>(null);
   const [ennea, setEnnea] = useState<SkorDimensi | null>(null);
@@ -130,6 +132,7 @@ export default function ProfilTerpadu() {
     setBigFive(bacaBigFive());
     setMbti(bacaMbti());
     setVia(bacaHasilSistem<SkorDimensi>("via")?.skor ?? null);
+    setPetaBakat(bacaHasilSistem<SkorDimensi>("peta_bakat")?.skor ?? null);
     setMi(bacaHasilSistem<SkorDimensi>("mi")?.skor ?? null);
     setDisc(bacaHasilSistem<SkorDimensi>("disc")?.skor ?? null);
     setEnnea(bacaHasilSistem<SkorDimensi>("enneagram")?.skor ?? null);
@@ -231,6 +234,17 @@ export default function ProfilTerpadu() {
 
   const viaTop5 = via
     ? via.urut.slice(0, 5).map((u) => ({ ...u, info: VIA_INFO[u.dim] }))
+    : null;
+  const bakatTop = petaBakat
+    ? petaBakat.urut.slice(0, 7).map((u) => ({ ...u, info: BAKAT_TEMA_INFO[u.dim] }))
+    : null;
+  const bakatDomainDominan = bakatTop
+    ? [...BAKAT_DOMAIN_URUTAN]
+        .map((d) => ({
+          d,
+          n: bakatTop.filter((u) => u.info?.domain === d).length,
+        }))
+        .sort((a, b) => b.n - a.n)[0].d
     : null;
   const miTop3 = mi
     ? (mi.urut.slice(0, 3) as { dim: MiDim; persen: number }[])
@@ -416,6 +430,44 @@ export default function ProfilTerpadu() {
                   </div>
                 ) : (
                   <BelumTes nama="Kecerdasan Majemuk" route="/tes/kecerdasan-majemuk" />
+                )}
+              </div>
+              <div className="md:col-span-2">
+                <p className="kicker !text-[10px] mb-3">
+                  Bakat Utama (Peta Bakat Djiva)
+                </p>
+                {bakatTop ? (
+                  <>
+                    <div className="flex flex-wrap gap-2">
+                      {bakatTop.map((u, i) => (
+                        <span
+                          key={u.dim}
+                          className="rounded-full border px-3 py-1.5 text-xs font-medium text-ink-2"
+                          style={{
+                            borderColor: `${BAKAT_DOMAIN[u.info!.domain].warna}66`,
+                            background: `${BAKAT_DOMAIN[u.info!.domain].warna}14`,
+                          }}
+                        >
+                          <span className="font-display mr-1 font-bold text-ink-3">
+                            {i + 1}.
+                          </span>
+                          {u.info?.nama}
+                        </span>
+                      ))}
+                    </div>
+                    {bakatDomainDominan && (
+                      <p className="mt-3 text-sm leading-relaxed text-ink-2">
+                        Gaya kontribusi dominanmu:{" "}
+                        <strong className="text-ink">
+                          {BAKAT_DOMAIN[bakatDomainDominan].nama} —{" "}
+                          {BAKAT_DOMAIN[bakatDomainDominan].julukan}
+                        </strong>
+                        .
+                      </p>
+                    )}
+                  </>
+                ) : (
+                  <BelumTes nama="Peta Bakat Djiva" route="/tes/peta-bakat" />
                 )}
               </div>
             </div>

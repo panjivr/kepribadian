@@ -16,6 +16,7 @@ import { indikasiDisc, indikasiEnneagram, rekomendasiKarier, actionPlan, eysenck
 import { skorLikert, skorPilihan } from "../src/lib/skoring";
 import { hitungBazi } from "../src/lib/bazi";
 import { HEXACO_ITEMS } from "../src/data/tes/hexaco";
+import { BAKAT_ITEMS, BAKAT_TEMA } from "../src/data/tes/peta-bakat";
 import { DISC_ITEMS } from "../src/data/tes/disc";
 import { ENNEA_ITEMS, hitungWing } from "../src/data/tes/enneagram";
 import { TEMPERAMEN_ITEMS } from "../src/data/tes/temperamen";
@@ -203,6 +204,15 @@ uji("MFT 18 item / 6 fondasi", [MORAL_ITEMS.length, new Set(MORAL_ITEMS.map((i) 
 uji("HBDI 16 item / 4 kuadran", [HBDI_ITEMS.length, new Set(HBDI_ITEMS.map((i) => i.dim)).size], [16, 4]);
 uji("Warna 12 item / 4 warna", [WARNA_ITEMS.length, new Set(WARNA_ITEMS.map((i) => i.dim)).size], [12, 4]);
 uji("VAK 15 item", VAK_ITEMS.length, 15);
+uji("Peta Bakat 48 item / 24 tema", [BAKAT_ITEMS.length, new Set(BAKAT_ITEMS.map((i) => i.dim)).size], [48, 24]);
+uji("Peta Bakat: setiap item punya analogi (bantuan)", BAKAT_ITEMS.every((i) => i.bantuan.length > 10), true);
+uji("Peta Bakat: 24 tema, 6 per domain", [BAKAT_TEMA.length, ...(["eksekusi", "pengaruh", "relasi", "strategis"] as const).map((d) => BAKAT_TEMA.filter((t) => t.domain === d).length)], [24, 6, 6, 6, 6]);
+{
+  const semua5: Record<number, number> = {};
+  BAKAT_ITEMS.forEach((it) => (semua5[it.no] = 5));
+  const r = skorLikert(BAKAT_ITEMS, semua5);
+  uji("Peta Bakat semua-5 → 100% & 24 tema terurut", [r.urut[0].persen, r.urut.length], [100, 24]);
+}
 
 console.log("— Enneagram wing —");
 {
