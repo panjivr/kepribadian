@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import TierBadge from "@/components/TierBadge";
+import PenjelasanMetode from "@/components/PenjelasanMetode";
+import { HUMAN_DESIGN_DOK } from "@/data/dok/human-design";
 import {
   HD_AUTHORITY,
   HD_INFO,
@@ -112,6 +114,8 @@ export default function TesHumanDesign() {
           Semua Tes
         </Link>
       </div>
+
+      <PenjelasanMetode nama="Human Design" data={HUMAN_DESIGN_DOK} />
     </section>
   );
 }

@@ -6,6 +6,8 @@ import { useRouter } from "next/navigation";
 import Reveal from "@/components/Reveal";
 import Tilt from "@/components/Tilt";
 import TierBadge from "@/components/TierBadge";
+import PenjelasanMetode from "@/components/PenjelasanMetode";
+import { WETON_DOK } from "@/data/dok/weton";
 import {
   hitungKua,
   hitungNumerologi,
@@ -460,6 +462,8 @@ export default function Hasil() {
           </div>
         </div>
       </Reveal>
+
+      <PenjelasanMetode nama="Weton Jawa" data={WETON_DOK} />
     </section>
   );
 }
