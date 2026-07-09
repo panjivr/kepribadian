@@ -71,7 +71,9 @@ export type SistemId =
   | "human_design"
   | "iching"
   | "graphology"
-  | "clifton";
+  | "clifton"
+  | "eq"
+  | "iq";
 
 const KEY_TES = "jiva:v1:tes:";
 

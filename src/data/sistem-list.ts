@@ -35,6 +35,7 @@ export const SEMUA_SISTEM: SistemInfo[] = [
   { nama: "Gaya Belajar VAK", tier: "semi_scientific", ringkas: "Visual, Auditori, Kinestetik", jenis: "tes", route: "/tes/gaya-belajar", durasi: "±3 menit · 15 pilihan", cek: "vak", tersedia: true },
   { nama: "Dominansi Gaya Berpikir", tier: "semi_scientific", ringkas: "4 kuadran gaya berpikir", jenis: "tes", route: "/tes/gaya-berpikir", durasi: "±2 menit · 16 pernyataan", cek: "hbdi", tersedia: true },
   { nama: "True Colors", tier: "semi_scientific", ringkas: "4 warna kepribadian", jenis: "tes", route: "/tes/warna", durasi: "±2 menit · 12 pernyataan", cek: "true_colors", tersedia: true },
+  { nama: "Tes EQ (Kecerdasan Emosional)", tier: "semi_scientific", ringkas: "5 domain Goleman + langkah praktis", jenis: "tes", route: "/tes/eq", durasi: "±4 menit · 25 pernyataan", cek: "eq", tersedia: true },
   { nama: "Eysenck PEN", tier: "scientific", ringkas: "Psychoticism–Extraversion–Neuroticism (dari Big Five)", jenis: "instan", route: "/profil", tersedia: true },
   { nama: "Zodiak Barat", tier: "cultural_spiritual", ringkas: "Sun sign, elemen & modalitas", jenis: "instan", route: "/hasil", tersedia: true },
   { nama: "Shio", tier: "cultural_spiritual", ringkas: "Zodiak Tiongkok + elemen, akurat tanggal Imlek", jenis: "instan", route: "/hasil", tersedia: true },

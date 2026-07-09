@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import TierBadge from "@/components/TierBadge";
+import LanjutTes from "@/components/LanjutTes";
 import {
   DIKOTOMI_INFO,
   FUNGSI_KOGNITIF,
@@ -135,6 +136,7 @@ function HasilView({ hasil }: { hasil: MbtiResult }) {
           Semua Tes
         </Link>
       </div>
+      <LanjutTes current="mbti" />
     </div>
   );
 }

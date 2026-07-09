@@ -10,6 +10,7 @@ import {
 } from "react";
 import Reveal from "@/components/Reveal";
 import TierBadge from "@/components/TierBadge";
+import LanjutTes from "@/components/LanjutTes";
 import {
   bacaHasilSistem,
   simpanHasilSistem,
@@ -22,6 +23,8 @@ export interface ItemTes {
   teks: string;
   /** label kecil di atas progress (mis. nama dikotomi/fondasi) */
   keterangan?: string;
+  /** analogi/contoh singkat agar tidak ada salah tafsir */
+  bantuan?: string;
   /** hanya untuk mode "pilihan" */
   pilihan?: { kunci: string; teks: string }[];
 }
@@ -165,6 +168,11 @@ export default function HalamanTes<TSkor>({
               <p className="text-center font-display text-xl font-bold leading-snug tracking-tight md:text-2xl">
                 “{item.teks}”
               </p>
+              {item.bantuan && (
+                <p className="mx-auto mt-4 max-w-lg rounded-xl border border-white/8 bg-white/[0.03] px-4 py-2.5 text-center text-xs leading-relaxed text-ink-3">
+                  💡 {item.bantuan}
+                </p>
+              )}
               <div className="mt-10">
                 <div className="flex items-end justify-between gap-2 md:gap-3">
                   {[1, 2, 3, 4, 5].map((nilai) => {
@@ -198,6 +206,11 @@ export default function HalamanTes<TSkor>({
               <p className="text-center font-display text-lg font-bold leading-snug tracking-tight md:text-xl">
                 {item.teks || pertanyaanPilihan}
               </p>
+              {item.bantuan && (
+                <p className="mx-auto max-w-lg rounded-xl border border-white/8 bg-white/[0.03] px-4 py-2.5 text-center text-xs leading-relaxed text-ink-3">
+                  💡 {item.bantuan}
+                </p>
+              )}
               {(item.pilihan ?? []).map((p) => {
                 const dipilih = jawaban[item.no] === p.kunci;
                 return (
@@ -244,6 +257,7 @@ export default function HalamanTes<TSkor>({
           <div className="fade-in-up">
             <Hasil skor={skor} />
           </div>
+          <LanjutTes current={sistemId} />
           <p className="mt-8 text-center">
             <button
               onClick={mulaiUlang}

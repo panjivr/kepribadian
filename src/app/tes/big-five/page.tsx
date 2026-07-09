@@ -5,6 +5,7 @@ import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import TierBadge from "@/components/TierBadge";
 import RadarChart from "@/components/RadarChart";
+import LanjutTes from "@/components/LanjutTes";
 import {
   BIG_FIVE_ITEMS,
   DIMENSI_INFO,
@@ -144,6 +145,7 @@ function HasilView({ hasil }: { hasil: BigFiveResult }) {
           Lanjut Tes 16 Tipe
         </Link>
       </div>
+      <LanjutTes current="big_five" />
     </div>
   );
 }
