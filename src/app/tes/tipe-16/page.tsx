@@ -237,6 +237,11 @@ export default function TesTipe16() {
             <p className="text-center text-sm text-ink-3">
               Mana yang lebih menggambarkan dirimu?
             </p>
+            {item.bantuan && (
+              <p className="mx-auto max-w-md text-center text-sm leading-relaxed text-ink-3">
+                💡 {item.bantuan}
+              </p>
+            )}
             {(["a", "b"] as const).map((sisi) => {
               const dipilih = jawaban[item.no] === sisi;
               return (

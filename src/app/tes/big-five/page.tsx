@@ -246,6 +246,11 @@ export default function TesBigFive() {
             <p className="text-center font-display text-xl font-bold leading-snug tracking-tight md:text-2xl">
               “{item.teks}”
             </p>
+            {item.bantuan && (
+              <p className="mx-auto mt-4 max-w-md text-center text-sm leading-relaxed text-ink-3">
+                💡 {item.bantuan}
+              </p>
+            )}
 
             <div className="mt-10">
               <div className="flex items-end justify-between gap-2 md:gap-3">

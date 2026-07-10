@@ -10,6 +10,7 @@ export type Dikotomi = "E/I" | "S/N" | "T/F" | "J/P";
 export interface MbtiItem {
   no: number;
   dik: Dikotomi;
+  bantuan?: string;
   a: { teks: string; nilai: string };
   b: { teks: string; nilai: string };
 }
@@ -22,34 +23,34 @@ export const DIKOTOMI_INFO: Record<Dikotomi, { nama: string; inti: string }> = {
 };
 
 export const MBTI_ITEMS: MbtiItem[] = [
-  { no: 1, dik: "E/I", a: { teks: "Setelah acara ramai, saya merasa terisi energi", nilai: "E" }, b: { teks: "Setelah acara ramai, saya butuh waktu sendiri untuk mengisi energi", nilai: "I" } },
-  { no: 2, dik: "E/I", a: { teks: "Saya berpikir sambil bicara", nilai: "E" }, b: { teks: "Saya berpikir dulu baru bicara", nilai: "I" } },
-  { no: 3, dik: "E/I", a: { teks: "Lingkaran pertemanan saya luas", nilai: "E" }, b: { teks: "Lingkaran pertemanan saya kecil tapi dalam", nilai: "I" } },
-  { no: 4, dik: "E/I", a: { teks: "Diam terlalu lama membuat saya gelisah", nilai: "E" }, b: { teks: "Terlalu banyak interaksi membuat saya lelah", nilai: "I" } },
-  { no: 5, dik: "E/I", a: { teks: "Saya mudah memulai obrolan dengan orang asing", nilai: "E" }, b: { teks: "Saya menunggu orang lain memulai", nilai: "I" } },
-  { no: 6, dik: "E/I", a: { teks: "Kerja kelompok membuat saya produktif", nilai: "E" }, b: { teks: "Kerja sendiri membuat saya produktif", nilai: "I" } },
-  { no: 7, dik: "E/I", a: { teks: "Akhir pekan ideal: keluar bersama banyak orang", nilai: "E" }, b: { teks: "Akhir pekan ideal: di rumah dengan hobi/orang terdekat", nilai: "I" } },
-  { no: 8, dik: "S/N", a: { teks: "Saya fokus pada apa yang nyata dan terjadi sekarang", nilai: "S" }, b: { teks: "Saya fokus pada kemungkinan dan masa depan", nilai: "N" } },
-  { no: 9, dik: "S/N", a: { teks: "Saya percaya pengalaman langsung", nilai: "S" }, b: { teks: "Saya percaya firasat dan pola", nilai: "N" } },
-  { no: 10, dik: "S/N", a: { teks: "Instruksi langkah-demi-langkah membantu saya", nilai: "S" }, b: { teks: "Saya lebih suka gambaran besar lalu improvisasi", nilai: "N" } },
-  { no: 11, dik: "S/N", a: { teks: "Saya orang yang praktis", nilai: "S" }, b: { teks: "Saya orang yang imajinatif", nilai: "N" } },
-  { no: 12, dik: "S/N", a: { teks: "Detail dulu, baru kesimpulan", nilai: "S" }, b: { teks: "Kesimpulan dulu, detail menyusul", nilai: "N" } },
-  { no: 13, dik: "S/N", a: { teks: "Saya menghargai tradisi dan cara yang sudah terbukti", nilai: "S" }, b: { teks: "Saya suka mencoba cara yang belum pernah ada", nilai: "N" } },
-  { no: 14, dik: "S/N", a: { teks: "Percakapan favorit: hal konkret (kejadian, orang, tempat)", nilai: "S" }, b: { teks: "Percakapan favorit: ide, teori, makna", nilai: "N" } },
-  { no: 15, dik: "T/F", a: { teks: "Keputusan terbaik datang dari analisis objektif", nilai: "T" }, b: { teks: "Keputusan terbaik mempertimbangkan perasaan semua pihak", nilai: "F" } },
-  { no: 16, dik: "T/F", a: { teks: "Saya lebih menghargai kebenaran daripada kenyamanan", nilai: "T" }, b: { teks: "Saya lebih menghargai harmoni daripada menang debat", nilai: "F" } },
-  { no: 17, dik: "T/F", a: { teks: "Kritik saya sampaikan langsung apa adanya", nilai: "T" }, b: { teks: "Kritik saya bungkus agar tidak menyakiti", nilai: "F" } },
-  { no: 18, dik: "T/F", a: { teks: "Saat teman curhat, saya beri solusi", nilai: "T" }, b: { teks: "Saat teman curhat, saya dengarkan dan validasi perasaannya", nilai: "F" } },
-  { no: 19, dik: "T/F", a: { teks: "Adil = semua diperlakukan sama sesuai aturan", nilai: "T" }, b: { teks: "Adil = mempertimbangkan situasi tiap orang", nilai: "F" } },
-  { no: 20, dik: "T/F", a: { teks: "Saya dinilai orang sebagai tegas dan logis", nilai: "T" }, b: { teks: "Saya dinilai orang sebagai hangat dan pengertian", nilai: "F" } },
-  { no: 21, dik: "T/F", a: { teks: "Konflik itu wajar demi hasil terbaik", nilai: "T" }, b: { teks: "Konflik sebaiknya dihindari demi hubungan", nilai: "F" } },
-  { no: 22, dik: "J/P", a: { teks: "Saya suka rencana yang jelas dan pasti", nilai: "J" }, b: { teks: "Saya suka opsi tetap terbuka", nilai: "P" } },
-  { no: 23, dik: "J/P", a: { teks: "Deadline saya selesaikan jauh sebelum waktunya", nilai: "J" }, b: { teks: "Saya bekerja paling baik mendekati deadline", nilai: "P" } },
-  { no: 24, dik: "J/P", a: { teks: "Meja/ruang kerja saya rapi terorganisir", nilai: "J" }, b: { teks: "Meja saya berantakan tapi saya tahu letak semuanya", nilai: "P" } },
-  { no: 25, dik: "J/P", a: { teks: "Perubahan rencana mendadak mengganggu saya", nilai: "J" }, b: { teks: "Perubahan rencana mendadak terasa seru", nilai: "P" } },
-  { no: 26, dik: "J/P", a: { teks: "Liburan saya rencanakan detail (itinerary)", nilai: "J" }, b: { teks: "Liburan saya jalani spontan", nilai: "P" } },
-  { no: 27, dik: "J/P", a: { teks: "Menyelesaikan tugas memberi kepuasan terbesar", nilai: "J" }, b: { teks: "Memulai hal baru memberi kepuasan terbesar", nilai: "P" } },
-  { no: 28, dik: "J/P", a: { teks: "Keputusan cepat lebih baik daripada menggantung", nilai: "J" }, b: { teks: "Menunda keputusan = mengumpulkan info lebih banyak", nilai: "P" } },
+  { no: 1, dik: "E/I", bantuan: "Ini soal dari mana energimu terisi ulang: dari bersama orang (A), atau dari waktu sendiri (B).", a: { teks: "Setelah acara ramai, saya merasa terisi energi", nilai: "E" }, b: { teks: "Setelah acara ramai, saya butuh waktu sendiri untuk mengisi energi", nilai: "I" } },
+  { no: 2, dik: "E/I", bantuan: "Maksudnya: kata-kata keluar sambil kamu memikirkannya (A), atau kamu susun dulu di kepala baru bicara (B).", a: { teks: "Saya berpikir sambil bicara", nilai: "E" }, b: { teks: "Saya berpikir dulu baru bicara", nilai: "I" } },
+  { no: 3, dik: "E/I", bantuan: "Soal gaya pertemanan: banyak kenalan (A), atau sedikit tapi mendalam (B).", a: { teks: "Lingkaran pertemanan saya luas", nilai: "E" }, b: { teks: "Lingkaran pertemanan saya kecil tapi dalam", nilai: "I" } },
+  { no: 4, dik: "E/I", bantuan: "Mana yang lebih cepat bikin lelah: terlalu sepi (A), atau terlalu banyak interaksi (B).", a: { teks: "Diam terlalu lama membuat saya gelisah", nilai: "E" }, b: { teks: "Terlalu banyak interaksi membuat saya lelah", nilai: "I" } },
+  { no: 5, dik: "E/I", bantuan: "Contoh di antrean: kamu yang menyapa duluan (A), atau menunggu disapa (B).", a: { teks: "Saya mudah memulai obrolan dengan orang asing", nilai: "E" }, b: { teks: "Saya menunggu orang lain memulai", nilai: "I" } },
+  { no: 6, dik: "E/I", bantuan: "Kamu paling produktif saat kerja bareng orang (A), atau kerja sendiri (B).", a: { teks: "Kerja kelompok membuat saya produktif", nilai: "E" }, b: { teks: "Kerja sendiri membuat saya produktif", nilai: "I" } },
+  { no: 7, dik: "E/I", bantuan: "Akhir pekan idealmu: keluar bareng banyak orang (A), atau tenang di rumah (B).", a: { teks: "Akhir pekan ideal: keluar bersama banyak orang", nilai: "E" }, b: { teks: "Akhir pekan ideal: di rumah dengan hobi/orang terdekat", nilai: "I" } },
+  { no: 8, dik: "S/N", bantuan: "Perhatianmu ke fakta yang ada sekarang (A), atau ke kemungkinan masa depan (B).", a: { teks: "Saya fokus pada apa yang nyata dan terjadi sekarang", nilai: "S" }, b: { teks: "Saya fokus pada kemungkinan dan masa depan", nilai: "N" } },
+  { no: 9, dik: "S/N", bantuan: "Kamu lebih percaya pengalaman nyata & bukti (A), atau firasat & pola (B).", a: { teks: "Saya percaya pengalaman langsung", nilai: "S" }, b: { teks: "Saya percaya firasat dan pola", nilai: "N" } },
+  { no: 10, dik: "S/N", bantuan: "Cara belajar: panduan langkah demi langkah (A), atau gambaran besar lalu improvisasi (B).", a: { teks: "Instruksi langkah-demi-langkah membantu saya", nilai: "S" }, b: { teks: "Saya lebih suka gambaran besar lalu improvisasi", nilai: "N" } },
+  { no: 11, dik: "S/N", bantuan: "Kamu menganggap dirimu lebih membumi/praktis (A), atau penuh imajinasi (B).", a: { teks: "Saya orang yang praktis", nilai: "S" }, b: { teks: "Saya orang yang imajinatif", nilai: "N" } },
+  { no: 12, dik: "S/N", bantuan: "Cara memahami: kumpulkan detail dulu (A), atau tangkap kesimpulan besar dulu (B).", a: { teks: "Detail dulu, baru kesimpulan", nilai: "S" }, b: { teks: "Kesimpulan dulu, detail menyusul", nilai: "N" } },
+  { no: 13, dik: "S/N", bantuan: "Kamu cenderung memakai cara yang sudah terbukti (A), atau senang mencoba cara baru (B).", a: { teks: "Saya menghargai tradisi dan cara yang sudah terbukti", nilai: "S" }, b: { teks: "Saya suka mencoba cara yang belum pernah ada", nilai: "N" } },
+  { no: 14, dik: "S/N", bantuan: "Obrolan favoritmu soal hal konkret (A), atau soal ide & makna (B).", a: { teks: "Percakapan favorit: hal konkret (kejadian, orang, tempat)", nilai: "S" }, b: { teks: "Percakapan favorit: ide, teori, makna", nilai: "N" } },
+  { no: 15, dik: "T/F", bantuan: "Saat memutuskan, kamu lebih condong ke logika objektif (A), atau ke perasaan semua pihak (B).", a: { teks: "Keputusan terbaik datang dari analisis objektif", nilai: "T" }, b: { teks: "Keputusan terbaik mempertimbangkan perasaan semua pihak", nilai: "F" } },
+  { no: 16, dik: "T/F", bantuan: "Mana yang lebih kamu utamakan: kebenaran walau pahit (A), atau harmoni & kenyamanan (B).", a: { teks: "Saya lebih menghargai kebenaran daripada kenyamanan", nilai: "T" }, b: { teks: "Saya lebih menghargai harmoni daripada menang debat", nilai: "F" } },
+  { no: 17, dik: "T/F", bantuan: "Cara mengkritik: langsung apa adanya (A), atau dibungkus halus agar tak menyakiti (B).", a: { teks: "Kritik saya sampaikan langsung apa adanya", nilai: "T" }, b: { teks: "Kritik saya bungkus agar tidak menyakiti", nilai: "F" } },
+  { no: 18, dik: "T/F", bantuan: "Saat teman curhat, refleksmu memberi solusi (A), atau mendengarkan & memvalidasi perasaan (B).", a: { teks: "Saat teman curhat, saya beri solusi", nilai: "T" }, b: { teks: "Saat teman curhat, saya dengarkan dan validasi perasaannya", nilai: "F" } },
+  { no: 19, dik: "T/F", bantuan: "Bagimu adil = aturan sama untuk semua (A), atau melihat situasi tiap orang (B).", a: { teks: "Adil = semua diperlakukan sama sesuai aturan", nilai: "T" }, b: { teks: "Adil = mempertimbangkan situasi tiap orang", nilai: "F" } },
+  { no: 20, dik: "T/F", bantuan: "Orang menilaimu lebih sebagai tegas & logis (A), atau hangat & pengertian (B).", a: { teks: "Saya dinilai orang sebagai tegas dan logis", nilai: "T" }, b: { teks: "Saya dinilai orang sebagai hangat dan pengertian", nilai: "F" } },
+  { no: 21, dik: "T/F", bantuan: "Soal konflik: wajar demi hasil terbaik (A), atau sebaiknya dihindari demi hubungan (B).", a: { teks: "Konflik itu wajar demi hasil terbaik", nilai: "T" }, b: { teks: "Konflik sebaiknya dihindari demi hubungan", nilai: "F" } },
+  { no: 22, dik: "J/P", bantuan: "Kamu lebih nyaman dengan rencana yang pasti (A), atau opsi tetap terbuka (B).", a: { teks: "Saya suka rencana yang jelas dan pasti", nilai: "J" }, b: { teks: "Saya suka opsi tetap terbuka", nilai: "P" } },
+  { no: 23, dik: "J/P", bantuan: "Gaya deadline: diselesaikan jauh hari (A), atau ngebut mendekati batas waktu (B).", a: { teks: "Deadline saya selesaikan jauh sebelum waktunya", nilai: "J" }, b: { teks: "Saya bekerja paling baik mendekati deadline", nilai: "P" } },
+  { no: 24, dik: "J/P", bantuan: "Meja kerjamu rapi terorganisir (A), atau berantakan tapi kamu hafal letaknya (B).", a: { teks: "Meja/ruang kerja saya rapi terorganisir", nilai: "J" }, b: { teks: "Meja saya berantakan tapi saya tahu letak semuanya", nilai: "P" } },
+  { no: 25, dik: "J/P", bantuan: "Perubahan rencana mendadak: mengganggumu (A), atau justru terasa seru (B).", a: { teks: "Perubahan rencana mendadak mengganggu saya", nilai: "J" }, b: { teks: "Perubahan rencana mendadak terasa seru", nilai: "P" } },
+  { no: 26, dik: "J/P", bantuan: "Gaya liburan: direncanakan detail (A), atau dijalani spontan (B).", a: { teks: "Liburan saya rencanakan detail (itinerary)", nilai: "J" }, b: { teks: "Liburan saya jalani spontan", nilai: "P" } },
+  { no: 27, dik: "J/P", bantuan: "Kepuasan terbesarmu dari menyelesaikan sesuatu (A), atau dari memulai hal baru (B).", a: { teks: "Menyelesaikan tugas memberi kepuasan terbesar", nilai: "J" }, b: { teks: "Memulai hal baru memberi kepuasan terbesar", nilai: "P" } },
+  { no: 28, dik: "J/P", bantuan: "Kamu lebih suka memutuskan cepat agar tuntas (A), atau menunda demi mengumpulkan info (B).", a: { teks: "Keputusan cepat lebih baik daripada menggantung", nilai: "J" }, b: { teks: "Menunda keputusan = mengumpulkan info lebih banyak", nilai: "P" } },
 ];
 
 export interface TipeInfo {
