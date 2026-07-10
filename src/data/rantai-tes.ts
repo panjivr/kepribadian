@@ -27,6 +27,8 @@ export const RANTAI_TES: LangkahTes[] = [
   { id: "eq", nama: "Tes EQ (Kecerdasan Emosional)", href: "/tes/eq" },
   { id: "iq", nama: "Tes Estimasi Kognitif (IQ)", href: "/tes/iq" },
   { id: "riasec", nama: "Minat Karier & Jurusan (RIASEC)", href: "/tes/minat-karier" },
+  { id: "attachment", nama: "Gaya Kelekatan (Attachment)", href: "/tes/kelekatan" },
+  { id: "love_language", nama: "Bahasa Kasih (Love Languages)", href: "/tes/bahasa-kasih" },
 ];
 
 export function langkahBerikutnya(id: string): LangkahTes | null {

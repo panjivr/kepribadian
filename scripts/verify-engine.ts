@@ -29,6 +29,8 @@ import { VAK_ITEMS } from "../src/data/tes/gayaBelajar";
 import { hexDariGaris, HEXAGRAM, type Garis } from "../src/data/tes/iching";
 import { SEMUA_IQ_ITEMS, susunSoalAcak, jumlahBankPerDomain } from "../src/data/tes/iq-bank";
 import { RIASEC_ITEMS, kodeHolland } from "../src/data/tes/riasec";
+import { ATTACHMENT_ITEMS, klasifikasiGaya } from "../src/data/tes/attachment";
+import { LOVE_ITEMS } from "../src/data/tes/love-language";
 import { RUMPUN_JURUSAN, rumpunTerbaik, skorRumpun, provinsiKampus, PROVINSI_KURASI, linkKampusLengkap } from "../src/data/jurusan";
 
 let lulus = 0;
@@ -328,6 +330,20 @@ console.log("— RIASEC & pemetaan jurusan —");
   uji("PROVINSI_KURASI memuat Jawa Timur", PROVINSI_KURASI.includes("Jawa Timur"), true);
   uji("tiap kampus punya provinsi terpetakan (bukan 'Lainnya')", RUMPUN_JURUSAN.every((r) => r.kampus.every((k) => provinsiKampus(k) !== "Lainnya")), true);
   uji("link kampus lengkap valid (google)", linkKampusLengkap("Teknik", "Jawa Timur").startsWith("https://www.google.com/search?q="), true);
+}
+
+console.log("— Kelekatan & Bahasa Kasih —");
+{
+  uji("Attachment 16 item / 2 dimensi", [ATTACHMENT_ITEMS.length, new Set(ATTACHMENT_ITEMS.map((i) => i.dim)).size], [16, 2]);
+  uji("Attachment 8 per dimensi", (["cemas", "hindar"] as const).map((d) => ATTACHMENT_ITEMS.filter((i) => i.dim === d).length), [8, 8]);
+  uji("setiap butir attachment ada analogi", ATTACHMENT_ITEMS.every((i) => i.bantuan.length > 10), true);
+  uji("klasifikasi cemas↓hindar↓ → aman", klasifikasiGaya(30, 30), "aman");
+  uji("klasifikasi cemas↑hindar↓ → cemas", klasifikasiGaya(70, 30), "cemas");
+  uji("klasifikasi cemas↓hindar↑ → menghindar", klasifikasiGaya(30, 70), "menghindar");
+  uji("klasifikasi cemas↑hindar↑ → cemas-menghindar", klasifikasiGaya(70, 70), "cemas_menghindar");
+  uji("Love Language 20 item / 5 bahasa", [LOVE_ITEMS.length, new Set(LOVE_ITEMS.map((i) => i.dim)).size], [20, 5]);
+  uji("Love Language 4 per bahasa", (["kata", "waktu", "hadiah", "layan", "sentuh"] as const).map((d) => LOVE_ITEMS.filter((i) => i.dim === d).length), [4, 4, 4, 4, 4]);
+  uji("setiap butir love language ada analogi", LOVE_ITEMS.every((i) => i.bantuan.length > 10), true);
 }
 
 console.log(`\n${lulus} lulus, ${gagal} gagal`);

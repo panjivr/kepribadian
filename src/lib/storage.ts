@@ -74,6 +74,8 @@ export type SistemId =
   | "clifton"
   | "peta_bakat"
   | "riasec"
+  | "attachment"
+  | "love_language"
   | "eq"
   | "iq";
 
