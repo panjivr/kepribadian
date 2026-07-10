@@ -27,6 +27,10 @@ export const RANTAI_TES: LangkahTes[] = [
   { id: "eq", nama: "Tes EQ (Kecerdasan Emosional)", href: "/tes/eq" },
   { id: "iq", nama: "Tes Estimasi Kognitif (IQ)", href: "/tes/iq" },
   { id: "riasec", nama: "Minat Karier & Jurusan (RIASEC)", href: "/tes/minat-karier" },
+  { id: "grit", nama: "Grit (Ketabahan)", href: "/tes/grit" },
+  { id: "growth_mindset", nama: "Pola Pikir Berkembang", href: "/tes/pola-pikir" },
+  { id: "conflict_style", nama: "Gaya Menghadapi Konflik", href: "/tes/gaya-konflik" },
+  { id: "values", nama: "Nilai Hidup (Schwartz)", href: "/tes/nilai" },
   { id: "attachment", nama: "Gaya Kelekatan (Attachment)", href: "/tes/kelekatan" },
   { id: "love_language", nama: "Bahasa Kasih (Love Languages)", href: "/tes/bahasa-kasih" },
 ];

@@ -76,6 +76,10 @@ export type SistemId =
   | "riasec"
   | "attachment"
   | "love_language"
+  | "grit"
+  | "growth_mindset"
+  | "conflict_style"
+  | "values"
   | "eq"
   | "iq";
 
