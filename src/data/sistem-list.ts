@@ -28,7 +28,7 @@ export const SEMUA_SISTEM: SistemInfo[] = [
   { nama: "VIA Kekuatan Karakter", tier: "scientific", ringkas: "Peringkat 24 kekuatan, 5 signature strengths", jenis: "tes", route: "/tes/kekuatan-karakter", durasi: "±6 menit · 48 pernyataan", cek: "via", tersedia: true },
   { nama: "Peta Bakat Djiva", tier: "semi_scientific", ringkas: "Alternatif CliftonStrengths gratis — 24 bakat, 4 domain, 7 bakat utama", jenis: "tes", route: "/tes/peta-bakat", durasi: "±7 menit · 48 pernyataan", cek: "peta_bakat", tersedia: true },
   { nama: "Kompas Moral", tier: "scientific", ringkas: "6 fondasi kompas moral (Haidt)", jenis: "tes", route: "/tes/kompas-moral", durasi: "±3 menit · 18 pernyataan", cek: "mft", tersedia: true },
-  { nama: "Estimasi Kognitif (IQ)", tier: "scientific", ringkas: "Penalaran logis, numerik, verbal & pola", jenis: "tes", route: "/tes/iq", durasi: "±8 menit · 20 soal", cek: "iq", tersedia: true },
+  { nama: "Estimasi Kognitif (IQ)", tier: "scientific", ringkas: "Penalaran logis, numerik, verbal & pola — soal diacak dari bank 60 soal", jenis: "tes", route: "/tes/iq", durasi: "±12 menit · 40 soal acak", cek: "iq", tersedia: true },
   { nama: "16 Tipe Kepribadian", tier: "semi_scientific", ringkas: "28 item, 16 tipe + fungsi kognitif", jenis: "tes", route: "/tes/tipe-16", durasi: "±4 menit · 28 pilihan", cek: "mbti", tersedia: true },
   { nama: "DISC", tier: "semi_scientific", ringkas: "Gaya kerja D-I-S-C + kombinasi", jenis: "tes", route: "/tes/disc", durasi: "±3 menit · 24 pernyataan", cek: "disc", tersedia: true },
   { nama: "Enneagram", tier: "semi_scientific", ringkas: "9 tipe + wing + arah stres/growth", jenis: "tes", route: "/tes/enneagram", durasi: "±5 menit · 36 pernyataan", cek: "enneagram", tersedia: true },

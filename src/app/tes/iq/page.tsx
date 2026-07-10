@@ -8,12 +8,19 @@ import LanjutTes from "@/components/LanjutTes";
 import {
   bandIq,
   IQ_DOMAIN_INFO,
-  IQ_ITEMS,
   type IqDomain,
 } from "@/data/tes/iq";
+import {
+  susunSoalAcak,
+  jumlahBankPerDomain,
+  type IqItemAcak,
+} from "@/data/tes/iq-bank";
 import { bacaHasilSistem, simpanHasilSistem } from "@/lib/storage";
 
 type Tahap = "intro" | "kuis" | "hasil";
+
+// Berapa soal per domain diambil tiap percobaan (dibatasi ukuran bank).
+const SOAL_PER_DOMAIN = 10;
 
 interface IqSkor {
   benar: number;
@@ -21,12 +28,13 @@ interface IqSkor {
   persen: number;
   perDomain: Record<IqDomain, { benar: number; total: number }>;
   jawaban: Record<number, number>;
+  soal: IqItemAcak[];
 }
 
-function hitungSkor(jawaban: Record<number, number>): IqSkor {
+function hitungSkor(jawaban: Record<number, number>, soal: IqItemAcak[]): IqSkor {
   const perDomain = {} as Record<IqDomain, { benar: number; total: number }>;
   let benar = 0;
-  for (const item of IQ_ITEMS) {
+  for (const item of soal) {
     perDomain[item.domain] ??= { benar: 0, total: 0 };
     perDomain[item.domain].total++;
     if (jawaban[item.no] === item.benar) {
@@ -36,10 +44,11 @@ function hitungSkor(jawaban: Record<number, number>): IqSkor {
   }
   return {
     benar,
-    total: IQ_ITEMS.length,
-    persen: Math.round((benar / IQ_ITEMS.length) * 100),
+    total: soal.length,
+    persen: soal.length ? Math.round((benar / soal.length) * 100) : 0,
     perDomain,
     jawaban,
+    soal,
   };
 }
 
@@ -76,7 +85,7 @@ function HasilView({ skor }: { skor: IqSkor }) {
         <strong className="text-amber">Ini bukan tes IQ klinis.</strong> Skor IQ
         resmi memakai ratusan soal terstandarisasi, dinormakan pada populasi, dan
         diawasi psikolog. Anggap angka “est.” di atas sebagai gambaran kasar dari
-        20 soal — untuk latihan & refleksi, bukan diagnosis.
+        {" "}{skor.total} soal — untuk latihan & refleksi, bukan diagnosis.
       </div>
 
       <div className="mt-8 grid gap-4 sm:grid-cols-2">
@@ -112,7 +121,7 @@ function HasilView({ skor }: { skor: IqSkor }) {
       <div className="mt-8">
         <p className="kicker mb-4">Pembahasan — Belajar dari Tiap Soal</p>
         <div className="space-y-3">
-          {IQ_ITEMS.map((item) => {
+          {skor.soal.map((item) => {
             const dijawab = skor.jawaban[item.no];
             const tepat = dijawab === item.benar;
             return (
@@ -168,16 +177,26 @@ export default function TesIq() {
   const [indeks, setIndeks] = useState(0);
   const [jawaban, setJawaban] = useState<Record<number, number>>({});
   const [skor, setSkor] = useState<IqSkor | null>(null);
+  const [soal, setSoal] = useState<IqItemAcak[]>([]);
   const [detik, setDetik] = useState(0);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
     const t = bacaHasilSistem<IqSkor>("iq");
-    if (t) {
+    if (t && t.skor.soal) {
       setSkor(t.skor);
       setTahap("hasil");
     }
   }, []);
+
+  const mulai = () => {
+    setSoal(susunSoalAcak(SOAL_PER_DOMAIN));
+    setJawaban({});
+    setIndeks(0);
+    setDetik(0);
+    setTahap("kuis");
+    window.scrollTo({ top: 0 });
+  };
 
   useEffect(() => {
     if (tahap === "kuis") {
@@ -188,18 +207,19 @@ export default function TesIq() {
     }
   }, [tahap]);
 
-  const item = IQ_ITEMS[indeks];
-  const progres = (Object.keys(jawaban).length / IQ_ITEMS.length) * 100;
+  const item = soal[indeks];
+  const progres = soal.length ? (Object.keys(jawaban).length / soal.length) * 100 : 0;
 
   const pilih = (opsiIdx: number) => {
+    if (!item) return;
     const baru = { ...jawaban, [item.no]: opsiIdx };
     setJawaban(baru);
     window.setTimeout(() => {
-      if (indeks < IQ_ITEMS.length - 1) {
+      if (indeks < soal.length - 1) {
         setIndeks(indeks + 1);
       } else {
         if (timerRef.current) clearInterval(timerRef.current);
-        const s = hitungSkor(baru);
+        const s = hitungSkor(baru, soal);
         simpanHasilSistem("iq", s);
         setSkor(s);
         setTahap("hasil");
@@ -209,12 +229,8 @@ export default function TesIq() {
   };
 
   const mulaiUlang = () => {
-    setJawaban({});
-    setIndeks(0);
     setSkor(null);
-    setDetik(0);
-    setTahap("kuis");
-    window.scrollTo({ top: 0 });
+    mulai();
   };
 
   return (
@@ -228,13 +244,13 @@ export default function TesIq() {
             Tes <span className="text-aurora">Estimasi Kognitif</span> (IQ)
           </h1>
           <p className="mt-5 text-sm leading-relaxed text-ink-2 md:text-base">
-            20 soal penalaran di empat domain: logis, numerik, verbal, dan pola
-            abstrak. Kerjakan dengan tenang — tiap jawaban langsung membawamu ke
-            soal berikutnya. Di akhir kamu dapat estimasi kasar plus pembahasan
-            setiap soal.
+            {SOAL_PER_DOMAIN * 4} soal penalaran di empat domain: numerik, logis,
+            verbal, dan pola abstrak. Kerjakan dengan tenang — tiap jawaban
+            langsung membawamu ke soal berikutnya. Di akhir kamu dapat estimasi
+            kasar plus pembahasan setiap soal.
           </p>
           <ul className="mx-auto mt-6 max-w-sm space-y-2 text-left text-sm text-ink-2">
-            <li>◇ Satu jawaban benar per soal</li>
+            <li>◇ Soal & urutan pilihan <strong className="text-ink-2">diacak tiap percobaan</strong> — diambil dari bank {jumlahBankPerDomain().numerik + jumlahBankPerDomain().logis + jumlahBankPerDomain().verbal + jumlahBankPerDomain().pola} soal, jadi tak bisa dihafal</li>
             <li>◇ Ada waktu terekam, tapi santai — bukan lomba</li>
             <li>◇ Pembahasan lengkap agar kamu belajar</li>
           </ul>
@@ -242,7 +258,7 @@ export default function TesIq() {
             Estimasi singkat untuk latihan & refleksi, bukan pengganti tes IQ
             tervalidasi yang diawasi psikolog.
           </p>
-          <button onClick={() => setTahap("kuis")} className="btn-primary mt-9 text-base">
+          <button onClick={mulai} className="btn-primary mt-9 text-base">
             Mulai Sekarang
           </button>
         </Reveal>
@@ -252,7 +268,7 @@ export default function TesIq() {
         <div className="mx-auto max-w-2xl">
           <div className="mb-3 flex items-center justify-between text-xs font-semibold text-ink-3">
             <span>
-              Soal {indeks + 1} / {IQ_ITEMS.length} ·{" "}
+              Soal {indeks + 1} / {soal.length} ·{" "}
               {IQ_DOMAIN_INFO[item.domain].nama}
             </span>
             <span>⏱ {format(detik)}</span>
@@ -302,7 +318,7 @@ export default function TesIq() {
             >
               ← Mundur
             </button>
-            {jawaban[item.no] !== undefined && indeks < IQ_ITEMS.length - 1 && (
+            {jawaban[item.no] !== undefined && indeks < soal.length - 1 && (
               <button
                 onClick={() => setIndeks(indeks + 1)}
                 className="btn-ghost !px-5 !py-2.5"

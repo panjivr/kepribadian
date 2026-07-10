@@ -27,6 +27,7 @@ import { HBDI_ITEMS } from "../src/data/tes/hbdi";
 import { WARNA_ITEMS } from "../src/data/tes/warna";
 import { VAK_ITEMS } from "../src/data/tes/gayaBelajar";
 import { hexDariGaris, HEXAGRAM, type Garis } from "../src/data/tes/iching";
+import { SEMUA_IQ_ITEMS, susunSoalAcak, jumlahBankPerDomain } from "../src/data/tes/iq-bank";
 
 let lulus = 0;
 let gagal = 0;
@@ -257,6 +258,47 @@ console.log("— I Ching King Wen —");
   uji("6 garis yang → Hexagram 1 (Qian)", hexDariGaris([yang(), yang(), yang(), yang(), yang(), yang()], false).no, 1);
   uji("6 garis yin → Hexagram 2 (Kun)", hexDariGaris([yin(), yin(), yin(), yin(), yin(), yin()], false).no, 2);
   uji("64 hexagram terdefinisi & unik", new Set(HEXAGRAM.map((h) => h.no)).size, 64);
+}
+
+console.log("— Bank IQ & pengacakan —");
+{
+  // Setiap kunci jawaban valid & tiap opsi = 4.
+  const kunciValid = SEMUA_IQ_ITEMS.every(
+    (it) => it.benar >= 0 && it.benar < it.opsi.length && it.opsi.length === 4
+  );
+  uji("semua kunci IQ valid & 4 opsi", kunciValid, true);
+
+  // Nomor unik (tak ada tabrakan no antar-bank).
+  const noSet = new Set(SEMUA_IQ_ITEMS.map((it) => it.no));
+  uji("nomor soal IQ unik", noSet.size, SEMUA_IQ_ITEMS.length);
+
+  // Teks unik (tak ada duplikat soal).
+  const teksSet = new Set(SEMUA_IQ_ITEMS.map((it) => it.teks));
+  uji("teks soal IQ unik (tak ada duplikat)", teksSet.size, SEMUA_IQ_ITEMS.length);
+
+  // Tiap domain minimal 10 agar 10 soal/domain bisa diambil.
+  const per = jumlahBankPerDomain();
+  uji("tiap domain ≥ 10 soal", [per.numerik >= 10, per.logis >= 10, per.verbal >= 10, per.pola >= 10], [true, true, true, true]);
+
+  // Pengacakan mempertahankan jawaban benar: seed deterministik, cek tiap soal.
+  let mulberrySeed = 12345;
+  const rnd = () => {
+    mulberrySeed |= 0;
+    mulberrySeed = (mulberrySeed + 0x6d2b79f5) | 0;
+    let t = Math.imul(mulberrySeed ^ (mulberrySeed >>> 15), 1 | mulberrySeed);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+  const asli = new Map(SEMUA_IQ_ITEMS.map((it) => [it.teks, it.opsi[it.benar]]));
+  const set = susunSoalAcak(10, rnd);
+  const jawabanTetapBenar = set.every((it) => it.opsi[it.benar] === asli.get(it.teks));
+  uji("acak opsi tetap menjaga jawaban benar", jawabanTetapBenar, true);
+  const permutasiValid = set.every(
+    (it) => JSON.stringify([...it.petaOpsi].sort()) === JSON.stringify([0, 1, 2, 3])
+  );
+  uji("petaOpsi selalu permutasi [0,1,2,3]", permutasiValid, true);
+  uji("set acak = 40 soal (10/domain)", set.length, 40);
+  uji("nomor set acak berurutan 1..40", [set[0].no, set[set.length - 1].no], [1, 40]);
 }
 
 console.log(`\n${lulus} lulus, ${gagal} gagal`);
