@@ -31,6 +31,8 @@ import { SEMUA_IQ_ITEMS, susunSoalAcak, jumlahBankPerDomain } from "../src/data/
 import { RIASEC_ITEMS, kodeHolland } from "../src/data/tes/riasec";
 import { ATTACHMENT_ITEMS, klasifikasiGaya } from "../src/data/tes/attachment";
 import { LOVE_ITEMS } from "../src/data/tes/love-language";
+import { JENJANG } from "../src/data/jenjang";
+import { SEMUA_SISTEM } from "../src/data/sistem-list";
 import { RUMPUN_JURUSAN, rumpunTerbaik, skorRumpun, provinsiKampus, PROVINSI_KURASI, linkKampusLengkap } from "../src/data/jurusan";
 
 let lulus = 0;
@@ -344,6 +346,18 @@ console.log("— Kelekatan & Bahasa Kasih —");
   uji("Love Language 20 item / 5 bahasa", [LOVE_ITEMS.length, new Set(LOVE_ITEMS.map((i) => i.dim)).size], [20, 5]);
   uji("Love Language 4 per bahasa", (["kata", "waktu", "hadiah", "layan", "sentuh"] as const).map((d) => LOVE_ITEMS.filter((i) => i.dim === d).length), [4, 4, 4, 4, 4]);
   uji("setiap butir love language ada analogi", LOVE_ITEMS.every((i) => i.bantuan.length > 10), true);
+}
+
+console.log("— Peta Jenjang Kehidupan —");
+{
+  uji("6 jenjang hidup", JENJANG.length, 6);
+  uji("id jenjang unik", new Set(JENJANG.map((j) => j.id)).size, JENJANG.length);
+  uji("tiap jenjang punya isi lengkap", JENJANG.every((j) => j.caraMemetakan.length >= 2 && j.solusi.length >= 2 && j.tesTerkait.length >= 1), true);
+  // integritas tautan: setiap tesTerkait href harus ada di registry sistem-list
+  const rute = new Set(SEMUA_SISTEM.map((s) => s.route).filter(Boolean));
+  const semuaTautan = JENJANG.flatMap((j) => j.tesTerkait.map((t) => t.href));
+  const tautanRusak = semuaTautan.filter((h) => !rute.has(h));
+  uji("semua tautan tes di jenjang valid (ada rutenya)", tautanRusak, []);
 }
 
 console.log(`\n${lulus} lulus, ${gagal} gagal`);

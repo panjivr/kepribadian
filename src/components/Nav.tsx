@@ -34,6 +34,9 @@ export default function Nav() {
           <Link href="/tes" className="transition-colors hover:text-ink">
             Tes
           </Link>
+          <Link href="/jenjang" className="transition-colors hover:text-ink">
+            Jenjang
+          </Link>
           <Link href="/profil" className="transition-colors hover:text-ink">
             Profil Saya
           </Link>
