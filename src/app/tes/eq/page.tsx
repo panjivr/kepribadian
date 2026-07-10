@@ -125,7 +125,7 @@ export default function TesEq() {
           Tes <span className="text-aurora">EQ</span> — Kecerdasan Emosional
         </>
       }
-      deskripsi="Mengukur lima domain kecerdasan emosional menurut model Daniel Goleman: kesadaran diri, regulasi diri, motivasi, empati, dan keterampilan sosial. 25 pernyataan, skala 1–5."
+      deskripsi="Mengukur lima domain kecerdasan emosional menurut model Daniel Goleman: kesadaran diri, regulasi diri, motivasi, empati, dan keterampilan sosial. 50 pernyataan, skala 1–5."
       bullets={[
         "Tiap pernyataan dilengkapi analogi agar tak salah tafsir",
         "Beberapa pernyataan sengaja dibalik untuk menjaga kejujuran jawaban",

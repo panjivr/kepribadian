@@ -103,7 +103,7 @@ export const EQ_INFO: Record<EqDim, EqInfo> = {
   },
 };
 
-/** 25 item (5/domain), skala 1–5. Item reverse (key -1) menjaga kejujuran jawaban. */
+/** 50 item (10/domain), skala 1–5. Item reverse (key -1) menjaga kejujuran jawaban. */
 export const EQ_ITEMS: (ItemLikertDimensi & { dim: EqDim; bantuan: string })[] = [
   // Kesadaran diri
   { no: 1, dim: "kesadaran_diri", key: 1, teks: "Saya tahu persis emosi apa yang sedang saya rasakan saat itu terjadi.", bantuan: "Contoh: saat rapat memanas, kamu sadar 'ini aku mulai cemas', bukan sekadar ikut tegang tanpa tahu kenapa." },
@@ -135,4 +135,34 @@ export const EQ_ITEMS: (ItemLikertDimensi & { dim: EqDim; bantuan: string })[] =
   { no: 23, dim: "keterampilan_sosial", key: 1, teks: "Saya bisa memengaruhi dan meyakinkan orang tanpa memaksa.", bantuan: "Mengajak, bukan menekan — orang bergerak karena mau, bukan takut." },
   { no: 24, dim: "keterampilan_sosial", key: -1, teks: "Saya merasa canggung dan menghindar dalam situasi sosial yang ramai.", bantuan: "Pernyataan terbalik — bila sangat sesuai, keterampilan sosialmu punya ruang tumbuh (dan itu wajar bagi introvert)." },
   { no: 25, dim: "keterampilan_sosial", key: 1, teks: "Saya pandai bekerja sama dalam tim menuju tujuan bersama.", bantuan: "Seperti pemain bola yang mengoper, bukan cuma mau mencetak gol sendiri." },
+  // Kesadaran diri (lanjutan)
+  { no: 26, dim: "kesadaran_diri", key: 1, teks: "Saya bisa menjelaskan alasan di balik perasaan saya kepada orang lain.", bantuan: "Bukan sekadar 'aku kesal', tapi tahu 'aku kesal karena merasa tak dihargai'." },
+  { no: 27, dim: "kesadaran_diri", key: 1, teks: "Saya jujur mengakui kelebihan dan keterbatasan diri saya.", bantuan: "Seperti tahu ukuran sepatu sendiri — tak melebih-lebihkan, tak merendahkan." },
+  { no: 28, dim: "kesadaran_diri", key: -1, teks: "Saya sering bingung mengapa tiba-tiba suasana hati saya berubah.", bantuan: "Pernyataan terbalik — makin sering bingung akan pemicunya, makin kesadaran diri perlu diasah." },
+  { no: 29, dim: "kesadaran_diri", key: 1, teks: "Saya tahu situasi seperti apa yang paling membuat saya bersemangat.", bantuan: "Sadar 'baterai'-mu terisi saat apa — misal saat berkarya sendiri atau saat bersama orang." },
+  { no: 30, dim: "kesadaran_diri", key: 1, teks: "Saya menyadari saat ego atau gengsi sedang memengaruhi sikap saya.", bantuan: "Bisa menangkap 'ini aku ngotot karena gengsi, bukan karena benar'." },
+  // Regulasi diri (lanjutan)
+  { no: 31, dim: "regulasi_diri", key: 1, teks: "Saya bisa menahan dorongan membalas saat diperlakukan tidak adil.", bantuan: "Menahan tombol 'balas dendam' agar tak memperkeruh keadaan." },
+  { no: 32, dim: "regulasi_diri", key: 1, teks: "Ketika rencana berantakan, saya menyesuaikan diri tanpa panik berlebihan.", bantuan: "Seperti sopir yang tenang mencari jalan alternatif saat jalan utama macet." },
+  { no: 33, dim: "regulasi_diri", key: -1, teks: "Saya cenderung melampiaskan emosi negatif ke orang di sekitar saya.", bantuan: "Pernyataan terbalik — 'menendang kucing' saat kesal pada hal lain menandakan regulasi perlu dilatih." },
+  { no: 34, dim: "regulasi_diri", key: 1, teks: "Saya tetap bisa fokus mengerjakan tugas meski sedang kesal.", bantuan: "Emosi tak sampai 'mematikan mesin' — kamu tetap jalan meski hati tak enak." },
+  { no: 35, dim: "regulasi_diri", key: 1, teks: "Saya memilih waktu dan cara yang tepat untuk menyampaikan kekesalan.", bantuan: "Bukan menahan selamanya, tapi menyalurkan dengan bijak — kapan & bagaimana." },
+  // Motivasi (lanjutan)
+  { no: 36, dim: "motivasi", key: 1, teks: "Saya menetapkan target yang menantang untuk diri saya sendiri.", bantuan: "Memasang 'palang lompat' sedikit lebih tinggi agar terus bertumbuh." },
+  { no: 37, dim: "motivasi", key: 1, teks: "Kegagalan membuat saya penasaran mencari cara yang lebih baik.", bantuan: "Gagal jadi 'petunjuk', bukan 'tembok' — seperti ilmuwan yang menganggap eksperimen gagal itu data." },
+  { no: 38, dim: "motivasi", key: -1, teks: "Saya butuh dorongan dari luar agar mau memulai sesuatu.", bantuan: "Pernyataan terbalik — makin bergantung pada dorongan luar, makin motivasi dari dalam perlu dikuatkan." },
+  { no: 39, dim: "motivasi", key: 1, teks: "Saya menikmati proses belajar, bukan hanya hasil akhirnya.", bantuan: "Menikmati 'perjalanan mendaki', bukan cuma foto di puncak." },
+  { no: 40, dim: "motivasi", key: 1, teks: "Saya tetap menjaga semangat meski lingkungan sekitar pesimis.", bantuan: "Seperti nyala lilin yang bertahan meski banyak yang meniupnya." },
+  // Empati (lanjutan)
+  { no: 41, dim: "empati", key: 1, teks: "Saya ikut merasakan kegembiraan orang lain, bukan hanya kesedihannya.", bantuan: "Empati juga soal turut senang — ikut bahagia atas keberhasilan teman, tanpa iri." },
+  { no: 42, dim: "empati", key: 1, teks: "Saya menyesuaikan cara bicara dengan kondisi emosi lawan bicara.", bantuan: "Bicara lembut pada yang sedang rapuh, tegas pada yang butuh dorongan." },
+  { no: 43, dim: "empati", key: -1, teks: "Saya kesulitan memahami mengapa orang lain bereaksi berlebihan.", bantuan: "Pernyataan terbalik — bila sering menganggap reaksi orang 'lebay', kepekaan empati sedang perlu diasah." },
+  { no: 44, dim: "empati", key: 1, teks: "Saya memperhatikan siapa yang terabaikan atau tersisih dalam kelompok.", bantuan: "Mata yang menangkap orang yang diam di pojok — lalu merangkulnya." },
+  { no: 45, dim: "empati", key: 1, teks: "Saya bisa menempatkan diri pada posisi orang yang berbeda pandangan.", bantuan: "Memakai 'kacamata' orang lain, bahkan saat kamu tak setuju dengannya." },
+  // Keterampilan sosial (lanjutan)
+  { no: 46, dim: "keterampilan_sosial", key: 1, teks: "Saya bisa menyampaikan kritik tanpa membuat orang tersinggung.", bantuan: "Membungkus masukan seperti hadiah — isinya jujur, kemasannya baik." },
+  { no: 47, dim: "keterampilan_sosial", key: 1, teks: "Saya menjaga hubungan baik meski sudah lama tidak bertemu.", bantuan: "Seperti tanaman yang tetap disiram sesekali agar tak layu — menyapa, mengingat." },
+  { no: 48, dim: "keterampilan_sosial", key: -1, teks: "Saya kesulitan memulai percakapan dengan orang yang belum saya kenal.", bantuan: "Pernyataan terbalik — bila sangat sesuai, keterampilan membuka obrolan punya ruang tumbuh." },
+  { no: 49, dim: "keterampilan_sosial", key: 1, teks: "Saya bisa membaca kapan waktu tepat untuk bicara atau diam dalam kelompok.", bantuan: "Peka pada 'irama' obrolan — tahu kapan menyela justru mengganggu." },
+  { no: 50, dim: "keterampilan_sosial", key: 1, teks: "Saya mampu menyatukan orang berpendapat berbeda menuju kesepakatan.", bantuan: "Peran 'perekat' — menemukan benang merah dari suara-suara yang berbeda." },
 ];

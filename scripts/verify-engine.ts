@@ -34,6 +34,11 @@ import { LOVE_ITEMS } from "../src/data/tes/love-language";
 import { JENJANG } from "../src/data/jenjang";
 import { SEMUA_SISTEM } from "../src/data/sistem-list";
 import { RUMPUN_JURUSAN, rumpunTerbaik, skorRumpun, provinsiKampus, PROVINSI_KURASI, linkKampusLengkap } from "../src/data/jurusan";
+import { GRIT_ITEMS, bandGrit } from "../src/data/tes/grit";
+import { MINDSET_ITEMS, bandMindset } from "../src/data/tes/mindset";
+import { KONFLIK_ITEMS } from "../src/data/tes/conflict";
+import { NILAI_ITEMS, ORIENTASI_INFO, ORIENTASI_URUTAN, type NilaiDim } from "../src/data/tes/values";
+import { EQ_ITEMS } from "../src/data/tes/eq";
 
 let lulus = 0;
 let gagal = 0;
@@ -358,6 +363,65 @@ console.log("— Peta Jenjang Kehidupan —");
   const semuaTautan = JENJANG.flatMap((j) => j.tesTerkait.map((t) => t.href));
   const tautanRusak = semuaTautan.filter((h) => !rute.has(h));
   uji("semua tautan tes di jenjang valid (ada rutenya)", tautanRusak, []);
+}
+
+console.log("— Grit, Pola Pikir, Konflik, Nilai, EQ —");
+{
+  const isi = (items: { no: number }[], v: number) =>
+    Object.fromEntries(items.map((it) => [it.no, v]));
+
+  // Grit
+  uji("Grit 12 item / 2 komponen", [GRIT_ITEMS.length, new Set(GRIT_ITEMS.map((i) => i.dim)).size], [12, 2]);
+  uji("Grit 6 per komponen", (["konsistensi", "ketekunan"] as const).map((d) => GRIT_ITEMS.filter((i) => i.dim === d).length), [6, 6]);
+  uji("setiap butir grit ada analogi", GRIT_ITEMS.every((i) => i.bantuan.length > 10), true);
+  uji("bandGrit 80 = Sangat Tabah, 30 = Berkembang", [bandGrit(80).label, bandGrit(30).label], ["Sangat Tabah", "Sedang Berkembang"]);
+  {
+    // item konsistensi 1-3 reverse: jawab semua 5 → konsistensi rendah, ketekunan tinggi
+    const r = skorLikert(GRIT_ITEMS, isi(GRIT_ITEMS, 5));
+    uji("Grit semua-5 → ketekunan 100%, konsistensi 50% (3 reverse)", [r.persen.ketekunan, r.persen.konsistensi], [100, 50]);
+  }
+
+  // Pola Pikir Berkembang
+  uji("Mindset 12 item / 1 dimensi 'growth'", [MINDSET_ITEMS.length, new Set(MINDSET_ITEMS.map((i) => i.dim)).size], [12, 1]);
+  uji("Mindset 6 item reverse (fixed)", MINDSET_ITEMS.filter((i) => i.key === -1).length, 6);
+  uji("setiap butir mindset ada analogi", MINDSET_ITEMS.every((i) => i.bantuan.length > 10), true);
+  uji("bandMindset 80 = Berkembang Kuat, 30 = Cenderung Tetap", [bandMindset(80).label, bandMindset(30).label], ["Pola Pikir Berkembang Kuat", "Cenderung Pola Pikir Tetap"]);
+  {
+    // searah growth: item positif 5, reverse 1 → 100%
+    const searah = Object.fromEntries(MINDSET_ITEMS.map((it) => [it.no, it.key === -1 ? 1 : 5]));
+    uji("Mindset searah growth → 100%", skorLikert(MINDSET_ITEMS, searah).persen.growth, 100);
+  }
+
+  // Gaya Konflik
+  uji("Konflik 20 item / 5 gaya", [KONFLIK_ITEMS.length, new Set(KONFLIK_ITEMS.map((i) => i.dim)).size], [20, 5]);
+  uji("Konflik 4 per gaya", (["bersaing", "kolaborasi", "kompromi", "menghindar", "mengakomodasi"] as const).map((d) => KONFLIK_ITEMS.filter((i) => i.dim === d).length), [4, 4, 4, 4, 4]);
+  uji("setiap butir konflik ada analogi", KONFLIK_ITEMS.every((i) => i.bantuan.length > 10), true);
+
+  // Nilai Hidup (Schwartz)
+  uji("Nilai 20 item / 10 nilai", [NILAI_ITEMS.length, new Set(NILAI_ITEMS.map((i) => i.dim)).size], [20, 10]);
+  uji("Nilai 2 per dimensi", (["kemandirian", "stimulasi", "hedonisme", "prestasi", "kekuasaan", "keamanan", "konformitas", "tradisi", "kebajikan", "universalisme"] as NilaiDim[]).map((d) => NILAI_ITEMS.filter((i) => i.dim === d).length), [2, 2, 2, 2, 2, 2, 2, 2, 2, 2]);
+  uji("setiap butir nilai ada analogi", NILAI_ITEMS.every((i) => i.bantuan.length > 10), true);
+  {
+    // 4 orientasi mencakup tepat 10 nilai, tanpa tumpang tindih
+    const anggota = ORIENTASI_URUTAN.flatMap((id) => ORIENTASI_INFO[id].anggota);
+    uji("4 orientasi mencakup 10 nilai unik", [anggota.length, new Set(anggota).size], [10, 10]);
+  }
+
+  // EQ (diperluas ke 50)
+  uji("EQ 50 item / 5 domain", [EQ_ITEMS.length, new Set(EQ_ITEMS.map((i) => i.dim)).size], [50, 5]);
+  uji("EQ 10 per domain", (["kesadaran_diri", "regulasi_diri", "motivasi", "empati", "keterampilan_sosial"] as const).map((d) => EQ_ITEMS.filter((i) => i.dim === d).length), [10, 10, 10, 10, 10]);
+  uji("setiap butir EQ ada analogi", EQ_ITEMS.every((i) => i.bantuan.length > 10), true);
+  uji("nomor EQ unik 1..50", [new Set(EQ_ITEMS.map((i) => i.no)).size, Math.max(...EQ_ITEMS.map((i) => i.no))], [50, 50]);
+}
+
+console.log("— Integritas registry & rantai tes —");
+{
+  // setiap sistem 'tes' yang tersedia harus punya route unik
+  const rute = SEMUA_SISTEM.filter((s) => s.tersedia && s.jenis === "tes").map((s) => s.route);
+  uji("route sistem tes unik", new Set(rute).size, rute.length);
+  // 4 metode baru + eq terdaftar di registry
+  const cekSet = new Set<string>(SEMUA_SISTEM.map((s) => s.cek).filter(Boolean) as string[]);
+  uji("registry memuat grit/growth_mindset/conflict_style/values/eq", ["grit", "growth_mindset", "conflict_style", "values", "eq"].every((c) => cekSet.has(c)), true);
 }
 
 console.log(`\n${lulus} lulus, ${gagal} gagal`);
