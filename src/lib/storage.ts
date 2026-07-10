@@ -73,6 +73,7 @@ export type SistemId =
   | "graphology"
   | "clifton"
   | "peta_bakat"
+  | "riasec"
   | "eq"
   | "iq";
 

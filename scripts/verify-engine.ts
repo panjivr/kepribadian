@@ -28,6 +28,8 @@ import { WARNA_ITEMS } from "../src/data/tes/warna";
 import { VAK_ITEMS } from "../src/data/tes/gayaBelajar";
 import { hexDariGaris, HEXAGRAM, type Garis } from "../src/data/tes/iching";
 import { SEMUA_IQ_ITEMS, susunSoalAcak, jumlahBankPerDomain } from "../src/data/tes/iq-bank";
+import { RIASEC_ITEMS, kodeHolland } from "../src/data/tes/riasec";
+import { RUMPUN_JURUSAN, rumpunTerbaik, skorRumpun } from "../src/data/jurusan";
 
 let lulus = 0;
 let gagal = 0;
@@ -299,6 +301,27 @@ console.log("— Bank IQ & pengacakan —");
   uji("petaOpsi selalu permutasi [0,1,2,3]", permutasiValid, true);
   uji("set acak = 40 soal (10/domain)", set.length, 40);
   uji("nomor set acak berurutan 1..40", [set[0].no, set[set.length - 1].no], [1, 40]);
+}
+
+console.log("— RIASEC & pemetaan jurusan —");
+{
+  uji("RIASEC 36 item / 6 tipe", [RIASEC_ITEMS.length, new Set(RIASEC_ITEMS.map((i) => i.dim)).size], [36, 6]);
+  uji("RIASEC 6 item per tipe", (["R", "I", "A", "S", "E", "C"] as const).map((d) => RIASEC_ITEMS.filter((i) => i.dim === d).length), [6, 6, 6, 6, 6, 6]);
+  uji("setiap butir RIASEC punya analogi", RIASEC_ITEMS.every((i) => i.bantuan.length > 10), true);
+  // kode Holland dari urutan skor
+  const urut = [{ dim: "S" }, { dim: "I" }, { dim: "A" }, { dim: "E" }, { dim: "R" }, { dim: "C" }];
+  uji("kodeHolland ambil 3 teratas", kodeHolland(urut), "SIA");
+  // jurusan
+  uji("18 rumpun jurusan", RUMPUN_JURUSAN.length, 18);
+  uji("id rumpun unik", new Set(RUMPUN_JURUSAN.map((r) => r.id)).size, RUMPUN_JURUSAN.length);
+  uji("tiap rumpun punya kampus & prospek", RUMPUN_JURUSAN.every((r) => r.kampus.length >= 3 && r.prospek.length >= 3 && r.matkulInti.length >= 3), true);
+  // pencocokan: kode "IRC" harus mengangkat rumpun TI (kode IRC)
+  const ti = RUMPUN_JURUSAN.find((r) => r.id === "ti")!;
+  uji("skorRumpun IRC vs TI(IRC) = 3+2+1", skorRumpun("IRC", ti), 6);
+  const cocokIRC = rumpunTerbaik("IRC", 3).map((r) => r.id);
+  uji("rumpunTerbaik IRC memuat 'ti'", cocokIRC.includes("ti"), true);
+  const cocokSIA = rumpunTerbaik("SIA", 3).map((r) => r.id);
+  uji("rumpunTerbaik SIA memuat psikologi", cocokSIA.includes("psikologi"), true);
 }
 
 console.log(`\n${lulus} lulus, ${gagal} gagal`);

@@ -26,6 +26,7 @@ export const RANTAI_TES: LangkahTes[] = [
   { id: "true_colors", nama: "True Colors", href: "/tes/warna" },
   { id: "eq", nama: "Tes EQ (Kecerdasan Emosional)", href: "/tes/eq" },
   { id: "iq", nama: "Tes Estimasi Kognitif (IQ)", href: "/tes/iq" },
+  { id: "riasec", nama: "Minat Karier & Jurusan (RIASEC)", href: "/tes/minat-karier" },
 ];
 
 export function langkahBerikutnya(id: string): LangkahTes | null {
