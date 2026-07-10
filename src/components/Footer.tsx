@@ -14,12 +14,12 @@ export default function Footer() {
             </p>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-ink-3">
               Djiva adalah platform penemuan jati diri paling lengkap yang bisa
-              kamu temukan — 26 dari 27 sistem sudah aktif, merentang dari
-              psikometri berstandar riset hingga kearifan budaya Nusantara &
-              dunia. Semuanya disintesis menjadi satu Profil Terpadu yang
-              koheren, bukan sekadar kumpulan kuis lepas. Privasi 100%: seluruh
-              perhitungan berjalan di perangkatmu, tidak pernah dikirim ke
-              server mana pun.
+              kamu temukan — 37 sistem aktif dengan 22 tes interaktif mendalam,
+              merentang dari psikometri berstandar riset (Big Five, HEXACO, VIA,
+              IQ, EQ) hingga kearifan budaya Nusantara & dunia. Semuanya
+              disintesis menjadi satu Profil Terpadu — kini lengkap dengan
+              Dashboard hasil & generator CV. Privasi 100%: seluruh perhitungan
+              berjalan di perangkatmu, tidak pernah dikirim ke server mana pun.
             </p>
             <div className="mt-6">
               <p className="kicker">Kreator</p>
@@ -60,14 +60,17 @@ export default function Footer() {
             tesmu tidak pernah dikirim ke server mana pun.
           </p>
           <p>
-            <strong className="text-ink-2">27 sistem, satu profil.</strong>{" "}
-            Big Five (IPIP-50), HEXACO, VIA (48 item), 16 Tipe, DISC, Enneagram,
-            Temperamen, Kecerdasan Majemuk, Kompas Moral, Gaya Belajar, Gaya
+            <strong className="text-ink-2">37 sistem, satu profil.</strong>{" "}
+            Big Five (IPIP-50), HEXACO, VIA (48 item), Peta Bakat, Kompas Moral,
+            Estimasi Kognitif (IQ), Kecerdasan Emosional (EQ), Minat Karier
+            (RIASEC), Gaya Kelekatan, Bahasa Kasih, Grit, Pola Pikir Berkembang,
+            Gaya Menghadapi Konflik, Nilai Hidup (Schwartz), 16 Tipe, DISC,
+            Enneagram, Temperamen, Kecerdasan Majemuk, Gaya Belajar, Gaya
             Berpikir, True Colors, Eysenck, weton, shio, zodiak, numerologi,
             Kua, BaZi Empat Pilar, I Ching, Human Design, STIFIn, Golongan
             Darah, Grafologi, Face Reading — disintesis jadi satu Profil
-            Terpadu 10 seksi. Selengkap dan sedetail ini jarang ada di satu
-            tempat.
+            Terpadu, Dashboard hasil, dan CV siap-cetak. Selengkap dan sedetail
+            ini jarang ada di satu tempat.
           </p>
           <p>
             Sistem budaya & spiritual (weton, shio, zodiak, numerologi, kua)

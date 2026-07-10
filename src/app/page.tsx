@@ -32,6 +32,8 @@ const LABEL_DEMO = ["Keterbukaan", "Kesungguhan", "Ekstraversi", "Keramahan", "N
 
 export default function Landing() {
   const tersedia = SEMUA_SISTEM.filter((s) => s.tersedia).length;
+  const total = SEMUA_SISTEM.length;
+  const jumlahTes = SEMUA_SISTEM.filter((s) => s.jenis === "tes").length;
 
   return (
     <>
@@ -40,7 +42,7 @@ export default function Landing() {
         <Orb className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[min(120vw,54rem)] w-[min(120vw,54rem)] -translate-x-1/2 -translate-y-1/2 opacity-90" />
         <div className="mx-auto max-w-4xl pb-16 pt-28 text-center">
           <p className="kicker fade-in-up mb-6">
-            Platform Penemuan Jati Diri · 27 Sistem
+            Platform Penemuan Jati Diri · {total} Sistem
           </p>
           <h1
             className="font-display fade-in-up text-balance text-5xl font-extrabold leading-[1.04] tracking-tight md:text-7xl"
@@ -68,7 +70,7 @@ export default function Landing() {
               <span aria-hidden>→</span>
             </Link>
             <Link href="#sistem" className="btn-ghost text-base">
-              Jelajahi 27 Sistem
+              Jelajahi {total} Sistem
             </Link>
           </div>
           <div
@@ -88,9 +90,9 @@ export default function Landing() {
         <Reveal>
           <div className="glass glass-hairline grid grid-cols-2 gap-y-8 px-6 py-10 md:grid-cols-4">
             {[
-              ["27", "sistem kepribadian & jati diri"],
-              ["78", "item asesmen terkurasi"],
-              ["10", "seksi profil terpadu"],
+              [String(total), "sistem kepribadian & jati diri"],
+              [String(jumlahTes), "tes interaktif mendalam"],
+              ["10+", "seksi profil terpadu & dashboard"],
               ["0", "data dikirim ke server"],
             ].map(([angka, ket]) => (
               <div key={ket} className="text-center">
@@ -199,13 +201,13 @@ export default function Landing() {
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="kicker mb-4">Perpustakaan Sistem</p>
           <h2 className="font-display text-balance text-3xl font-extrabold tracking-tight md:text-5xl">
-            27 lensa untuk membaca dirimu.
+            {total} lensa untuk membaca dirimu.
           </h2>
           <p className="mt-5 text-sm leading-relaxed text-ink-2 md:text-base">
             Setiap sistem diberi label tingkat bukti secara transparan — kamu
             selalu tahu mana sains, mana tradisi, mana hiburan.{" "}
-            <strong className="text-ink">{tersedia} sistem sudah aktif</strong>,
-            sisanya menyusul.
+            <strong className="text-ink">{tersedia} sistem sudah aktif</strong>{" "}
+            dan siap kamu jelajahi.
           </p>
         </Reveal>
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
