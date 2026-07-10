@@ -310,3 +310,48 @@ export function rumpunTerbaik(kodeUser: string, batas = 5): RumpunJurusan[] {
     .slice(0, batas)
     .map((x) => x.r);
 }
+
+/* -------------------------- provinsi / geografis --------------------------- */
+// Kota yang dipakai di data kampus → provinsinya (akurat & terverifikasi).
+const KOTA_PROVINSI: Record<string, string> = {
+  Bandung: "Jawa Barat",
+  Depok: "Jawa Barat",
+  Bogor: "Jawa Barat",
+  Jakarta: "DKI Jakarta",
+  Tangerang: "Banten",
+  "Tangerang Selatan": "Banten",
+  Yogyakarta: "DI Yogyakarta",
+  Surabaya: "Jawa Timur",
+  Malang: "Jawa Timur",
+  Semarang: "Jawa Tengah",
+  Medan: "Sumatera Utara",
+  Padang: "Sumatera Barat",
+  Denpasar: "Bali",
+  Makassar: "Sulawesi Selatan",
+};
+
+export function provinsiKampus(k: Kampus): string {
+  return KOTA_PROVINSI[k.kota] ?? "Lainnya";
+}
+
+/** Daftar provinsi yang muncul di data kurasi (untuk filter), urut alfabet. */
+export const PROVINSI_KURASI: string[] = [
+  ...new Set(
+    RUMPUN_JURUSAN.flatMap((r) => r.kampus.map((k) => provinsiKampus(k)))
+  ),
+].sort((a, b) => a.localeCompare(b, "id"));
+
+/**
+ * Tautan pencarian ke daftar LENGKAP & resmi (PDDikti) via Google — dijamin
+ * valid dan selalu terbarukan, mencakup semua kampus termasuk PTKIN/UIN kecil.
+ * Dipakai karena situs statis ini tidak menyimpan seluruh 4000+ kampus.
+ */
+export function linkKampusLengkap(namaRumpun: string, provinsi?: string): string {
+  const q = provinsi
+    ? `daftar kampus jurusan ${namaRumpun} di ${provinsi} pddikti akreditasi`
+    : `daftar kampus jurusan ${namaRumpun} di Indonesia pddikti akreditasi`;
+  return `https://www.google.com/search?q=${encodeURIComponent(q)}`;
+}
+
+/** Tautan langsung ke portal pencarian resmi PDDikti (data lengkap kampus & prodi). */
+export const PDDIKTI_URL = "https://pddikti.kemdiktisaintek.go.id/";

@@ -29,7 +29,7 @@ import { VAK_ITEMS } from "../src/data/tes/gayaBelajar";
 import { hexDariGaris, HEXAGRAM, type Garis } from "../src/data/tes/iching";
 import { SEMUA_IQ_ITEMS, susunSoalAcak, jumlahBankPerDomain } from "../src/data/tes/iq-bank";
 import { RIASEC_ITEMS, kodeHolland } from "../src/data/tes/riasec";
-import { RUMPUN_JURUSAN, rumpunTerbaik, skorRumpun } from "../src/data/jurusan";
+import { RUMPUN_JURUSAN, rumpunTerbaik, skorRumpun, provinsiKampus, PROVINSI_KURASI, linkKampusLengkap } from "../src/data/jurusan";
 
 let lulus = 0;
 let gagal = 0;
@@ -322,6 +322,12 @@ console.log("— RIASEC & pemetaan jurusan —");
   uji("rumpunTerbaik IRC memuat 'ti'", cocokIRC.includes("ti"), true);
   const cocokSIA = rumpunTerbaik("SIA", 3).map((r) => r.id);
   uji("rumpunTerbaik SIA memuat psikologi", cocokSIA.includes("psikologi"), true);
+  // provinsi
+  uji("provinsi Surabaya = Jawa Timur", provinsiKampus({ nama: "x", kota: "Surabaya", jenis: "PTN" }), "Jawa Timur");
+  uji("provinsi Malang = Jawa Timur", provinsiKampus({ nama: "x", kota: "Malang", jenis: "PTN" }), "Jawa Timur");
+  uji("PROVINSI_KURASI memuat Jawa Timur", PROVINSI_KURASI.includes("Jawa Timur"), true);
+  uji("tiap kampus punya provinsi terpetakan (bukan 'Lainnya')", RUMPUN_JURUSAN.every((r) => r.kampus.every((k) => provinsiKampus(k) !== "Lainnya")), true);
+  uji("link kampus lengkap valid (google)", linkKampusLengkap("Teknik", "Jawa Timur").startsWith("https://www.google.com/search?q="), true);
 }
 
 console.log(`\n${lulus} lulus, ${gagal} gagal`);

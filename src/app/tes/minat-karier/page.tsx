@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import HalamanTes from "@/components/HalamanTes";
 import RadarChart from "@/components/RadarChart";
@@ -14,7 +15,13 @@ import {
   type RiasecDim,
 } from "@/data/tes/riasec";
 import { RIASEC_DOK } from "@/data/dok/riasec";
-import { rumpunTerbaik } from "@/data/jurusan";
+import {
+  rumpunTerbaik,
+  provinsiKampus,
+  PROVINSI_KURASI,
+  linkKampusLengkap,
+  PDDIKTI_URL,
+} from "@/data/jurusan";
 
 function Chip({ children }: { children: React.ReactNode }) {
   return (
@@ -29,6 +36,7 @@ function Hasil({ skor }: { skor: SkorDimensi }) {
   const kode = kodeHolland(urut);
   const top3 = urut.slice(0, 3);
   const rumpun = rumpunTerbaik(kode, 5);
+  const [provinsi, setProvinsi] = useState<string>("");
 
   return (
     <div>
@@ -98,8 +106,35 @@ function Hasil({ skor }: { skor: SkorDimensi }) {
           </p>
         </div>
 
+        <div className="mx-auto mt-6 flex max-w-md flex-col items-center gap-2 sm:flex-row sm:justify-center">
+          <label htmlFor="prov" className="text-xs font-semibold text-ink-3">
+            Filter wilayah kampus:
+          </label>
+          <select
+            id="prov"
+            value={provinsi}
+            onChange={(e) => setProvinsi(e.target.value)}
+            className="input-glass !w-auto !py-2 text-sm"
+          >
+            <option value="">Semua provinsi</option>
+            {PROVINSI_KURASI.map((p) => (
+              <option key={p} value={p}>{p}</option>
+            ))}
+          </select>
+        </div>
+
         <div className="mt-8 space-y-5">
-          {rumpun.map((r, i) => (
+          {rumpun.map((r, i) => {
+            const kampusUrut = provinsi
+              ? [...r.kampus].sort(
+                  (a, b) =>
+                    (provinsiKampus(b) === provinsi ? 1 : 0) -
+                    (provinsiKampus(a) === provinsi ? 1 : 0)
+                )
+              : r.kampus;
+            const adaDiProvinsi =
+              !!provinsi && r.kampus.some((k) => provinsiKampus(k) === provinsi);
+            return (
             <div key={r.id} className="glass glass-hairline p-6 md:p-8">
               <div className="flex items-start gap-4">
                 <span className="text-3xl" aria-hidden>{r.emoji}</span>
@@ -141,16 +176,40 @@ function Hasil({ skor }: { skor: SkorDimensi }) {
                   <div className="mt-4">
                     <p className="kicker !text-[10px] mb-1.5">Contoh Kampus</p>
                     <div className="flex flex-wrap gap-2">
-                      {r.kampus.map((k) => (
-                        <span
-                          key={k.nama}
-                          className="rounded-xl border border-white/8 bg-white/4 px-3 py-1.5 text-xs text-ink-2"
-                        >
-                          <span className="text-ink">{k.nama}</span>
-                          <span className="text-ink-3"> · {k.kota} · {k.jenis}</span>
-                        </span>
-                      ))}
+                      {kampusUrut.map((k) => {
+                        const prov = provinsiKampus(k);
+                        const cocok = provinsi && prov === provinsi;
+                        return (
+                          <span
+                            key={k.nama}
+                            className={`rounded-xl border px-3 py-1.5 text-xs ${
+                              cocok
+                                ? "border-mint/40 bg-mint/10 text-ink"
+                                : "border-white/8 bg-white/4 text-ink-2"
+                            }`}
+                          >
+                            <span className={cocok ? "text-ink" : "text-ink"}>{k.nama}</span>
+                            <span className="text-ink-3"> · {k.kota}, {prov} · {k.jenis}</span>
+                          </span>
+                        );
+                      })}
                     </div>
+                    <p className="mt-2 text-xs text-ink-3">
+                      {provinsi && !adaDiProvinsi && (
+                        <span className="text-amber">
+                          Belum ada contoh kurasi di {provinsi} untuk rumpun ini.{" "}
+                        </span>
+                      )}
+                      <a
+                        href={linkKampusLengkap(r.nama, provinsi || undefined)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-aurora underline underline-offset-4"
+                      >
+                        Lihat daftar LENGKAP kampus {r.nama}
+                        {provinsi ? ` di ${provinsi}` : " se-Indonesia"} (termasuk UIN/PTKIN & kampus kecil) →
+                      </a>
+                    </p>
                   </div>
 
                   {r.catatan && (
@@ -161,16 +220,40 @@ function Hasil({ skor }: { skor: SkorDimensi }) {
                 </div>
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
 
-        <p className="mx-auto mt-6 max-w-2xl text-center text-xs leading-relaxed text-ink-3">
-          Daftar kampus adalah <strong className="text-ink-2">contoh</strong>{" "}
-          program yang dikenal kuat/populer — bukan peringkat resmi & bukan
-          daftar lengkap. Selalu cek akreditasi, kurikulum, biaya, dan jalur
-          masuk terbaru di situs resmi kampus. Padukan hasil ini dengan nilai
-          rapor, kondisi keuanganmu, dan diskusi bersama guru BK & orang tua.
-        </p>
+        <div className="glass mx-auto mt-8 max-w-2xl p-5 text-center">
+          <p className="text-sm font-semibold text-ink">
+            Ingin data LENGKAP semua kampus (termasuk UIN/PTKIN kecil & semua
+            prodi) sampai tingkat kabupaten?
+          </p>
+          <p className="mt-2 text-xs leading-relaxed text-ink-2">
+            Data resmi & terlengkap se-Indonesia ada di{" "}
+            <a
+              href={PDDIKTI_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-aurora underline underline-offset-4"
+            >
+              PDDikti Kemdiktisaintek
+            </a>{" "}
+            (pangkalan data resmi 4000+ kampus & 30.000+ prodi). Pakai{" "}
+            <strong className="text-ink-2">filter provinsi</strong> di atas untuk
+            menyaring contoh kurasi kami per wilayah, lalu klik tautan “daftar
+            LENGKAP” tiap rumpun untuk menelusuri semua kampus — hingga level
+            kota/kabupaten — dari sumber resmi.
+          </p>
+          <p className="mt-3 text-[11px] leading-relaxed text-ink-3">
+            Kami sengaja <strong className="text-ink-2">tidak</strong> menyalin
+            ribuan data kampus ke dalam situs ini demi menjaga akurasi (data
+            akreditasi & prodi sering berubah). Contoh kampus di atas =
+            institusi dengan program yang dikenal kuat/populer, bukan peringkat
+            resmi. Selalu verifikasi akreditasi, biaya, & jalur masuk di web
+            resmi kampus, dan diskusikan dengan guru BK serta orang tua.
+          </p>
+        </div>
       </div>
 
       <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
