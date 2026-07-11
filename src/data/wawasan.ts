@@ -7,6 +7,8 @@ import { LOGIKA } from "@/data/wawasan/logika";
 import { SAINS } from "@/data/wawasan/sains";
 import { EKONOMI } from "@/data/wawasan/ekonomi";
 import { FILSAFAT } from "@/data/wawasan/filsafat";
+import { SOSIAL } from "@/data/wawasan/sosial";
+import { DUNIA } from "@/data/wawasan/dunia";
 
 export type KategoriWawasan =
   | "Bias & Sesat Pikir"
@@ -448,4 +450,6 @@ export const WAWASAN: Wawasan[] = [
   ...SAINS,
   ...EKONOMI,
   ...FILSAFAT,
+  ...SOSIAL,
+  ...DUNIA,
 ];
