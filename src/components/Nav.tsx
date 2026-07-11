@@ -22,6 +22,7 @@ const TAUTAN: { href: string; label: string }[] = [
   { href: "/#metode", label: "Metode" },
   { href: "/tes", label: "Tes" },
   { href: "/jenjang", label: "Jenjang" },
+  { href: "/tumbuh", label: "Tumbuh" },
   { href: "/profil", label: "Profil Saya" },
   { href: "/cv", label: "CV" },
 ];
@@ -40,7 +41,7 @@ export default function Nav() {
         </Link>
 
         {/* tautan desktop */}
-        <div className="hidden items-center gap-7 text-sm text-ink-2 md:flex">
+        <div className="hidden items-center gap-5 text-sm text-ink-2 md:flex">
           {TAUTAN.map((t) => (
             <Link key={t.href} href={t.href} className="transition-colors hover:text-ink">
               {t.label}
