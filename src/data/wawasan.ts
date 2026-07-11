@@ -25,7 +25,11 @@ export type KategoriWawasan =
   | "Sains & Alam"
   | "Tubuh & Kesehatan"
   | "Sejarah & Peradaban"
-  | "Teknologi & Masa Depan";
+  | "Teknologi & Masa Depan"
+  | "Hukum & Keadilan"
+  | "Seni & Kreativitas"
+  | "Lingkungan & Bumi"
+  | "Spiritualitas & Agama";
 
 export interface Wawasan {
   id: string;
@@ -55,6 +59,10 @@ export const WAWASAN_KATEGORI: KategoriWawasan[] = [
   "Tubuh & Kesehatan",
   "Sejarah & Peradaban",
   "Teknologi & Masa Depan",
+  "Hukum & Keadilan",
+  "Seni & Kreativitas",
+  "Lingkungan & Bumi",
+  "Spiritualitas & Agama",
 ];
 
 const INTI: Wawasan[] = [

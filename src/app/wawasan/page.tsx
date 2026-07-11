@@ -65,6 +65,14 @@ export default function HalamanWawasan() {
     });
   }, [cari, kat]);
 
+  // Hanya tampilkan kategori yang benar-benar punya isi (tak ada chip "0 konsep").
+  const { kategoriTampil, jumlah } = useMemo(() => {
+    const jumlah: Record<string, number> = {};
+    for (const w of WAWASAN) jumlah[w.kategori] = (jumlah[w.kategori] ?? 0) + 1;
+    const kategoriTampil = WAWASAN_KATEGORI.filter((k) => (jumlah[k] ?? 0) > 0);
+    return { kategoriTampil, jumlah };
+  }, []);
+
   return (
     <section className="mx-auto max-w-4xl px-5 pb-24 pt-32 md:px-8">
       <div className="text-center">
@@ -93,9 +101,9 @@ export default function HalamanWawasan() {
               kat === "semua" ? "border-violet/50 bg-violet/15 text-ink" : "border-white/10 bg-white/5 text-ink-3 hover:text-ink-2"
             }`}
           >
-            Semua
+            Semua · {WAWASAN.length}
           </button>
-          {WAWASAN_KATEGORI.map((k) => (
+          {kategoriTampil.map((k) => (
             <button
               key={k}
               onClick={() => setKat(k)}
@@ -103,7 +111,7 @@ export default function HalamanWawasan() {
                 kat === k ? "border-violet/50 bg-violet/15 text-ink" : "border-white/10 bg-white/5 text-ink-3 hover:text-ink-2"
               }`}
             >
-              {k}
+              {k} · {jumlah[k]}
             </button>
           ))}
         </div>
