@@ -51,6 +51,7 @@ import { TEMPERAMEN_INFO, type TemperamenDim } from "@/data/tes/temperamen";
 import { MORAL_INFO, MORAL_INSIGHT, type MoralDim } from "@/data/tes/moral";
 import { HBDI_INFO, type HbdiDim } from "@/data/tes/hbdi";
 import { BAKAT_DOMAIN, BAKAT_DOMAIN_URUTAN, TEMA_INFO as BAKAT_TEMA_INFO } from "@/data/tes/peta-bakat";
+import { daftarRingkasan, type RingkasanTes, type KelompokTes } from "@/lib/ringkasan";
 
 const URUTAN_DIM: BigFiveDim[] = ["O", "C", "E", "A", "N"];
 const VIA_INFO = Object.fromEntries(VIA_KEKUATAN.map((k) => [k.id, k]));
@@ -112,6 +113,114 @@ function BelumTes({ nama, route }: { nama: string; route: string }) {
   );
 }
 
+const KELOMPOK_LABEL: Record<KelompokTes, string> = {
+  ilmiah: "Psikometri Ilmiah",
+  semi: "Populer & Semi-Ilmiah",
+  budaya: "Budaya & Spiritual",
+  input: "Referensi / Input",
+};
+const KELOMPOK_URUTAN: KelompokTes[] = ["ilmiah", "semi", "budaya", "input"];
+
+/** Dashboard ringkas semua hasil tes — inti dari "Profil Saya" sebagai pemantau. */
+function DashboardHasil({ ringkasan }: { ringkasan: RingkasanTes[] }) {
+  const total = ringkasan.length;
+  const selesai = ringkasan.filter((r) => r.selesai).length;
+  const persen = total ? Math.round((selesai / total) * 100) : 0;
+
+  return (
+    <Reveal>
+      <section className="glass glass-hairline p-7 md:p-10">
+        <div className="flex flex-wrap items-center justify-between gap-4">
+          <div className="flex items-center gap-4">
+            <span className="font-display flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-violet/30 bg-gradient-to-br from-blue/15 to-violet/15 text-base font-extrabold text-aurora">
+              ★
+            </span>
+            <div>
+              <h2 className="font-display text-xl font-extrabold tracking-tight md:text-2xl">
+                Dashboard — Semua Hasil Tes
+              </h2>
+              <p className="text-xs text-ink-3">
+                Pantau semua tes & kesimpulannya di satu tempat.
+              </p>
+            </div>
+          </div>
+          <div className="text-right">
+            <p className="font-display text-2xl font-extrabold text-aurora">
+              {selesai}
+              <span className="text-sm text-ink-3">/{total}</span>
+            </p>
+            <p className="text-[11px] text-ink-3">sistem selesai</p>
+          </div>
+        </div>
+
+        <div className="mt-4 h-2 w-full overflow-hidden rounded-full bg-white/10">
+          <div
+            className="h-full rounded-full bg-gradient-to-r from-blue to-violet"
+            style={{ width: `${persen}%` }}
+          />
+        </div>
+
+        <div className="mt-7 space-y-7">
+          {KELOMPOK_URUTAN.map((k) => {
+            const items = ringkasan.filter((r) => r.kelompok === k);
+            if (!items.length) return null;
+            return (
+              <div key={k}>
+                <p className="kicker !text-[10px] mb-3">{KELOMPOK_LABEL[k]}</p>
+                <div className="grid gap-3 sm:grid-cols-2">
+                  {items.map((r) => (
+                    <div
+                      key={r.id}
+                      className={`rounded-2xl border p-4 ${
+                        r.selesai
+                          ? "border-white/10 bg-white/4"
+                          : "border-dashed border-white/12 bg-white/[0.02]"
+                      }`}
+                    >
+                      <div className="flex items-start justify-between gap-2">
+                        <p className="text-sm font-semibold text-ink">{r.nama}</p>
+                        <TierBadge tier={r.tier} />
+                      </div>
+                      {r.selesai ? (
+                        <>
+                          <p className="mt-1.5 text-sm font-semibold text-aurora">
+                            {r.headline}
+                          </p>
+                          {r.poin.map((p) => (
+                            <p key={p} className="mt-0.5 text-xs leading-relaxed text-ink-3">
+                              {p}
+                            </p>
+                          ))}
+                          <Link
+                            href={r.route}
+                            className="no-print mt-1.5 inline-block text-xs text-aurora underline underline-offset-2"
+                          >
+                            Lihat detail →
+                          </Link>
+                        </>
+                      ) : (
+                        <>
+                          <p className="mt-1.5 text-xs text-ink-3">Belum dikerjakan</p>
+                          <Link
+                            href={r.route}
+                            className="no-print mt-1 inline-block text-xs text-aurora underline underline-offset-2"
+                          >
+                            Ikuti tes →
+                          </Link>
+                        </>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+    </Reveal>
+  );
+}
+
 export default function ProfilTerpadu() {
   const [siap, setSiap] = useState(false);
   const [profil, setProfil] = useState<UserProfile | null>(null);
@@ -126,9 +235,12 @@ export default function ProfilTerpadu() {
   const [mft, setMft] = useState<SkorDimensi | null>(null);
   const [hbdi, setHbdi] = useState<SkorDimensi | null>(null);
   const [vak, setVak] = useState<{ urut: { nilai: string; persen: number }[] } | null>(null);
+  const [ringkasan, setRingkasan] = useState<RingkasanTes[]>([]);
 
   useEffect(() => {
-    setProfil(bacaProfil());
+    const pr = bacaProfil();
+    setProfil(pr);
+    setRingkasan(daftarRingkasan(pr));
     setBigFive(bacaBigFive());
     setMbti(bacaMbti());
     setVia(bacaHasilSistem<SkorDimensi>("via")?.skor ?? null);
@@ -179,29 +291,72 @@ export default function ProfilTerpadu() {
   const kua = hitungKua(profil.tanggalLahir, profil.gender);
   const bazi = hitungBazi(profil.tanggalLahir, profil.jamLahir);
 
+  // Tanpa Big Five: JANGAN kunci halaman. Tampilkan Dashboard semua hasil tes +
+  // tombol cetak, dengan ajakan menyelesaikan Big Five untuk sintesis mendalam.
   if (!bigFive) {
     return (
-      <section className="mx-auto max-w-2xl px-5 pb-20 pt-32 text-center md:px-8">
-        <Reveal>
-          <p className="kicker mb-4">Profil Terpadu</p>
-          <h1 className="font-display text-balance text-3xl font-extrabold tracking-tight md:text-4xl">
-            Satu langkah lagi,{" "}
-            <span className="text-aurora">{profil.namaPanggilan}.</span>
-          </h1>
-          <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-ink-2">
-            Profil Terpadu disintesis di atas fondasi ilmiah. Selesaikan tes Big
-            Five (±7 menit) untuk membukanya — cetak biru kelahiranmu sudah siap
-            menunggu di dalam.
+      <section className="mx-auto max-w-5xl px-5 pb-20 pt-32 md:px-8">
+        <div className="hidden print:block mb-8 border-b border-[#e5e7eb] pb-4">
+          <div className="flex items-baseline justify-between gap-4">
+            <p className="font-display text-lg font-extrabold tracking-tight text-[#6d28d9]">
+              Djiva
+            </p>
+            <p className="text-xs text-[#55555a]">
+              {new Intl.DateTimeFormat("id-ID", { dateStyle: "long" }).format(new Date())}
+            </p>
+          </div>
+          <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#55555a]">
+            Laporan Profil Terpadu
           </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Link href="/tes/big-five" className="btn-primary">
+          <p className="mt-2 text-base font-bold text-[#1d1d1f]">{profil.namaLengkap}</p>
+        </div>
+
+        <Reveal className="text-center">
+          <p className="kicker mb-4">Dashboard · Profil Terpadu</p>
+          <h1 className="font-display text-balance text-3xl font-extrabold tracking-tight md:text-5xl">
+            {profil.namaPanggilan},{" "}
+            <span className="text-aurora">dashboard-mu.</span>
+          </h1>
+          <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-ink-2">
+            Ini pemantau semua tes yang sudah kamu kerjakan beserta
+            kesimpulannya. Selesaikan tes <strong className="text-ink">Big Five</strong>{" "}
+            untuk membuka sintesis mendalam 10 seksi (inti diri, karier, relasi,
+            hingga action plan).
+          </p>
+          <div className="mt-7 flex flex-wrap justify-center gap-3">
+            <Link href="/tes/big-five" className="btn-primary no-print">
               Ikuti Tes Big Five
             </Link>
-            <Link href="/hasil" className="btn-ghost">
-              Lihat Cetak Biru Kelahiran
-            </Link>
+            <button
+              onClick={() => window.print()}
+              className="btn-ghost no-print !px-5 !py-2.5 text-sm"
+            >
+              ⤓ Cetak / Simpan PDF
+            </button>
           </div>
+          <p className="mx-auto mt-3 max-w-lg text-xs leading-relaxed text-ink-3">
+            Kamu bisa mencetak/simpan PDF begitu ada tanggal lahir + minimal satu
+            tes. Makin banyak tes selesai, makin lengkap dokumennya.
+          </p>
         </Reveal>
+
+        <div className="mt-12">
+          <DashboardHasil ringkasan={ringkasan} />
+        </div>
+
+        <Reveal className="mt-8">
+          <p className="mx-auto max-w-2xl text-center text-xs leading-relaxed text-ink-3">
+            Profil ini cermin, bukan kotak. Manusia selalu lebih luas dari model
+            mana pun. Bukan alat diagnosis kesehatan mental.
+          </p>
+        </Reveal>
+
+        <div className="hidden print:block mt-10 border-t border-[#e5e7eb] pt-4 text-center">
+          <p className="text-[11px] text-[#55555a]">
+            Djiva — Know Yourself Better Than Ever · Dokumen privat, dihasilkan di
+            perangkat pengguna.
+          </p>
+        </div>
       </section>
     );
   }
@@ -316,9 +471,18 @@ export default function ProfilTerpadu() {
         >
           ⤓ Cetak / Simpan PDF
         </button>
+        <p className="mx-auto mt-3 max-w-lg text-xs leading-relaxed text-ink-3 no-print">
+          Cetak/simpan PDF berisi SEMUA hasil tes yang sudah kamu selesaikan —
+          makin lengkap tes, makin lengkap dokumennya.
+        </p>
       </Reveal>
 
-      <div className="mt-14 space-y-6">
+      {/* --------------------- dashboard semua hasil tes --------------------- */}
+      <div className="mt-12">
+        <DashboardHasil ringkasan={ringkasan} />
+      </div>
+
+      <div className="mt-6 space-y-6">
         {/* --------------------------- 1. inti diri --------------------------- */}
         <Seksi
           nomor="01"
