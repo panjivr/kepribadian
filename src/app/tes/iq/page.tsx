@@ -20,7 +20,7 @@ import { bacaHasilSistem, simpanHasilSistem } from "@/lib/storage";
 type Tahap = "intro" | "kuis" | "hasil";
 
 // Berapa soal per domain diambil tiap percobaan (dibatasi ukuran bank).
-const SOAL_PER_DOMAIN = 10;
+const SOAL_PER_DOMAIN = 12;
 
 interface IqSkor {
   benar: number;

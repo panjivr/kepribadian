@@ -289,7 +289,7 @@ console.log("— Bank IQ & pengacakan —");
 
   // Tiap domain minimal 10 agar 10 soal/domain bisa diambil.
   const per = jumlahBankPerDomain();
-  uji("tiap domain ≥ 10 soal", [per.numerik >= 10, per.logis >= 10, per.verbal >= 10, per.pola >= 10], [true, true, true, true]);
+  uji("tiap domain ≥ 25 soal (bank diperbesar)", [per.numerik >= 25, per.logis >= 25, per.verbal >= 25, per.pola >= 25], [true, true, true, true]);
 
   // Pengacakan mempertahankan jawaban benar: seed deterministik, cek tiap soal.
   let mulberrySeed = 12345;
@@ -301,15 +301,15 @@ console.log("— Bank IQ & pengacakan —");
     return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
   };
   const asli = new Map(SEMUA_IQ_ITEMS.map((it) => [it.teks, it.opsi[it.benar]]));
-  const set = susunSoalAcak(10, rnd);
+  const set = susunSoalAcak(12, rnd);
   const jawabanTetapBenar = set.every((it) => it.opsi[it.benar] === asli.get(it.teks));
   uji("acak opsi tetap menjaga jawaban benar", jawabanTetapBenar, true);
   const permutasiValid = set.every(
     (it) => JSON.stringify([...it.petaOpsi].sort()) === JSON.stringify([0, 1, 2, 3])
   );
   uji("petaOpsi selalu permutasi [0,1,2,3]", permutasiValid, true);
-  uji("set acak = 40 soal (10/domain)", set.length, 40);
-  uji("nomor set acak berurutan 1..40", [set[0].no, set[set.length - 1].no], [1, 40]);
+  uji("set acak = 48 soal (12/domain)", set.length, 48);
+  uji("nomor set acak berurutan 1..48", [set[0].no, set[set.length - 1].no], [1, 48]);
 }
 
 console.log("— RIASEC & pemetaan jurusan —");

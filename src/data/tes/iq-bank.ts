@@ -56,6 +56,67 @@ const IQ_TAMBAHAN: IqItem[] = [
   { no: 138, domain: "pola", teks: "Pada matriks — baris: 5,3,8 / 6,2,8 / 7,4,? — berapa nilai '?'", opsi: ["10", "11", "12", "28"], benar: 1, pembahasan: "Kolom ketiga = kolom pertama + kolom kedua. 7 + 4 = 11." },
   { no: 139, domain: "pola", teks: "Lanjutkan pola: AA, BB, CC, DD, …", opsi: ["DE", "EE", "EF", "FF"], benar: 1, pembahasan: "Tiap huruf berurutan digandakan: AA, BB, CC, DD, lalu EE." },
   { no: 140, domain: "pola", teks: "Perhatikan banyak segitiga: (0), △, △△, △△△, …. Berapa segitiga pada suku berikutnya?", opsi: ["3 segitiga", "4 segitiga", "5 segitiga", "2 segitiga"], benar: 1, pembahasan: "Jumlah segitiga bertambah satu tiap suku: 0, 1, 2, 3, lalu 4." },
+  // ============================ TINGKAT SULIT ============================
+  // ------------------------------- NUMERIK -------------------------------
+  { no: 141, domain: "numerik", teks: "Lanjutkan deret: 4, 7, 12, 19, 28, …", opsi: ["37", "39", "41", "36"], benar: 1, pembahasan: "Selisih bertambah ganjil: +3, +5, +7, +9, lalu +11. 28 + 11 = 39." },
+  { no: 142, domain: "numerik", teks: "Lanjutkan deret: 2, 6, 12, 20, 30, …", opsi: ["40", "42", "44", "38"], benar: 1, pembahasan: "Selisih bertambah genap: +4, +6, +8, +10, lalu +12. 30 + 12 = 42." },
+  { no: 143, domain: "numerik", teks: "Lanjutkan deret: 1, 2, 6, 24, 120, …", opsi: ["600", "720", "840", "480"], benar: 1, pembahasan: "Tiap suku dikali bilangan naik: ×2, ×3, ×4, ×5, lalu ×6. 120 × 6 = 720." },
+  { no: 144, domain: "numerik", teks: "Lanjutkan deret: 5, 8, 14, 26, 50, …", opsi: ["74", "98", "100", "86"], benar: 1, pembahasan: "Selisih berlipat dua: +3, +6, +12, +24, lalu +48. 50 + 48 = 98." },
+  { no: 145, domain: "numerik", teks: "Lanjutkan deret: 128, 64, 32, 16, …", opsi: ["8", "10", "12", "4"], benar: 0, pembahasan: "Tiap suku dibagi 2. 16 ÷ 2 = 8." },
+  { no: 146, domain: "numerik", teks: "Lanjutkan deret: 2, 3, 5, 8, 13, 21, …", opsi: ["33", "34", "35", "32"], benar: 1, pembahasan: "Tiap suku = jumlah dua suku sebelumnya: 13 + 21 = 34." },
+  { no: 147, domain: "numerik", teks: "Lanjutkan deret: 81, 27, 9, 3, …", opsi: ["1", "2", "0", "3"], benar: 0, pembahasan: "Tiap suku dibagi 3. 3 ÷ 3 = 1." },
+  { no: 148, domain: "numerik", teks: "Lanjutkan deret pangkat tiga: 1, 8, 27, 64, 125, …", opsi: ["216", "196", "225", "150"], benar: 0, pembahasan: "Deret bilangan kubik: 1³, 2³, 3³, 4³, 5³, lalu 6³ = 216." },
+  { no: 149, domain: "numerik", teks: "Sebuah tangki terisi 3/4 memuat 90 liter. Berapa kapasitas penuh tangki?", opsi: ["100 liter", "120 liter", "135 liter", "150 liter"], benar: 1, pembahasan: "Jika 3/4 = 90 liter, maka 1/4 = 30 liter, sehingga penuh = 120 liter." },
+  { no: 150, domain: "numerik", teks: "Nilai rata-rata 5 anak adalah 80. Bila satu anak bernilai 60 dikeluarkan, berapa rata-rata 4 anak sisanya?", opsi: ["82", "84", "85", "86"], benar: 2, pembahasan: "Total = 5 × 80 = 400. Dikurangi 60 = 340. Rata-rata 4 anak = 340 ÷ 4 = 85." },
+  { no: 151, domain: "numerik", teks: "Sebuah harga naik 20% lalu turun 20%. Dibanding harga awal, hasil akhirnya …", opsi: ["Naik 4%", "Turun 4%", "Tetap sama", "Turun 2%"], benar: 1, pembahasan: "1 × 1,2 × 0,8 = 0,96. Jadi turun 4% dari harga awal." },
+  { no: 152, domain: "numerik", teks: "Menempuh 120 km dalam 2 jam, lalu 60 km dalam 3 jam. Berapa kecepatan rata-rata seluruh perjalanan?", opsi: ["30 km/jam", "36 km/jam", "40 km/jam", "45 km/jam"], benar: 1, pembahasan: "Total jarak 180 km ÷ total waktu 5 jam = 36 km/jam." },
+  { no: 153, domain: "numerik", teks: "Jika a★b = a² − b, maka nilai 5★4 adalah …", opsi: ["21", "20", "16", "9"], benar: 0, pembahasan: "5★4 = 5² − 4 = 25 − 4 = 21." },
+  { no: 154, domain: "numerik", teks: "Sekarang pukul 14.00. Pukul berapa 50 jam kemudian?", opsi: ["16.00", "12.00", "18.00", "14.00"], benar: 0, pembahasan: "50 jam = 2 hari (48 jam) + 2 jam. 14.00 + 2 jam = 16.00." },
+  // -------------------------------- LOGIS --------------------------------
+  { no: 155, domain: "logis", teks: "Semua dokter pandai. Sebagian orang pandai kaya. Kesimpulan yang pasti benar:", opsi: ["Semua dokter kaya", "Sebagian dokter kaya", "Tidak dapat disimpulkan sebagian dokter kaya", "Tidak ada dokter kaya"], benar: 2, pembahasan: "Orang pandai yang kaya belum tentu dokter, jadi kekayaan dokter tak bisa dipastikan." },
+  { no: 156, domain: "logis", teks: "Semua A adalah B. Semua B adalah C. Maka:", opsi: ["Semua C adalah A", "Semua A adalah C", "Sebagian A bukan C", "Tidak ada A yang C"], benar: 1, pembahasan: "Silogisme berantai: A ⊆ B ⊆ C, sehingga semua A pasti C." },
+  { no: 157, domain: "logis", teks: "Aturan: 'Jika hari Minggu maka libur.' Fakta: hari ini Minggu. Kesimpulan:", opsi: ["Hari ini libur", "Hari ini tidak libur", "Besok libur", "Tidak dapat disimpulkan"], benar: 0, pembahasan: "Modus ponens: sebab (Minggu) terpenuhi, maka akibat (libur) pasti terjadi." },
+  { no: 158, domain: "logis", teks: "Aturan: 'Jika rajin maka lulus.' Fakta: Doni tidak rajin. Kesimpulan:", opsi: ["Doni tidak lulus", "Doni lulus", "Tidak dapat disimpulkan", "Doni bodoh"], benar: 2, pembahasan: "Menyangkal sebab tak menentukan akibat — Doni bisa saja lulus lewat cara lain." },
+  { no: 159, domain: "logis", teks: "Dalam lomba, Ana finis sebelum Bima, Bima sebelum Cinta, dan Dedi setelah Cinta. Siapa juara pertama?", opsi: ["Ana", "Bima", "Cinta", "Dedi"], benar: 0, pembahasan: "Urutan finis: Ana, Bima, Cinta, Dedi. Juara pertama adalah Ana." },
+  { no: 160, domain: "logis", teks: "Semua kucing adalah mamalia. Sebagian mamalia bisa berenang. Kesimpulan:", opsi: ["Semua kucing berenang", "Sebagian kucing berenang", "Tidak dapat disimpulkan", "Kucing bukan mamalia"], benar: 2, pembahasan: "Mamalia yang berenang belum tentu kucing, jadi tak bisa disimpulkan soal kucing." },
+  { no: 161, domain: "logis", teks: "Pernyataan 'Jika sehat maka bahagia' setara maknanya dengan:", opsi: ["Jika bahagia maka sehat", "Jika tidak sehat maka tidak bahagia", "Jika tidak bahagia maka tidak sehat", "Jika sehat maka tidak bahagia"], benar: 2, pembahasan: "Kontraposisi: 'Jika P maka Q' setara 'Jika bukan Q maka bukan P'." },
+  { no: 162, domain: "logis", teks: "Tidak ada P yang Q. Semua R adalah Q. Kesimpulan yang pasti benar:", opsi: ["Semua R adalah P", "Sebagian R adalah P", "Tidak ada R yang P", "Semua P adalah R"], benar: 2, pembahasan: "Karena semua R adalah Q, dan tak ada P yang Q, maka tak ada R yang P." },
+  { no: 163, domain: "logis", teks: "A lebih berat dari B. C lebih ringan dari B. D lebih berat dari A. Siapa paling berat?", opsi: ["A", "B", "C", "D"], benar: 3, pembahasan: "Urutan berat: D > A > B > C. Maka D paling berat." },
+  { no: 164, domain: "logis", teks: "Jika 'sebagian X adalah Y' benar, maka pasti benar pula:", opsi: ["Semua X adalah Y", "Sebagian Y adalah X", "Semua Y adalah X", "Tidak ada X yang Y"], benar: 1, pembahasan: "Pernyataan 'sebagian' dapat dibalik: jika sebagian X adalah Y, maka sebagian Y adalah X." },
+  { no: 165, domain: "logis", teks: "'Tidak semua politikus jujur' bermakna sama dengan:", opsi: ["Semua politikus tidak jujur", "Ada politikus yang tidak jujur", "Semua politikus jujur", "Tidak ada politikus jujur"], benar: 1, pembahasan: "Ingkaran 'semua jujur' adalah 'ada minimal satu yang tidak jujur'." },
+  { no: 166, domain: "logis", teks: "Jika kemarin adalah hari Rabu, maka lusa adalah hari …", opsi: ["Jumat", "Sabtu", "Minggu", "Kamis"], benar: 1, pembahasan: "Kemarin Rabu → hari ini Kamis → besok Jumat → lusa Sabtu." },
+  { no: 167, domain: "logis", teks: "Jika pernyataan 'Semua siswa lulus' ternyata SALAH, apakah 'Semua siswa gagal' pasti benar?", opsi: ["Ya, pasti benar", "Tidak, belum tentu benar", "Tidak ada siswa", "Semua lulus"], benar: 1, pembahasan: "Ingkaran 'semua lulus' hanya berarti 'ada yang tidak lulus' — bukan berarti semua gagal." },
+  { no: 168, domain: "logis", teks: "Jika 'ayah dari ayahku' adalah kakekku, maka 'anak dari anakku' adalah …", opsi: ["Cucu", "Keponakan", "Saudara", "Sepupu"], benar: 0, pembahasan: "Relasi menurun dua tingkat dari diriku: anak dari anakku adalah cucuku." },
+  // ------------------------------- VERBAL --------------------------------
+  { no: 169, domain: "verbal", teks: "Sinonim (persamaan kata) dari 'ABSURD' adalah …", opsi: ["Masuk akal", "Janggal", "Umum", "Nyata"], benar: 1, pembahasan: "Absurd berarti janggal, mustahil, atau tak masuk akal." },
+  { no: 170, domain: "verbal", teks: "Antonim (lawan kata) dari 'GERSANG' adalah …", opsi: ["Kering", "Subur", "Panas", "Tandus"], benar: 1, pembahasan: "Lawan dari gersang (tandus) adalah subur." },
+  { no: 171, domain: "verbal", teks: "DOKTER : PASIEN = GURU : …", opsi: ["Sekolah", "Murid", "Buku", "Papan"], benar: 1, pembahasan: "Dokter melayani pasien; guru mengajar murid." },
+  { no: 172, domain: "verbal", teks: "GITAR : MUSISI = KUAS : …", opsi: ["Cat", "Pelukis", "Lukisan", "Kanvas"], benar: 1, pembahasan: "Gitar adalah alat kerja musisi; kuas adalah alat kerja pelukis." },
+  { no: 173, domain: "verbal", teks: "Sinonim (persamaan kata) dari 'FIKTIF' adalah …", opsi: ["Nyata", "Khayalan", "Sejarah", "Fakta"], benar: 1, pembahasan: "Fiktif berarti bersifat khayalan, bukan kenyataan." },
+  { no: 174, domain: "verbal", teks: "Antonim (lawan kata) dari 'DERMAWAN' adalah …", opsi: ["Kaya", "Pelit", "Baik", "Miskin"], benar: 1, pembahasan: "Lawan dari dermawan (suka memberi) adalah pelit atau kikir." },
+  { no: 175, domain: "verbal", teks: "JARUM : MENJAHIT = GUNTING : …", opsi: ["Kertas", "Memotong", "Tajam", "Rambut"], benar: 1, pembahasan: "Fungsi jarum adalah menjahit; fungsi gunting adalah memotong." },
+  { no: 176, domain: "verbal", teks: "Satu kata berikut tidak sekelompok dengan lainnya. Manakah?", opsi: ["Mawar", "Melati", "Anggrek", "Mangga"], benar: 3, pembahasan: "Mawar, melati, anggrek adalah bunga; mangga adalah buah." },
+  { no: 177, domain: "verbal", teks: "TERANG : GELAP = … (pasangan berlawanan makna)", opsi: ["Panas : Hangat", "Riang : Sedih", "Besar : Luas", "Cepat : Kilat"], benar: 1, pembahasan: "Terang lawan gelap; pasangan berlawanan yang setara adalah riang lawan sedih." },
+  { no: 178, domain: "verbal", teks: "Sinonim (persamaan kata) dari 'MAYA' adalah …", opsi: ["Nyata", "Semu", "Terang", "Jelas"], benar: 1, pembahasan: "Maya berarti semu atau tidak nyata." },
+  { no: 179, domain: "verbal", teks: "PATUNG : PEMAHAT = LAGU : …", opsi: ["Panggung", "Pencipta Lagu", "Penonton", "Alat Musik"], benar: 1, pembahasan: "Patung dibuat oleh pemahat; lagu dibuat oleh pencipta lagu." },
+  { no: 180, domain: "verbal", teks: "Antonim (lawan kata) dari 'SEMENTARA' adalah …", opsi: ["Sebentar", "Kekal", "Cepat", "Baru"], benar: 1, pembahasan: "Lawan dari sementara (tidak tetap) adalah kekal atau abadi." },
+  { no: 181, domain: "verbal", teks: "Ungkapan 'buah tangan' berarti …", opsi: ["Hadiah pernikahan", "Oleh-oleh", "Hasil karya", "Anak kandung"], benar: 1, pembahasan: "'Buah tangan' adalah ungkapan untuk oleh-oleh." },
+  { no: 182, domain: "verbal", teks: "PENA : TINTA = PENSIL : …", opsi: ["Kertas", "Grafit", "Karet", "Kayu"], benar: 1, pembahasan: "Pena menulis dengan tinta; pensil menulis dengan grafit." },
+  // --------------------------------- POLA --------------------------------
+  { no: 183, domain: "pola", teks: "Lanjutkan pola huruf: A, C, F, J, O, …", opsi: ["T", "U", "V", "S"], benar: 1, pembahasan: "Selang bertambah: +2, +3, +4, +5, lalu +6. Dari O (posisi 15) + 6 = U (posisi 21)." },
+  { no: 184, domain: "pola", teks: "Lanjutkan pola huruf: C, F, I, L, …", opsi: ["N", "O", "P", "M"], benar: 1, pembahasan: "Melompati dua huruf (+3): C, F, I, L, lalu O." },
+  { no: 185, domain: "pola", teks: "Lanjutkan pola huruf mundur: X, U, R, O, …", opsi: ["M", "L", "K", "N"], benar: 1, pembahasan: "Mundur tiga huruf (−3): X, U, R, O, lalu L." },
+  { no: 186, domain: "pola", teks: "Jika KODE ditulis LPEF (tiap huruf +1), maka SANDI ditulis …", opsi: ["TBOEJ", "RZMCH", "TBPEJ", "TCOEJ"], benar: 0, pembahasan: "Geser tiap huruf +1: S→T, A→B, N→O, D→E, I→J = TBOEJ." },
+  { no: 187, domain: "pola", teks: "Jika ABIS ditulis YZGQ (tiap huruf −2), maka TUAN ditulis …", opsi: ["RSYL", "VWCP", "RSYK", "RSYM"], benar: 0, pembahasan: "Geser tiap huruf −2 (memutar bila perlu): T→R, U→S, A→Y, N→L = RSYL." },
+  { no: 188, domain: "pola", teks: "Pada matriks — baris: 3,4,12 / 2,5,10 / 6,3,? — berapa nilai '?'", opsi: ["9", "18", "12", "24"], benar: 1, pembahasan: "Kolom ketiga = kolom pertama × kolom kedua. 6 × 3 = 18." },
+  { no: 189, domain: "pola", teks: "Pada matriks — baris: 6,2,4 / 9,3,6 / 12,4,? — berapa nilai '?'", opsi: ["6", "8", "10", "16"], benar: 1, pembahasan: "Kolom ketiga = kolom pertama − kolom kedua. 12 − 4 = 8." },
+  { no: 190, domain: "pola", teks: "Lanjutkan pola tiap baris: 2,4,8 / 3,6,12 / 4,8,? ", opsi: ["14", "16", "12", "20"], benar: 1, pembahasan: "Tiap baris berlipat dua dari kiri: 4, 8, lalu 16." },
+  { no: 191, domain: "pola", teks: "Lanjutkan pola simbol: ◆◆● ◆◆● ◆◆…", opsi: ["◆", "●", "■", "▲"], benar: 1, pembahasan: "Pola berulang tiga simbol: ◆, ◆, ●. Setelah dua ◆, berikutnya ●." },
+  { no: 192, domain: "pola", teks: "Lanjutkan pola angka-huruf: 1A, 2C, 3E, 4G, …", opsi: ["5H", "5I", "5J", "6I"], benar: 1, pembahasan: "Angka +1 (jadi 5) dan huruf melompat satu (A, C, E, G, I). Maka 5I." },
+  { no: 193, domain: "pola", teks: "Lanjutkan pola: A1, B2, D4, G7, …", opsi: ["K11", "J10", "K10", "L11"], benar: 0, pembahasan: "Huruf naik +1,+2,+3,+4 (A,B,D,G,K) dan angka naik +1,+2,+3,+4 (1,2,4,7,11). Maka K11." },
+  { no: 194, domain: "pola", teks: "Lanjutkan pola: AZ, BY, CX, DW, …", opsi: ["EV", "EU", "FV", "EW"], benar: 0, pembahasan: "Huruf depan maju (A,B,C,D,E) dan huruf belakang mundur (Z,Y,X,W,V). Maka EV." },
+  { no: 195, domain: "pola", teks: "Banyak lingkaran tiap suku: ○ , ○○○ , ○○○○○ , …. Berapa lingkaran suku berikutnya?", opsi: ["6 lingkaran", "7 lingkaran", "8 lingkaran", "5 lingkaran"], benar: 1, pembahasan: "Jumlah lingkaran bilangan ganjil: 1, 3, 5, lalu 7." },
+  { no: 196, domain: "pola", teks: "Lanjutkan pola huruf: B, E, D, G, F, I, H, …", opsi: ["J", "K", "L", "I"], benar: 1, pembahasan: "Berselang +3 lalu −1: B→E(+3)→D(−1)→G(+3)→F(−1)→I(+3)→H(−1)→K(+3)." },
 ];
 
 export const SEMUA_IQ_ITEMS: IqItem[] = [...IQ_ITEMS, ...IQ_TAMBAHAN];
@@ -95,7 +156,7 @@ function acakOpsi(item: IqItem, rnd: () => number): IqItemAcak {
  * diselang-seling antar domain. Default RNG Math.random → beda tiap percobaan.
  */
 export function susunSoalAcak(
-  perDomain = 10,
+  perDomain = 12,
   rnd: () => number = Math.random
 ): IqItemAcak[] {
   const domains: IqDomain[] = ["numerik", "logis", "verbal", "pola"];
