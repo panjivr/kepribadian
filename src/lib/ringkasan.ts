@@ -201,8 +201,12 @@ function ringkasSistem(cek: string): { headline: string; poin: string[]; selesai
   }
   // sisanya: SkorDimensi generik
   const r = aman(() => bacaHasilSistem<SkorDimensi>(cek as SistemId));
-  if (!r?.skor?.urut) return { ...KOSONG, selesai: false };
-  return { ...ringkasSkor(cek, r.skor), selesai: true, tanggal: r.tanggal };
+  if (!r?.skor?.urut?.length) return { ...KOSONG, selesai: false };
+  const ringkas = aman(() => ringkasSkor(cek, r.skor)) ?? {
+    headline: `${r.skor.urut[0]?.dim ?? "Selesai"} tertinggi`,
+    poin: [],
+  };
+  return { ...ringkas, selesai: true, tanggal: r.tanggal };
 }
 
 /**
