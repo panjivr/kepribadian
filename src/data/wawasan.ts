@@ -3,16 +3,27 @@
  * bidang (keputusan, motivasi, sosial, uang, makna, pikiran, relasi). Tiap
  * entri dilengkapi cerita & analogi agar mudah dipahami. Konten edukatif.
  */
+import { LOGIKA } from "@/data/wawasan/logika";
+import { SAINS } from "@/data/wawasan/sains";
+import { EKONOMI } from "@/data/wawasan/ekonomi";
+import { FILSAFAT } from "@/data/wawasan/filsafat";
 
 export type KategoriWawasan =
   | "Bias & Sesat Pikir"
   | "Pengambilan Keputusan"
+  | "Logika & Argumen"
   | "Motivasi & Kebiasaan"
+  | "Produktivitas & Waktu"
   | "Sosial & Media"
+  | "Komunikasi & Relasi"
   | "Uang & Kelas Sosial"
   | "Makna & Kebahagiaan"
+  | "Filsafat & Etika"
   | "Belajar & Pikiran"
-  | "Komunikasi & Relasi";
+  | "Sains & Alam"
+  | "Tubuh & Kesehatan"
+  | "Sejarah & Peradaban"
+  | "Teknologi & Masa Depan";
 
 export interface Wawasan {
   id: string;
@@ -29,15 +40,22 @@ export interface Wawasan {
 export const WAWASAN_KATEGORI: KategoriWawasan[] = [
   "Bias & Sesat Pikir",
   "Pengambilan Keputusan",
+  "Logika & Argumen",
   "Motivasi & Kebiasaan",
+  "Produktivitas & Waktu",
   "Sosial & Media",
+  "Komunikasi & Relasi",
   "Uang & Kelas Sosial",
   "Makna & Kebahagiaan",
+  "Filsafat & Etika",
   "Belajar & Pikiran",
-  "Komunikasi & Relasi",
+  "Sains & Alam",
+  "Tubuh & Kesehatan",
+  "Sejarah & Peradaban",
+  "Teknologi & Masa Depan",
 ];
 
-export const WAWASAN: Wawasan[] = [
+const INTI: Wawasan[] = [
   // ---------------------------- Bias & Sesat Pikir ---------------------------
   {
     id: "dunning-kruger",
@@ -420,4 +438,14 @@ export const WAWASAN: Wawasan[] = [
     ],
     sumber: "Stephen Covey (1989); Marshall Rosenberg (2003)",
   },
+];
+
+/* ------------------- gabungan seluruh domain ilmu (perpustakaan) ------------------ */
+// Entri per-domain hidup di src/data/wawasan/*.ts lalu digabung di sini.
+export const WAWASAN: Wawasan[] = [
+  ...INTI,
+  ...LOGIKA,
+  ...SAINS,
+  ...EKONOMI,
+  ...FILSAFAT,
 ];
