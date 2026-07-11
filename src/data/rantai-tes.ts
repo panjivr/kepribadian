@@ -31,6 +31,7 @@ export const RANTAI_TES: LangkahTes[] = [
   { id: "growth_mindset", nama: "Pola Pikir Berkembang", href: "/tes/pola-pikir" },
   { id: "conflict_style", nama: "Gaya Menghadapi Konflik", href: "/tes/gaya-konflik" },
   { id: "values", nama: "Nilai Hidup (Schwartz)", href: "/tes/nilai" },
+  { id: "dark_triad", nama: "Sisi Gelap (Dark Triad)", href: "/tes/sisi-gelap" },
   { id: "attachment", nama: "Gaya Kelekatan (Attachment)", href: "/tes/kelekatan" },
   { id: "love_language", nama: "Bahasa Kasih (Love Languages)", href: "/tes/bahasa-kasih" },
 ];

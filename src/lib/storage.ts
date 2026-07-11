@@ -80,6 +80,7 @@ export type SistemId =
   | "growth_mindset"
   | "conflict_style"
   | "values"
+  | "dark_triad"
   | "eq"
   | "iq";
 

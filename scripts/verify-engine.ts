@@ -39,6 +39,7 @@ import { MINDSET_ITEMS, bandMindset } from "../src/data/tes/mindset";
 import { KONFLIK_ITEMS } from "../src/data/tes/conflict";
 import { NILAI_ITEMS, ORIENTASI_INFO, ORIENTASI_URUTAN, type NilaiDim } from "../src/data/tes/values";
 import { EQ_ITEMS } from "../src/data/tes/eq";
+import { DARK_ITEMS, bandDark } from "../src/data/tes/darktriad";
 
 let lulus = 0;
 let gagal = 0;
@@ -412,6 +413,12 @@ console.log("— Grit, Pola Pikir, Konflik, Nilai, EQ —");
   uji("EQ 10 per domain", (["kesadaran_diri", "regulasi_diri", "motivasi", "empati", "keterampilan_sosial"] as const).map((d) => EQ_ITEMS.filter((i) => i.dim === d).length), [10, 10, 10, 10, 10]);
   uji("setiap butir EQ ada analogi", EQ_ITEMS.every((i) => i.bantuan.length > 10), true);
   uji("nomor EQ unik 1..50", [new Set(EQ_ITEMS.map((i) => i.no)).size, Math.max(...EQ_ITEMS.map((i) => i.no))], [50, 50]);
+
+  // Dark Triad
+  uji("Dark Triad 18 item / 3 sifat", [DARK_ITEMS.length, new Set(DARK_ITEMS.map((i) => i.dim)).size], [18, 3]);
+  uji("Dark Triad 6 per sifat", (["makiaveli", "narsisme", "psikopati"] as const).map((d) => DARK_ITEMS.filter((i) => i.dim === d).length), [6, 6, 6]);
+  uji("setiap butir dark triad ada analogi", DARK_ITEMS.every((i) => i.bantuan.length > 10), true);
+  uji("bandDark 70=Tinggi, 20=Rendah", [bandDark(70).label, bandDark(20).label], ["Tinggi", "Rendah"]);
 }
 
 console.log("— Integritas registry & rantai tes —");

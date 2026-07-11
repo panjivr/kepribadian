@@ -44,6 +44,7 @@ import { KONFLIK_INFO } from "@/data/tes/conflict";
 import { NILAI_INFO, ORIENTASI_INFO, ORIENTASI_URUTAN } from "@/data/tes/values";
 import { EQ_INFO, EQ_URUTAN } from "@/data/tes/eq";
 import { bandIq } from "@/data/tes/iq";
+import { DARK_INFO } from "@/data/tes/darktriad";
 
 const VIA_NAMA = Object.fromEntries(VIA_KEKUATAN.map((k) => [k.id, k.nama]));
 const NAMA_VAK: Record<string, string> = { V: "Visual", A: "Auditori", K: "Kinestetik" };
@@ -128,6 +129,8 @@ function ringkasSkor(cek: string, skor: SkorDimensi): { headline: string; poin: 
     }
     case "conflict_style":
       return { headline: `Gaya utama: ${KONFLIK_INFO[top.dim as keyof typeof KONFLIK_INFO].nama}`, poin: urut.slice(0, 2).map((u) => `${KONFLIK_INFO[u.dim as keyof typeof KONFLIK_INFO].nama} ${p2(u.persen)}`) };
+    case "dark_triad":
+      return { headline: `Menonjol: ${DARK_INFO[top.dim as keyof typeof DARK_INFO].nama}`, poin: urut.map((u) => `${DARK_INFO[u.dim as keyof typeof DARK_INFO].nama.split(" (")[0]} ${p2(u.persen)}`) };
     case "values": {
       const orient = ORIENTASI_URUTAN.map((oid) => {
         const ang = ORIENTASI_INFO[oid].anggota;
