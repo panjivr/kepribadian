@@ -5,6 +5,7 @@ import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import TierBadge from "@/components/TierBadge";
 import LanjutTes from "@/components/LanjutTes";
+import MascotTes from "@/components/MascotTes";
 import {
   bandIq,
   IQ_DOMAIN_INFO,
@@ -237,6 +238,7 @@ export default function TesIq() {
     <section className="mx-auto max-w-4xl px-5 pb-20 pt-32 md:px-8">
       {tahap === "intro" && (
         <Reveal className="mx-auto max-w-xl text-center">
+          <MascotTes sistemId="iq" />
           <div className="mb-4 flex justify-center">
             <TierBadge tier="scientific" />
           </div>
