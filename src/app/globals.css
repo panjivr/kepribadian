@@ -341,11 +341,29 @@ input[type="date"].input-glass::-webkit-calendar-picker-indicator {
 .dance-jelly { animation: danceJelly 1.3s ease-in-out infinite; }
 .dance-swing { animation: danceSwing 1.6s ease-in-out infinite; transform-origin: top center; }
 
+/* maskot kuning bergoggle */
+@keyframes minionBob {
+  0%, 100% { transform: translateY(0) rotate(-2.5deg); }
+  50% { transform: translateY(-9px) rotate(2.5deg); }
+}
+@keyframes minionWave {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-30deg); }
+}
+@keyframes minionBlink {
+  0%, 90%, 100% { transform: scaleY(1); }
+  95% { transform: scaleY(0.1); }
+}
+.minion-bob { animation: minionBob 1.9s ease-in-out infinite; transform-origin: center bottom; }
+.minion-wave { animation: minionWave 0.85s ease-in-out infinite; }
+.minion-blink { animation: minionBlink 4.5s ease-in-out infinite; }
+
 @media (prefers-reduced-motion: reduce) {
   .aurora-blob,
   .bar-anim,
   .fade-in-up,
-  [class*="dance-"] {
+  [class*="dance-"],
+  [class*="minion-"] {
     animation: none !important;
   }
   .reveal {
