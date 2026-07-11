@@ -14,7 +14,7 @@ export default function Footer() {
             </p>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-ink-3">
               Djiva adalah platform penemuan jati diri paling lengkap yang bisa
-              kamu temukan — 37 sistem aktif dengan 22 tes interaktif mendalam,
+              kamu temukan — 38 sistem aktif dengan 23 tes interaktif mendalam,
               merentang dari psikometri berstandar riset (Big Five, HEXACO, VIA,
               IQ, EQ) hingga kearifan budaya Nusantara & dunia. Semuanya
               disintesis menjadi satu Profil Terpadu — kini lengkap dengan
@@ -62,7 +62,7 @@ export default function Footer() {
             tesmu tidak pernah dikirim ke server mana pun.
           </p>
           <p>
-            <strong className="text-ink-2">37 sistem, satu profil.</strong>{" "}
+            <strong className="text-ink-2">38 sistem, satu profil.</strong>{" "}
             Big Five (IPIP-50), HEXACO, VIA (48 item), Peta Bakat, Kompas Moral,
             Estimasi Kognitif (IQ), Kecerdasan Emosional (EQ), Minat Karier
             (RIASEC), Gaya Kelekatan, Bahasa Kasih, Grit, Pola Pikir Berkembang,
