@@ -4,6 +4,7 @@ import Tilt from "@/components/Tilt";
 import Reveal from "@/components/Reveal";
 import TierBadge from "@/components/TierBadge";
 import RadarChart from "@/components/RadarChart";
+import MinionMascot from "@/components/MinionMascot";
 import { SEMUA_SISTEM } from "@/data/sistem-list";
 
 const LANGKAH = [
@@ -294,6 +295,9 @@ export default function Landing() {
           <div className="glass-strong glass-hairline relative overflow-hidden p-10 text-center md:p-20">
             <Orb className="pointer-events-none absolute left-1/2 top-1/2 -z-0 h-[36rem] w-[36rem] -translate-x-1/2 -translate-y-1/2 opacity-40" />
             <div className="relative z-10">
+              <div className="mb-6 flex justify-center">
+                <MinionMascot size={104} />
+              </div>
               <h2 className="font-display text-balance text-3xl font-extrabold tracking-tight md:text-5xl">
                 Dirimu menunggu
                 <br />

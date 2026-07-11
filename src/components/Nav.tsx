@@ -19,11 +19,11 @@ function LogoMark() {
 
 const TAUTAN: { href: string; label: string }[] = [
   { href: "/#sistem", label: "Sistem" },
-  { href: "/#metode", label: "Metode" },
   { href: "/tes", label: "Tes" },
-  { href: "/jenjang", label: "Jenjang" },
+  { href: "/wawasan", label: "Wawasan" },
   { href: "/tumbuh", label: "Tumbuh" },
-  { href: "/profil", label: "Profil Saya" },
+  { href: "/jenjang", label: "Jenjang" },
+  { href: "/profil", label: "Profil" },
   { href: "/cv", label: "CV" },
 ];
 
