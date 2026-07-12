@@ -8,6 +8,12 @@ import { BUKU_KUASA } from "@/data/buku/kuasa";
 import { BUKU_STOA } from "@/data/buku/stoa";
 import { BUKU_UANG } from "@/data/buku/uang";
 import { BUKU_EKONOMI } from "@/data/buku/ekonomi";
+import { BUKU_PRODUKTIVITAS2 } from "@/data/buku/produktivitas2";
+import { BUKU_PSIKOLOGI2 } from "@/data/buku/psikologi2";
+import { BUKU_STRATEGI2 } from "@/data/buku/strategi2";
+import { BUKU_RELASI2 } from "@/data/buku/relasi2";
+import { BUKU_MAKNA2 } from "@/data/buku/makna2";
+import { BUKU_UANG2 } from "@/data/buku/uang2";
 
 export type KategoriBuku =
   | "Kebiasaan & Produktivitas"
@@ -248,4 +254,10 @@ export const BUKU: RingkasanBuku[] = [
   ...BUKU_STOA,
   ...BUKU_UANG,
   ...BUKU_EKONOMI,
+  ...BUKU_PRODUKTIVITAS2,
+  ...BUKU_PSIKOLOGI2,
+  ...BUKU_STRATEGI2,
+  ...BUKU_RELASI2,
+  ...BUKU_MAKNA2,
+  ...BUKU_UANG2,
 ];
