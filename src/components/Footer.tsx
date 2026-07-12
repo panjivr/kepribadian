@@ -35,6 +35,7 @@ export default function Footer() {
               <li><Link className="transition-colors hover:text-ink" href="/tes">Semua Tes</Link></li>
               <li><Link className="transition-colors hover:text-ink" href="/hasil">Cetak Biru Kelahiran</Link></li>
               <li><Link className="transition-colors hover:text-ink" href="/wawasan">Wawasan &amp; Teori</Link></li>
+              <li><Link className="transition-colors hover:text-ink" href="/buku">Ringkasan Buku</Link></li>
               <li><Link className="transition-colors hover:text-ink" href="/tumbuh">Buku &amp; Channel Tumbuh</Link></li>
               <li><Link className="transition-colors hover:text-ink" href="/profil">Profil Terpadu</Link></li>
               <li><Link className="transition-colors hover:text-ink" href="/cv">Generator CV</Link></li>

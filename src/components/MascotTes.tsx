@@ -4,7 +4,7 @@
  * Hormati prefers-reduced-motion (animasi dimatikan lewat globals.css).
  */
 
-import MinionMascot from "@/components/MinionMascot";
+import DinoMascot from "@/components/DinoMascot";
 
 interface Maskot {
   e: string;
@@ -64,7 +64,7 @@ export default function MascotTes({ sistemId }: { sistemId: string }) {
   return (
     <div className="mb-5 flex flex-col items-center gap-2.5" aria-hidden>
       <div className="relative">
-        <MinionMascot size={92} />
+        <DinoMascot size={96} varian={h} />
         {/* emoji khas tes, "dipegang" si maskot */}
         <span
           className={`absolute -right-2 bottom-1 text-3xl leading-none ${anim} select-none drop-shadow`}

@@ -85,6 +85,11 @@ export default function HalamanWawasan() {
           Choice sampai Dunning-Kruger — lengkap dengan cerita & analogi agar
           mudah dipahami. Bekal menjadi manusia yang lebih utuh & jernih.
         </p>
+        <div className="mt-6 flex flex-wrap justify-center gap-3">
+          <Link href="/buku" className="btn-primary text-sm">
+            📚 Ringkasan Buku Terbaik Dunia
+          </Link>
+        </div>
       </div>
 
       <div className="sticky top-16 z-10 mt-10 -mx-2 rounded-2xl bg-night/70 px-2 py-3 backdrop-blur-md">
