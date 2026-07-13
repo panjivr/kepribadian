@@ -98,6 +98,21 @@ const SEED: RingkasanBuku[] = [
         isi: "Konsistensi menular; lewatkan sekali masih wajar, tapi jangan melewatkan dua kali berturut-turut — di situ kebiasaan mulai runtuh. Lacak kemajuan (habit tracker) agar 'rantai' terlihat & memotivasi.",
         analogi: "Seperti kalender yang kaucoret tiap hari berhasil: garis panjang itu terlalu sayang untuk diputus. Tujuannya bukan sempurna, tapi tak pernah menyerah dua kali.",
       },
+      {
+        judul: "Gabungkan godaan (temptation bundling)",
+        isi: "Buat kebiasaan menarik dengan memasangkan yang HARUS dilakukan dengan yang INGIN dilakukan — mis. hanya boleh dengar podcast favorit sambil olahraga. Antisipasi imbalan itulah yang menyalakan dorongan (dopamin), bukan imbalannya sendiri.",
+        analogi: "Seperti menyembunyikan sayur dalam masakan enak: yang bergizi jadi terasa nikmat, dan kamu melahapnya tanpa terpaksa.",
+      },
+      {
+        judul: "Balik keempat hukum untuk kebiasaan buruk",
+        isi: "Untuk menghapus kebiasaan buruk, jadikan ia tak terlihat, tak menarik, sulit, & tak memuaskan. Tambah friksi (cabut colokan, hapus aplikasi, titipkan barang) sampai jalur buruk lebih repot daripada jalur baik.",
+        analogi: "Seperti memindahkan toples kue ke gudang berkunci: bukan melarang diri, tapi membuat 'jalan menuju kue' begitu jauh hingga niat pun surut.",
+      },
+      {
+        judul: "Zona Goldilocks & melawan bosan",
+        isi: "Motivasi puncak muncul saat tantangan pas — tak terlalu mudah (bosan), tak terlalu sulit (putus asa). Pembeda profesional & amatir bukan bakat, tapi kesediaan melanjutkan justru saat latihan sudah terasa membosankan.",
+        analogi: "Seperti main gim di level yang pas menantang: cukup sulit untuk seru, cukup mungkin untuk menang — di sanalah kamu betah berlatih lama.",
+      },
     ],
     takeaway:
       "Kamu tak naik ke level tujuanmu; kamu turun ke level sistemmu. Bangun sistem & identitas kecil yang benar, dan hasil besar mengikuti dengan sendirinya.",
@@ -144,6 +159,21 @@ const SEED: RingkasanBuku[] = [
         isi: "Setiap pagi, ingatkan diri bahwa kamu akan bertemu orang yang menyebalkan, tak tahu terima kasih, & egois — karena mereka belum tahu bedanya baik & buruk. Jangan kaget, jangan benci; tetap kerjakan bagianmu dengan sabar.",
         analogi: "Seperti tahu jalanan pasti macet: kamu tak marah tiap kali, kamu bersiap & tetap tenang karena sudah mengantisipasinya.",
       },
+      {
+        judul: "Pandangan dari atas (the view from above)",
+        isi: "Marcus sering membayangkan dirinya & pertikaiannya dari ketinggian kosmos — betapa kecil ambisi, gengsi, & keluhan kita dalam bentangan ruang & waktu. Perspektif ini mengempeskan ego & menenangkan amarah.",
+        analogi: "Seperti melihat kemacetan dari pesawat: klakson & rebutan jalur yang tadi memuncak, dari atas nyaris tak terlihat. Jarak memberi proporsi.",
+      },
+      {
+        judul: "Hidup di saat ini, sebab hanya itu milik kita",
+        isi: "Masa lalu sudah lewat & masa depan belum ada; yang benar-benar bisa hilang hanyalah momen sekarang. Mencemaskan masa depan atau menyesali masa lalu membuang satu-satunya waktu yang kita punya.",
+        analogi: "Seperti menikmati secangkir kopi hangat: kalau pikiran melayang ke besok, kopi keburu dingin tanpa sempat dinikmati.",
+      },
+      {
+        judul: "Rendah hati: kita semua sementara",
+        isi: "Marcus — orang paling berkuasa di dunia saat itu — terus mengingatkan diri bahwa kaisar & rakyat sama-sama akan dilupakan waktu. Kesadaran ini mematikan kesombongan & mendorong melayani, bukan menguasai.",
+        analogi: "Seperti pasir di pantai yang menghapus semua jejak kaki, sehebat apa pun yang lewat. Ingat itu, dan kita berjalan lebih ringan & lebih baik.",
+      },
     ],
     takeaway:
       "Hidup baik bukan soal mengendalikan dunia, melainkan mengendalikan responsmu terhadapnya — dengan kebajikan, kesabaran, & kesadaran bahwa waktumu terbatas.",
@@ -189,6 +219,21 @@ const SEED: RingkasanBuku[] = [
         judul: "Menabung & kebebasan adalah tujuannya",
         isi: "Kemampuan menabung lebih dalam kendalimu daripada penghasilan atau imbal hasil pasar. Nilai tertinggi uang adalah KENDALI atas waktumu — bisa berkata 'aku bisa melakukan apa yang kumau, kapan kumau'.",
         analogi: "Seperti tabungan bensin di tangki: makin penuh, makin jauh & bebas kamu memilih arah tanpa panik mencari pom bensin.",
+      },
+      {
+        judul: "Ruang untuk salah (margin of safety)",
+        isi: "Karena masa depan tak bisa diramal, sisakan bantalan: dana darurat, tak berutang berlebih, tak bertaruh semua. Bertahan (survive) jauh lebih penting daripada memaksimalkan imbal hasil — yang bangkrut tak sempat menikmati bunga majemuk.",
+        analogi: "Seperti mengisi bensin sebelum tangki benar-benar kosong: sedikit 'boros ruang' itu justru yang membuatmu tak mogok di tengah jalan.",
+      },
+      {
+        judul: "Ekor kejadian menentukan segalanya (tail events)",
+        isi: "Sebagian besar hasil datang dari segelintir peristiwa langka. Kamu boleh salah sering-sering asalkan sesekali benar besar; maka teruslah 'di dalam permainan' cukup lama agar keberuntungan besar sempat menghampirimu.",
+        analogi: "Seperti fotografer yang memotret ratusan kali demi beberapa foto luar biasa — yang gagal tak masalah, yang menentukan cuma segelintir jepretan emas.",
+      },
+      {
+        judul: "Optimis menabung, pesimis berinvestasi",
+        isi: "Housel menyarankan sikap ganda: hemat & waspada seperti pesimis (siap badai), tapi percaya jangka panjang seperti optimis (dunia cenderung maju). Menabung tak butuh alasan khusus — ia melindungi dari hal yang tak bisa kauramalkan.",
+        analogi: "Seperti membawa payung sambil tetap berharap cerah: kamu tak takut hujan, tapi juga tak berhenti melangkah karena mendung.",
       },
     ],
     takeaway:
